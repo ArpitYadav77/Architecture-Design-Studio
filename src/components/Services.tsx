@@ -88,7 +88,7 @@ const Services = () => {
 
                 {/* Card content */}
                 <div className="p-8">
-                  <h3 className="font-serif text-2xl md:text-3xl font-light text-foreground mb-4 group-hover:text-accent transition-colors duration-300" style={{ letterSpacing: '0.02em' }}>
+                  <h3 className="font-serif text-2xl md:text-3xl font-light text-foreground mb-4 group-hover:text-black transition-colors duration-300" style={{ letterSpacing: '0.02em' }}>
                     {service.title}
                   </h3>
                   <p className="body-lg text-muted-foreground leading-relaxed font-medium" style={{ letterSpacing: '0.02em' }}>

@@ -36,13 +36,13 @@ const Projects = () => {
     : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="section-padding bg-foreground">
+    <section id="projects" className="section-padding bg-white">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
           <p className="text-accent mb-6 text-xs tracking-widest uppercase" style={{ letterSpacing: '0.15em' }}>
             PORTFOLIO
           </p>
-          <h2 className="heading-lg text-background mb-12">
+          <h2 className="heading-lg text-foreground mb-12">
             Selected <em className="italic">Works</em>
           </h2>
         </ScrollReveal>
@@ -53,7 +53,7 @@ const Projects = () => {
               <button
                 key={cat}
                 onClick={() => handleCategoryChange(cat)}
-                className="relative group text-sm text-background/60 hover:text-background transition-colors duration-300 py-2"
+                className="relative group text-sm text-foreground/60 hover:text-foreground transition-colors duration-300 py-2"
                 style={{ letterSpacing: '0.12em' }}
               >
                 {cat.toUpperCase()}
@@ -110,8 +110,8 @@ const Projects = () => {
                 
                 {/* Always visible minimal info */}
                 <div className="mt-4">
-                  <h3 className="font-serif text-xl font-medium text-background">{project.title}</h3>
-                  <p className="label-text text-background/70 mt-1 font-medium">{project.category} · {project.location}</p>
+                  <h3 className="font-serif text-xl font-medium text-foreground">{project.title}</h3>
+                  <p className="label-text text-foreground/70 mt-1 font-medium">{project.category} · {project.location}</p>
                 </div>
               </div>
             </ScrollReveal>

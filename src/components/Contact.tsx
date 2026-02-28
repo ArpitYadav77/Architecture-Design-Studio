@@ -103,7 +103,7 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="label-text px-10 py-4 bg-foreground text-background hover:bg-accent hover:text-accent-foreground transition-colors duration-300 mt-4"
+                className="label-text px-10 py-4 bg-foreground text-background hover:bg-black hover:text-white transition-colors duration-300 mt-4"
               >
                 Send Inquiry
               </button>

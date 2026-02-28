@@ -27,7 +27,7 @@ const About = () => {
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <p className="body-lg text-muted-foreground mb-6 font-medium">
-                Founded in 2001, BSA is an award-winning architecture and design
+                Founded in 2001, Bachitter singh associates is an award-winning architecture and design
                 studio led by principal architect Marcus Hale. We believe that
                 exceptional architecture emerges from a deep understanding of place,
                 purpose, and the human experience.

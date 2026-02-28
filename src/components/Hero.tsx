@@ -41,7 +41,7 @@ const Hero = () => {
     if (!isPaused) {
       autoSlideRef.current = setInterval(() => {
         nextSlide();
-      }, 6000); // 6 seconds
+      }, 5000); // 5 seconds
     }
 
     return () => {
@@ -66,26 +66,24 @@ const Hero = () => {
     >
       {/* Image Slides */}
       <div className="absolute inset-0">
-        {slides.map((slide, index) => (
+        <div className="relative w-full h-screen overflow-hidden">
           <div
-            key={index}
-            className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${
-              index === currentSlide
-                ? "translate-x-0"
-                : index < currentSlide
-                ? "-translate-x-full"
-                : "translate-x-full"
-            }`}
+            className="flex transition-transform duration-1000 ease-in-out"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
-            <img
-              src={slide}
-              alt={`Architecture ${index + 1}`}
-              className="w-full h-full object-cover"
-            />
-            {/* Dark overlay for text readability */}
-            <div className="absolute inset-0 bg-black/40"></div>
+            {slides.map((slide, index) => (
+              <div key={index} className="w-full h-screen flex-shrink-0 relative">
+                <img
+                  src={slide}
+                  alt={`Architecture ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+                {/* Dark overlay for text readability */}
+                <div className="absolute inset-0 bg-black/40"></div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
 
       {/* Left-Aligned Text Content */}
@@ -118,7 +116,7 @@ const Hero = () => {
           </p>
 
           <div 
-            className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-up"
+            className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-up"
             style={{ animationDelay: "0.9s", animationFillMode: "forwards" }}
           >
             <a
@@ -134,7 +132,7 @@ const Hero = () => {
             </a>
             <Link
               to="/contact"
-              className="px-10 py-4 border border-white/40 hover:border-accent hover:bg-accent/10 text-white font-medium uppercase transition-all duration-300 transform hover:scale-105"
+              className="px-10 py-4 border border-white/40 hover:border-black hover:bg-black/10 text-white font-medium uppercase transition-all duration-300 transform hover:scale-105"
               style={{ letterSpacing: '0.1em' }}
             >
               GET IN TOUCH
@@ -180,7 +178,7 @@ const Hero = () => {
               className={`h-[1px] transition-all duration-500 ${
                 index === currentSlide
                   ? "w-12 bg-accent"
-                  : "w-8 bg-white/40 group-hover:bg-accent/60"
+                  : "w-8 bg-white/40 group-hover:bg-black/60"
               }`}
             />
           </button>
@@ -189,7 +187,7 @@ const Hero = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-28 left-1/2 -translate-x-1/2 z-20 opacity-0 animate-fade-up" style={{ animationDelay: "1.2s", animationFillMode: "forwards" }}>
-        <p className="text-xs text-white/80 font-medium mb-2 uppercase" style={{ letterSpacing: '0.15em' }}>SCROLL TO EXPLORE</p>
+       
         <div className="w-px h-12 bg-white/60 mx-auto"></div>
       </div>
     </section>
