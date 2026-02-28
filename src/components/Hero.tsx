@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -131,17 +132,13 @@ const Hero = () => {
             >
               VIEW PROJECTS
             </a>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-              }}
+            <Link
+              to="/contact"
               className="px-10 py-4 border border-white/40 hover:border-accent hover:bg-accent/10 text-white font-medium uppercase transition-all duration-300 transform hover:scale-105"
               style={{ letterSpacing: '0.1em' }}
             >
               GET IN TOUCH
-            </a>
+            </Link>
           </div>
         </div>
       </div>
