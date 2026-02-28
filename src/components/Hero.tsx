@@ -88,11 +88,11 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Centered Text Content */}
-      <div className="relative z-10 h-full flex items-center justify-center text-center text-white px-6">
+      {/* Left-Aligned Text Content */}
+      <div className="relative z-10 h-full flex items-center px-6 md:px-12 lg:px-24">
         <div 
           key={currentSlide}
-          className="animate-fade-up-slow"
+          className="animate-fade-up-slow max-w-3xl text-white"
         >
           <p 
             className="text-sm text-white/90 font-semibold mb-6 opacity-0 animate-fade-up uppercase"
@@ -111,7 +111,7 @@ const Hero = () => {
           </h1>
 
           <p 
-            className="text-lg md:text-xl text-white/90 font-medium mb-12 max-w-2xl mx-auto opacity-0 animate-fade-up"
+            className="text-lg md:text-xl text-white/90 font-medium mb-12 max-w-2xl opacity-0 animate-fade-up"
             style={{ animationDelay: "0.7s", animationFillMode: "forwards", letterSpacing: '0.02em' }}
           >
             We design spaces that inspire, endure, and transform the way people experience the built environment.
