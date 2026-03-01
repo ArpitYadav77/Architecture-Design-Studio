@@ -49,7 +49,7 @@ const Navbar = () => {
             to="/"
             className="font-serif text-lg md:text-2xl font-medium tracking-wide text-[#2A221D] hover:text-black transition-colors"
           >
-            BSA<span className="text-accent">.</span>
+             Bachitter Singh Associates<span className="text-accent">.</span>
           </Link>
 
           {/* Desktop Links */}
