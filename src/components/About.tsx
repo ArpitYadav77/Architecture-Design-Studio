@@ -1,10 +1,5 @@
 import ScrollReveal from "./ScrollReveal";
 import architectPortrait from "@/assets/architect-portrait.jpg";
-import residentialImg from "@/assets/project-residential.jpg";
-import commercialImg  from "@/assets/project-commercial.jpg";
-import interiorImg    from "@/assets/project-interior.jpg";
-import urbanImg      from "@/assets/project-urban.jpg";
-import villaImg      from "@/assets/project-villa.jpg";
 
 const stats = [
   { number: "1983", label: "Year Established" },
@@ -23,34 +18,68 @@ const milestones = [
 
 const team = [
   {
-    name: "Ar. Bachitter Singh",
-    designation: "Principal Architect & Founder",
+    name: "Bachitter Singh",
+    designation: "Principal Architect",
+    qualification: "B. Arch",
+    experience: "44 years",
+    since: "1981",
     image: architectPortrait,
   },
   {
-    name: "Ar. Priya Sharma",
-    designation: "Associate Principal",
-    image: residentialImg,
+    name: "Priyaas B Singh",
+    designation: "Team Leader (Sr Architect)",
+    qualification: "B. Arch",
+    experience: "13 years",
+    since: "2016",
+    image: null,
   },
   {
-    name: "Ar. Rahul Mehta",
-    designation: "Senior Architect",
-    image: commercialImg,
+    name: "Saanch Singh",
+    designation: "Sr Architect",
+    qualification: "B. Arch",
+    experience: "9 years",
+    since: "2017",
+    image: null,
   },
   {
-    name: "Ar. Ananya Kapoor",
-    designation: "Interior Architecture Lead",
-    image: interiorImg,
+    name: "Himali Sukhija",
+    designation: "Architect",
+    qualification: "B. Arch",
+    experience: "5 years",
+    since: "2021",
+    image: null,
   },
   {
-    name: "Ar. Vikram Singh",
-    designation: "Urban Design Director",
-    image: urbanImg,
+    name: "Aniket",
+    designation: "Architect",
+    qualification: "Diploma in Architecture",
+    experience: "6 years",
+    since: "2019",
+    image: null,
   },
   {
-    name: "Ar. Meenakshi Patel",
-    designation: "Project Manager",
-    image: villaImg,
+    name: "Jatinder Goswami",
+    designation: "Civil Engineer",
+    qualification: "B.Tech (Civil)",
+    experience: "14 years",
+    since: "2017",
+    image: null,
+  },
+  {
+    name: "Vivek Kalsia",
+    designation: "Structural Engineer",
+    qualification: "M.Tech (Str.)",
+    experience: "9 years",
+    since: "2021",
+    image: null,
+  },
+  {
+    name: "S.K. Kaushal",
+    designation: "Electrical Engineer",
+    qualification: "B.Tech (Electrical)",
+    experience: "47 years",
+    since: "2017",
+    image: null,
   },
 ];
 
@@ -161,28 +190,51 @@ const AboutAndTeam = () => {
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
             {team.map((member, i) => (
-              <ScrollReveal key={member.name} delay={i * 100}>
+              <ScrollReveal key={member.name} delay={i * 80}>
                 <div className="group cursor-pointer">
-                  {/* Photo */}
+                  {/* Photo or Initials */}
                   <div className="aspect-[3/4] overflow-hidden bg-neutral-100 mb-5 relative">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover object-top transition-all duration-500 ease-in-out grayscale group-hover:grayscale-0 group-hover:scale-105"
-                    />
-                    {/* Subtle hover overlay */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+                    {member.image ? (
+                      <>
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover object-top transition-all duration-500 ease-in-out grayscale group-hover:grayscale-0 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+                      </>
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center bg-neutral-200 group-hover:bg-neutral-300 transition-colors duration-300">
+                        <span className="font-serif text-5xl font-light text-neutral-500 group-hover:text-amber-700 transition-colors duration-300 select-none">
+                          {member.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
+                        </span>
+                      </div>
+                    )}
                   </div>
                   {/* Info */}
                   <div className="border-t border-neutral-200 pt-4">
-                    <h3 className="font-serif text-xl font-medium text-neutral-900 group-hover:text-amber-700 transition-colors duration-300">
+                    <h3 className="font-serif text-lg font-medium text-neutral-900 group-hover:text-amber-700 transition-colors duration-300 leading-snug">
                       {member.name}
                     </h3>
-                    <p className="text-xs uppercase tracking-[0.18em] text-neutral-500 mt-1" style={{ letterSpacing: "0.14em" }}>
+                    <p className="text-xs uppercase tracking-[0.14em] text-amber-700 mt-1 font-medium">
                       {member.designation}
                     </p>
+                    <div className="mt-3 space-y-1">
+                      <p className="text-xs text-neutral-500">
+                        <span className="uppercase tracking-wider text-neutral-400">Qualification</span><br />
+                        {member.qualification}
+                      </p>
+                      <p className="text-xs text-neutral-500">
+                        <span className="uppercase tracking-wider text-neutral-400">Experience</span><br />
+                        {member.experience}
+                      </p>
+                      <p className="text-xs text-neutral-500">
+                        <span className="uppercase tracking-wider text-neutral-400">With Firm Since</span><br />
+                        {member.since}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </ScrollReveal>
