@@ -2,67 +2,64 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="px-6 md:px-12 lg:px-24 py-16 border-t border-neutral-300 bg-[#f5f3ef]">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-16 text-sm">
+    <footer className="bg-[#f5f3ef] border-t border-neutral-300">
+      
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-20">
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 text-sm">
+          
+          {/* Brand */}
+          <div className="space-y-6">
+            <h2 className="font-serif text-2xl font-semibold tracking-wide text-neutral-900">
+              Bachitter Singh Associates<span>.</span>
+            </h2>
 
-        {/* Brand */}
-        <div>
-          <h2 className="font-serif text-2xl font-semibold tracking-wide text-neutral-900 mb-6">
-            Bachitter Singh Associates<span>.</span>
-          </h2>
-          <p className="text-neutral-700 leading-relaxed">
-            1514, Sector 7C <br />
-            Chandigarh – 160019
-          </p>
-        </div>
+            <p className="text-neutral-700 leading-relaxed">
+              1514, Sector 7C <br />
+              Chandigarh – 160019
+            </p>
+          </div>
 
-        {/* Contact */}
-        <div>
-          <h3 className="uppercase tracking-[0.2em] text-xs text-neutral-900 mb-6">
-            Contact
-          </h3>
+          {/* Contact */}
+          <div className="space-y-6 md:pl-8">
+            <h3 className="uppercase tracking-[0.25em] text-xs text-neutral-900">
+              Contact
+            </h3>
 
-          <div className="flex flex-col gap-3 text-neutral-800">
+            <div className="flex flex-col gap-4 text-neutral-800">
+              <a href="tel:+911722792283" className="hover-link">
+                +91 172 2792283
+              </a>
 
-            <a href="tel:+911722792283" className="hover-link">
-              +91 172 2792283
-            </a>
+              <a href="tel:+918860372037" className="hover-link">
+                +91 8860372037
+              </a>
 
-            <a href="tel:+918860372037" className="hover-link">
-              +91 8860372037
-            </a>
+              <a href="mailto:bachittersingh@yahoo.com" className="hover-link pt-2">
+                bachittersingh@yahoo.com
+              </a>
+            </div>
+          </div>
 
-            <div className="h-4" />
+          {/* Social */}
+          <div className="space-y-6 md:text-right">
+            <h3 className="uppercase tracking-[0.25em] text-xs text-neutral-900 invisible md:visible">
+              Social
+            </h3>
 
-            <a href="mailto:bachittersingh@yahoo.com" className="hover-link">
-              bachittersingh@yahoo.com
-            </a>
-
-
+            <div className="flex flex-col gap-4 text-neutral-800 md:items-end">
+              <a href="#" className="hover-link">
+                Instagram
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Website */}
-        <div>
-          <h3 className="uppercase tracking-[0.2em] text-xs text-neutral-900 mb-6">
-            Website
-          </h3>
-
-          <div className="flex flex-col gap-3 text-neutral-800">
-
-  
-            {/* Instagram in next line */}
-            <a href="#" className="hover-link">
-              Instagram
-            </a>
-
-          </div>
+        {/* Bottom */}
+        <div className="mt-20 pt-8 border-t border-neutral-300 text-center text-xs text-neutral-600 tracking-wide">
+          © {currentYear} Bachitter Singh Associates. All rights reserved.
         </div>
-      </div>
 
-      {/* Bottom */}
-      <div className="mt-16 pt-6 border-t border-neutral-300 text-center text-xs text-neutral-600">
-        © {currentYear} Bachitter Singh Associates. All rights reserved.
       </div>
 
       {/* Underline Animation */}
