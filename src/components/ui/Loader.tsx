@@ -1,19 +1,40 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const Loader = () => {
-  // Optional: auto-hide after a short delay (buffer effect)
+const Loader = ({ onFinish }: { onFinish: () => void }) => {
+  const [animate, setAnimate] = useState(false);
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      // Trigger transition to main interface here
-      // e.g., setLoading(false)
-    }, 1500); // 1.5s intro buffer
+    const start = setTimeout(() => {
+      setAnimate(true);
+    }, 300);
 
-    return () => clearTimeout(timer);
-  }, []);
+    const finish = setTimeout(() => {
+      onFinish();
+    }, 3500); // must match transition duration
+
+    return () => {
+      clearTimeout(start);
+      clearTimeout(finish);
+    };
+  }, [onFinish]);
 
   return (
-    <div style={styles.container}>
-      <img src="/logo1.png" alt="Firm Logo" style={styles.logo} />
+    <div
+      style={{
+        ...styles.container,
+        transform: animate ? "scale(6)" : "scale(1)",
+        opacity: animate ? 0 : 1,
+      }}
+    >
+      <img
+  src="/logo1.png"
+  alt="Firm Logo"
+  style={{
+    ...styles.logo,
+    opacity: animate ? 0 : 1,
+    transition: "opacity 2.2s ease-out"
+  }}
+/>
     </div>
   );
 };
@@ -22,17 +43,19 @@ const styles: any = {
   container: {
     position: "fixed",
     inset: 0,
-    backgroundColor: "#ffffff", // Change to "#000" or subtle neutral if preferred
+    backgroundColor: "#ffffff",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     zIndex: 9999,
+    transition:
+      "transform 3.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 2.5s ease-out",
+    transformOrigin: "center center",
   },
 
   logo: {
-    width: "160px", // Adjust as needed
+    width: "180px",
     height: "auto",
-    objectFit: "contain",
   },
 };
 
