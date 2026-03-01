@@ -1,6 +1,9 @@
 import { useEffect, useState, useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import heroImg from "@/assets/hero-architecture.jpg";
+import commercialImg from "@/assets/project-commercial.jpg";
+import museumImg from "@/assets/project-museum.jpg";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -8,32 +11,46 @@ const Hero = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const autoSlideRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Add your architectural images here
   const slides = [
-    "/logo.png",
-    "/logo.png", // Replace with actual image paths
-    "/logo.png", // Replace with actual image paths
+    {
+      image: heroImg,
+      label: "Architecture & Civic Design",
+      heading: "Bachitter Singh\nAssociates",
+      sub: "Over four decades of shaping India's most enduring civic, institutional, and architectural landmarks.",
+    },
+    {
+      image: commercialImg,
+      label: "Commercial & Institutional",
+      heading: "Where Form\nMeets Purpose",
+      sub: "From high courts to legislative assemblies — spaces built for permanence, authority, and the public good.",
+    },
+    {
+      image: museumImg,
+      label: "Cultural & Urban Works",
+      heading: "Legacy\nIn Every Line",
+      sub: "200+ delivered projects across India, master-planning 420+ acres of civic and cultural landscape.",
+    },
   ];
 
   const nextSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentSlide((prev) => (prev + 1) % slides.length);
-    setTimeout(() => setIsAnimating(false), 1000);
+    setTimeout(() => setIsAnimating(false), 700);
   };
 
   const prevSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    setTimeout(() => setIsAnimating(false), 1000);
+    setTimeout(() => setIsAnimating(false), 700);
   };
 
   const goToSlide = (index: number) => {
     if (isAnimating || index === currentSlide) return;
     setIsAnimating(true);
     setCurrentSlide(index);
-    setTimeout(() => setIsAnimating(false), 1000);
+    setTimeout(() => setIsAnimating(false), 700);
   };
 
   // Auto-slide functionality
@@ -41,7 +58,7 @@ const Hero = () => {
     if (!isPaused) {
       autoSlideRef.current = setInterval(() => {
         nextSlide();
-      }, 5000); // 5 seconds
+      }, 3000); // 3 seconds
     }
 
     return () => {
@@ -55,11 +72,11 @@ const Hero = () => {
   useEffect(() => {
     const nextIndex = (currentSlide + 1) % slides.length;
     const img = new Image();
-    img.src = slides[nextIndex];
+    img.src = slides[nextIndex].image;
   }, [currentSlide]);
 
   return (
-    <section 
+    <section
       className="relative h-screen w-full overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -68,76 +85,114 @@ const Hero = () => {
       <div className="absolute inset-0">
         <div className="relative w-full h-screen overflow-hidden">
           <div
-            className="flex transition-transform duration-1000 ease-in-out"
+            className="flex transition-transform duration-700 ease-in-out"
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
             {slides.map((slide, index) => (
               <div key={index} className="w-full h-screen flex-shrink-0 relative">
                 <img
-                  src={slide}
-                  alt={`Architecture ${index + 1}`}
+                  src={slide.image}
+                  alt={slide.label}
                   className="w-full h-full object-cover"
                 />
-                {/* Dark overlay for text readability */}
-                <div className="absolute inset-0 bg-black/40"></div>
+                {/* Dark gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/70" />
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Left-Aligned Text Content */}
-      <div className="relative z-10 h-full flex items-center px-6 md:px-12 lg:px-24">
-        <div 
-          key={currentSlide}
-          className="animate-fade-up-slow max-w-3xl text-white"
+      {/* Firm identity bar — top left below navbar */}
+      <div className="absolute top-[76px] left-6 md:left-12 lg:left-24 z-20 flex items-center gap-3 opacity-0 animate-fade-up"
+        style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
+      >
+        <span
+          className="text-[10px] text-white/70 uppercase font-medium tracking-[0.22em]"
         >
-          <p 
-            className="text-sm text-white/90 font-semibold mb-6 opacity-0 animate-fade-up uppercase"
-            style={{ animationDelay: "0.3s", animationFillMode: "forwards", letterSpacing: '0.15em' }}
-          >
-            ARCHITECTURE & DESIGN STUDIO
-          </p>
-          
-          <h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-serif leading-tight mb-8 opacity-0 animate-fade-up"
-            style={{ animationDelay: "0.5s", animationFillMode: "forwards", letterSpacing: '0.02em' }}
-          >
-            Where Form
-            <br />
-            <span className="italic">Meets Purpose</span>
-          </h1>
+          Est. 1983
+        </span>
+        <span className="w-8 h-[1px] bg-accent/80" />
+        <span
+          className="text-[10px] text-white/70 uppercase font-medium tracking-[0.22em]"
+        >
+          Chandigarh, India
+        </span>
+      </div>
 
-          <p 
-            className="text-lg md:text-xl text-white/90 font-medium mb-12 max-w-2xl opacity-0 animate-fade-up"
-            style={{ animationDelay: "0.7s", animationFillMode: "forwards", letterSpacing: '0.02em' }}
-          >
-            We design spaces that inspire, endure, and transform the way people experience the built environment.
-          </p>
+      {/* Location badge — right side */}
+      <div className="absolute top-[76px] right-6 md:right-12 z-20 flex items-center gap-2 opacity-0 animate-fade-up"
+        style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
+      >
+        <MapPin className="w-4 h-4 text-accent" />
+        <span className="text-[11px] text-white/80 uppercase tracking-[0.18em]">
+          1514, Sector 7C, Chandigarh
+        </span>
+      </div>
 
-          <div 
-            className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-up"
-            style={{ animationDelay: "0.9s", animationFillMode: "forwards" }}
+      {/* Left-Aligned Text Content */}
+      <div className="relative z-10 h-full flex flex-col justify-end pb-32 px-6 md:px-12 lg:px-24">
+        {/* Slide label */}
+        <p
+          key={`label-${currentSlide}`}
+          className="text-[11px] text-accent font-semibold mb-5 opacity-0 animate-fade-up uppercase"
+          style={{ animationDelay: "0.2s", animationFillMode: "forwards", letterSpacing: "0.20em" }}
+        >
+          {slides[currentSlide].label}
+        </p>
+
+        {/* Main heading */}
+        <h1
+          key={`h-${currentSlide}`}
+          className="text-5xl md:text-7xl lg:text-8xl font-serif font-light leading-[1.08] mb-6 text-white opacity-0 animate-fade-up"
+          style={{ animationDelay: "0.35s", animationFillMode: "forwards", letterSpacing: "0.01em", whiteSpace: "pre-line" }}
+        >
+          {slides[currentSlide].heading}
+        </h1>
+
+        {/* Line */}
+        <div
+          key={`line-${currentSlide}`}
+          className="w-12 h-[2px] bg-accent mb-6 opacity-0 animate-fade-up"
+          style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}
+        />
+
+        {/* Subtext */}
+        <p
+          key={`sub-${currentSlide}`}
+          className="text-base md:text-lg text-white/80 font-light mb-10 max-w-xl opacity-0 animate-fade-up"
+          style={{ animationDelay: "0.6s", animationFillMode: "forwards", letterSpacing: "0.02em", lineHeight: "1.7" }}
+        >
+          {slides[currentSlide].sub}
+        </p>
+
+        {/* CTAs */}
+        <div
+          className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-up"
+          style={{ animationDelay: "0.75s", animationFillMode: "forwards" }}
+        >
+          <Link
+            to="/projects"
+            className="px-10 py-4 bg-accent hover:bg-[#D4A45C] text-white text-sm font-medium uppercase transition-all duration-300"
+            style={{ letterSpacing: "0.12em" }}
           >
-            <a
-              href="#projects"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="px-10 py-4 bg-accent hover:bg-[#D4A45C] text-white font-medium uppercase transition-all duration-300 transform hover:scale-105"
-              style={{ letterSpacing: '0.1em' }}
-            >
-              VIEW PROJECTS
-            </a>
-            <Link
-              to="/contact"
-              className="px-10 py-4 border border-white/40 hover:border-black hover:bg-black/10 text-white font-medium uppercase transition-all duration-300 transform hover:scale-105"
-              style={{ letterSpacing: '0.1em' }}
-            >
-              GET IN TOUCH
-            </Link>
-          </div>
+            View Portfolio
+          </Link>
+          <Link
+            to="/contact"
+            className="px-10 py-4 border border-white/40 hover:border-white text-white text-sm font-medium uppercase transition-all duration-300 hover:bg-white/10"
+            style={{ letterSpacing: "0.12em" }}
+          >
+            Get in Touch
+          </Link>
+        </div>
+
+        {/* Firm intro strip — bottom right */}
+        <div
+          className="absolute bottom-8 right-6 md:right-12 lg:right-24 text-right opacity-0 animate-fade-up"
+          style={{ animationDelay: "1s", animationFillMode: "forwards" }}
+        >
+         
         </div>
       </div>
 
@@ -178,20 +233,15 @@ const Hero = () => {
               className={`h-[1px] transition-all duration-500 ${
                 index === currentSlide
                   ? "w-12 bg-accent"
-                  : "w-8 bg-white/40 group-hover:bg-black/60"
+                  : "w-8 bg-white/40 group-hover:bg-white/70"
               }`}
             />
           </button>
         ))}
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-28 left-1/2 -translate-x-1/2 z-20 opacity-0 animate-fade-up" style={{ animationDelay: "1.2s", animationFillMode: "forwards" }}>
-       
-        <div className="w-px h-12 bg-white/60 mx-auto"></div>
       </div>
     </section>
   );
 };
 
 export default Hero;
+
