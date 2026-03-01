@@ -83,21 +83,11 @@ const Contact = () => {
                     <p className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Email</p>
                     <p className="text-neutral-900 font-medium leading-relaxed">
                       bachittersingh@yahoo.com<br />
-                      pryaasthakur14@gmail.com
+                    
                     </p>
                   </div>
                 </div>
 
-                {/* Website */}
-                <div className="flex items-start gap-5 border-b border-neutral-200 pb-8">
-                  <div className="mt-1 w-8 h-8 flex items-center justify-center bg-[#2A221D] flex-shrink-0">
-                    <Globe className="w-4 h-4 text-amber-400 stroke-[1.5]" />
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Website</p>
-                    <p className="text-neutral-900 font-medium">www.bachittersinghassociates.com</p>
-                  </div>
-                </div>
 
                 {/* Instagram */}
                 <div className="flex items-start gap-5">

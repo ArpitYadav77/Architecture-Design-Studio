@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-6">
             <h2 className="font-serif text-2xl font-semibold tracking-wide text-neutral-900">
-              Bachitter Singh Associates<span>.</span>
+              Bachitter Singh Associates<span></span>
             </h2>
 
             <p className="text-neutral-700 leading-relaxed">
