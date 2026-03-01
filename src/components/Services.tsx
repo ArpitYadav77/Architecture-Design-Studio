@@ -54,28 +54,6 @@ const serviceData: Service[] = [
       "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80",
     ],
   },
-  {
-    title: "Feasibility & Site Studies",
-    category: "Consultancy",
-    tag: "Advisory",
-    description:
-      "Pre-project analysis including site assessment, zoning compliance, regulatory approvals, and feasibility studies. We help clients understand the full potential and constraints of a site before design begins.",
-    images: [
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
-    ],
-  },
-  {
-    title: "Conservation & Restoration",
-    category: "Heritage",
-    tag: "Speciality",
-    description:
-      "Sensitive intervention in heritage structures and historically significant buildings. We approach conservation with rigorous research and a commitment to preserving the authenticity and character of existing fabric.",
-    images: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80",
-    ],
-  },
 ];
 
 const ServiceCard = ({ service }: { service: Service }) => {
@@ -166,7 +144,7 @@ const Services = () => {
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {serviceData.map((service, i) => (
               <ScrollReveal key={service.title} delay={i * 100}>
                 <ServiceCard service={service} />

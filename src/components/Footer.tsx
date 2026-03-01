@@ -14,11 +14,24 @@ const Footer = () => {
               Bachitter Singh Associates<span></span>
             </h2>
 
-            <p className="text-neutral-700 leading-relaxed">
-              1514, Sector 7C <br />
-              Chandigarh – 160019
-            </p>
+          <a
+  href="https://www.google.com/maps/place/Bachitter+Singh+Associates/@30.7344236,76.8017605,832m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390fed19c0d0c17f:0x5f0e9906a199f69c!8m2!3d30.7344236!4d76.8017605!16s%2Fg%2F1tf7qj43?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group inline-block"
+>
+  <p className="text-neutral-700 leading-relaxed relative inline-block">
+    1514, Sector 7C <br />
+    Chandigarh – 160019
+
+    {/* Animated underline */}
+    <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
+  </p>
+</a>
+
+            
           </div>
+          
 
           {/* Contact */}
           <div className="space-y-6 md:pl-8">
@@ -48,7 +61,7 @@ const Footer = () => {
             </h3>
 
             <div className="flex flex-col gap-4 text-neutral-800 md:items-end">
-              <a href="#" className="hover-link">
+              <a href="https://www.instagram.com/bachitter_singh_associates?igsh=bGk0Z3Z0ZjRrdW9j" className="hover-link">
                 Instagram
               </a>
             </div>
