@@ -4,45 +4,56 @@ import { MapPin, Phone, Mail, Globe, Instagram } from "lucide-react";
 import { toast } from "sonner";
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      toast.error("Please fill in all fields.");
+      toast.error("Please fill in all required fields.");
       return;
     }
-    toast.success("Thank you for your inquiry. We'll be in touch shortly.");
-    setForm({ name: "", email: "", message: "" });
+    toast.success("Your query has been submitted. We will be in touch shortly.");
+    setForm({ name: "", email: "", phone: "", message: "" });
   };
 
   return (
-    <section id="contact" className="section-padding">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="bg-[#f5f2ee]">
+      {/* Page header band */}
+      <div className="bg-[#2A221D] py-20 px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-amber-400 mb-4">Contact</p>
+            <h1 className="font-serif text-4xl md:text-6xl font-light text-white leading-tight">
+              Bachitter Singh<br />
+              <em className="italic">Associates</em>
+            </h1>
+            <p className="mt-6 text-white/60 text-base max-w-xl leading-relaxed" style={{ letterSpacing: "0.02em" }}>
+              We welcome project enquiries, collaborations, and consultations. 
+              Reach out through any of the channels below or send us a query directly.
+            </p>
+          </ScrollReveal>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* LEFT SIDE */}
+
+          {/* LEFT — Contact Details */}
           <div>
             <ScrollReveal>
-              <p className="label-text text-accent mb-6">Contact</p>
-              <h2 className="heading-lg text-foreground mb-8">
-                Bachitter Singh
-                <br />
-                <em className="italic">Associates</em>
-              </h2>
-              <p className="body-lg text-foreground mb-12 max-w-md font-medium">
-                Have a project in mind? We'd love to hear about it.
-                Reach out and let's start a conversation.
-              </p>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-amber-700 mb-8">Our Studio</p>
             </ScrollReveal>
 
-            <ScrollReveal delay={200}>
-              <div className="space-y-6">
+            <ScrollReveal delay={100}>
+              <div className="space-y-8">
                 {/* Address */}
-                <div className="flex items-start gap-4">
-                  <MapPin className="w-5 h-5 text-accent mt-1 stroke-[1.5]" />
+                <div className="flex items-start gap-5 border-b border-neutral-200 pb-8">
+                  <div className="mt-1 w-8 h-8 flex items-center justify-center bg-[#2A221D] flex-shrink-0">
+                    <MapPin className="w-4 h-4 text-amber-400 stroke-[1.5]" />
+                  </div>
                   <div>
-                    <p className="label-text text-foreground mb-1">Studio</p>
-                    <p className="body-lg text-foreground font-medium">
+                    <p className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Studio Address</p>
+                    <p className="text-neutral-900 font-medium leading-relaxed">
                       1514, Sector 7C<br />
                       Chandigarh – 160019
                     </p>
@@ -50,11 +61,13 @@ const Contact = () => {
                 </div>
 
                 {/* Phone */}
-                <div className="flex items-start gap-4">
-                  <Phone className="w-5 h-5 text-accent mt-1 stroke-[1.5]" />
+                <div className="flex items-start gap-5 border-b border-neutral-200 pb-8">
+                  <div className="mt-1 w-8 h-8 flex items-center justify-center bg-[#2A221D] flex-shrink-0">
+                    <Phone className="w-4 h-4 text-amber-400 stroke-[1.5]" />
+                  </div>
                   <div>
-                    <p className="label-text text-foreground mb-1">Phone</p>
-                    <p className="body-lg text-foreground font-medium">
+                    <p className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Phone</p>
+                    <p className="text-neutral-900 font-medium leading-relaxed">
                       +91 172 2792283<br />
                       +91 8860372037
                     </p>
@@ -62,11 +75,13 @@ const Contact = () => {
                 </div>
 
                 {/* Email */}
-                <div className="flex items-start gap-4">
-                  <Mail className="w-5 h-5 text-accent mt-1 stroke-[1.5]" />
+                <div className="flex items-start gap-5 border-b border-neutral-200 pb-8">
+                  <div className="mt-1 w-8 h-8 flex items-center justify-center bg-[#2A221D] flex-shrink-0">
+                    <Mail className="w-4 h-4 text-amber-400 stroke-[1.5]" />
+                  </div>
                   <div>
-                    <p className="label-text text-foreground mb-1">Email</p>
-                    <p className="body-lg text-foreground font-medium">
+                    <p className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Email</p>
+                    <p className="text-neutral-900 font-medium leading-relaxed">
                       bachittersingh@yahoo.com<br />
                       pryaasthakur14@gmail.com
                     </p>
@@ -74,85 +89,114 @@ const Contact = () => {
                 </div>
 
                 {/* Website */}
-                <div className="flex items-start gap-4">
-                  <Globe className="w-5 h-5 text-accent mt-1 stroke-[1.5]" />
+                <div className="flex items-start gap-5 border-b border-neutral-200 pb-8">
+                  <div className="mt-1 w-8 h-8 flex items-center justify-center bg-[#2A221D] flex-shrink-0">
+                    <Globe className="w-4 h-4 text-amber-400 stroke-[1.5]" />
+                  </div>
                   <div>
-                    <p className="label-text text-foreground mb-1">Website</p>
-                    <p className="body-lg text-foreground font-medium">
-                      www.bachittersinghassociates.com
-                    </p>
+                    <p className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Website</p>
+                    <p className="text-neutral-900 font-medium">www.bachittersinghassociates.com</p>
                   </div>
                 </div>
 
                 {/* Instagram */}
-                <div className="flex items-start gap-4">
-                  <Instagram className="w-5 h-5 text-accent mt-1 stroke-[1.5]" />
+                <div className="flex items-start gap-5">
+                  <div className="mt-1 w-8 h-8 flex items-center justify-center bg-[#2A221D] flex-shrink-0">
+                    <Instagram className="w-4 h-4 text-amber-400 stroke-[1.5]" />
+                  </div>
                   <div>
-                    <p className="label-text text-foreground mb-1">Instagram</p>
-                    <p className="body-lg text-foreground font-medium">
-                      @bachittersinghassociates
-                    </p>
+                    <p className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Instagram</p>
+                    <p className="text-neutral-900 font-medium">@bachittersinghassociates</p>
                   </div>
                 </div>
               </div>
             </ScrollReveal>
           </div>
 
-          {/* RIGHT SIDE FORM */}
-          <ScrollReveal delay={100}>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="label-text text-foreground block mb-2">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  maxLength={100}
-                  className="w-full bg-transparent border-b border-foreground py-3 font-sans text-base font-medium text-foreground placeholder:text-foreground/50 focus:outline-none focus:border-accent transition-colors"
-                  placeholder="Your full name"
-                />
-              </div>
+          {/* RIGHT — Send Query Form */}
+          <ScrollReveal delay={150}>
+            <div className="bg-white p-10 shadow-sm">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-amber-700 mb-2">Send a Query</p>
+              <h2 className="font-serif text-2xl font-light text-neutral-900 mb-8">
+                Start a <em className="italic">conversation</em>
+              </h2>
 
-              <div>
-                <label htmlFor="email" className="label-text text-foreground block mb-2">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  maxLength={255}
-                  className="w-full bg-transparent border-b border-foreground py-3 font-sans text-base font-medium text-foreground placeholder:text-foreground/50 focus:outline-none focus:border-accent transition-colors"
-                  placeholder="your@email.com"
-                />
-              </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name */}
+                <div>
+                  <label htmlFor="name" className="block text-xs uppercase tracking-widest text-neutral-500 mb-2">
+                    Full Name <span className="text-amber-600">*</span>
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    maxLength={100}
+                    required
+                    className="w-full bg-transparent border-b border-neutral-300 py-3 text-sm font-medium text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-amber-700 transition-colors"
+                    placeholder="Your full name"
+                  />
+                </div>
 
-              <div>
-                <label htmlFor="message" className="label-text text-foreground block mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  maxLength={1000}
-                  rows={5}
-                  className="w-full bg-transparent border-b border-foreground py-3 font-sans text-base font-medium text-foreground placeholder:text-foreground/50 focus:outline-none focus:border-accent transition-colors resize-none"
-                  placeholder="Having any specific project or inquiry? Let us know how we can help!"
-                />
-              </div>
+                {/* Email */}
+                <div>
+                  <label htmlFor="email" className="block text-xs uppercase tracking-widest text-neutral-500 mb-2">
+                    Email Address <span className="text-amber-600">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    maxLength={255}
+                    required
+                    className="w-full bg-transparent border-b border-neutral-300 py-3 text-sm font-medium text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-amber-700 transition-colors"
+                    placeholder="your@email.com"
+                  />
+                </div>
 
-              <button
-                type="submit"
-                className="label-text px-10 py-4 bg-foreground text-background hover:bg-black hover:text-white transition-colors duration-300 mt-4"
-              >
-                Send Inquiry
-              </button>
-            </form>
+                {/* Phone */}
+                <div>
+                  <label htmlFor="phone" className="block text-xs uppercase tracking-widest text-neutral-500 mb-2">
+                    Phone Number
+                  </label>
+                  <input
+                    id="phone"
+                    type="tel"
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    maxLength={20}
+                    className="w-full bg-transparent border-b border-neutral-300 py-3 text-sm font-medium text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-amber-700 transition-colors"
+                    placeholder="+91 XXXXX XXXXX"
+                  />
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label htmlFor="message" className="block text-xs uppercase tracking-widest text-neutral-500 mb-2">
+                    Message <span className="text-amber-600">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    maxLength={1000}
+                    rows={4}
+                    required
+                    className="w-full bg-transparent border-b border-neutral-300 py-3 text-sm font-medium text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-amber-700 transition-colors resize-none"
+                    placeholder="Describe your project or inquiry..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="mt-4 w-full bg-[#2A221D] hover:bg-amber-800 text-white text-xs uppercase tracking-[0.2em] py-4 transition-colors duration-300"
+                >
+                  Submit Query
+                </button>
+              </form>
+            </div>
           </ScrollReveal>
         </div>
       </div>

@@ -1,15 +1,15 @@
 import Navbar from "@/components/Navbar";
-import Contact from "@/components/Contact";
+import Careers from "@/components/Careers";
 import Footer from "@/components/Footer";
 
-const ContactPage = () => {
+const CareersPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <Contact />
+      <Careers />
       <Footer />
     </div>
   );
 };
 
-export default ContactPage;
+export default CareersPage;

@@ -21,13 +21,15 @@ const Navbar = () => {
   }, [menuOpen]);
 
   const navLinks = [
-    { label: "Projects", path: "/" },
+    { label: "Projects", path: "/projects" },
     { label: "About", path: "/about" },
     { label: "Services", path: "/services" },
+    { label: "Careers", path: "/careers" },
     { label: "Contact", path: "/contact" },
   ];
 
   const isActiveLink = (path: string) => {
+    if (path === "/projects") return location.pathname === "/projects" || location.pathname.startsWith("/projects/");
     if (path === "/") return location.pathname === "/";
     return location.pathname === path;
   };
