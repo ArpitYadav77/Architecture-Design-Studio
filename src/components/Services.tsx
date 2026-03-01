@@ -152,23 +152,6 @@ const Services = () => {
             ))}
           </div>
 
-          {/* CTA strip */}
-          <ScrollReveal delay={200}>
-            <div className="mt-20 border border-neutral-300 bg-white p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-amber-700 mb-2">Have a project in mind?</p>
-                <h3 className="font-serif text-2xl font-light text-neutral-900">
-                  Let's start a <em className="italic">conversation</em>
-                </h3>
-              </div>
-              <a
-                href="/contact"
-                className="flex-shrink-0 bg-[#2A221D] hover:bg-amber-800 text-white text-xs uppercase tracking-[0.2em] px-10 py-4 transition-colors duration-300 whitespace-nowrap"
-              >
-                Contact Us
-              </a>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
     </>
