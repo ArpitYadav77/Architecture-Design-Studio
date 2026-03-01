@@ -1,5 +1,10 @@
 import ScrollReveal from "./ScrollReveal";
 import architectPortrait from "@/assets/architect-portrait.jpg";
+import residentialImg from "@/assets/project-residential.jpg";
+import commercialImg  from "@/assets/project-commercial.jpg";
+import interiorImg    from "@/assets/project-interior.jpg";
+import urbanImg      from "@/assets/project-urban.jpg";
+import villaImg      from "@/assets/project-villa.jpg";
 
 const stats = [
   { number: "1983", label: "Year Established" },
@@ -16,18 +21,36 @@ const milestones = [
   { year: "Present", event: "Over 200 completed projects. A legacy practice spanning residential, cultural, civic, hospitality, and urban sectors across India." },
 ];
 
-const philosophy = [
+const team = [
   {
-    title: "Design with Purpose",
-    body: "Every space we design carries a clear intention — whether it is a legislative chamber that commands civic gravity or a residence that nurtures private life. Form is never arbitrary; it emerges from function, place, and people.",
+    name: "Ar. Bachitter Singh",
+    designation: "Principal Architect & Founder",
+    image: architectPortrait,
   },
   {
-    title: "Architecture as Legacy",
-    body: "We build for permanence. Our institutional and civic works are designed to outlast generations — structures that become part of a city's identity and a nation's collective memory.",
+    name: "Ar. Priya Sharma",
+    designation: "Associate Principal",
+    image: residentialImg,
   },
   {
-    title: "Rooted in Context",
-    body: "Our work draws from the climate, culture, and character of the places we build in. We believe in architecture that belongs — that feels inevitable to its site and respectful of its surroundings.",
+    name: "Ar. Rahul Mehta",
+    designation: "Senior Architect",
+    image: commercialImg,
+  },
+  {
+    name: "Ar. Ananya Kapoor",
+    designation: "Interior Architecture Lead",
+    image: interiorImg,
+  },
+  {
+    name: "Ar. Vikram Singh",
+    designation: "Urban Design Director",
+    image: urbanImg,
+  },
+  {
+    name: "Ar. Meenakshi Patel",
+    designation: "Project Manager",
+    image: villaImg,
   },
 ];
 
@@ -122,25 +145,45 @@ const AboutAndTeam = () => {
         </div>
       </section>
 
-      {/* ================= PHILOSOPHY SECTION ================= */}
-      <section id="philosophy" className="py-28 bg-white text-neutral-900">
+      {/* ================= OUR TEAM SECTION ================= */}
+      <section id="team" className="py-28 bg-white text-neutral-900">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
 
           <ScrollReveal>
             <p className="uppercase tracking-[0.3em] text-xs text-amber-700 mb-6">
-              Design Philosophy
+              Our Team
             </p>
-            <h2 className="text-4xl md:text-5xl font-serif font-light leading-tight mb-16">
-              Principles that guide <span className="italic">every project</span>
+            <h2 className="text-4xl md:text-5xl font-serif font-light leading-tight mb-4">
+              The people behind <span className="italic">our practice</span>
             </h2>
+            <p className="text-neutral-500 text-base font-light mb-16 max-w-xl leading-relaxed">
+              Architects, designers, and thinkers — every one of whom brings focused craft and shared conviction to the work we build together.
+            </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {philosophy.map((item, i) => (
-              <ScrollReveal key={item.title} delay={i * 150}>
-                <div className="border-t-2 border-amber-700 pt-8">
-                  <h3 className="font-serif text-2xl font-light mb-4">{item.title}</h3>
-                  <p className="text-neutral-600 leading-relaxed text-base">{item.body}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
+            {team.map((member, i) => (
+              <ScrollReveal key={member.name} delay={i * 100}>
+                <div className="group cursor-pointer">
+                  {/* Photo */}
+                  <div className="aspect-[3/4] overflow-hidden bg-neutral-100 mb-5 relative">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-top transition-all duration-500 ease-in-out grayscale group-hover:grayscale-0 group-hover:scale-105"
+                    />
+                    {/* Subtle hover overlay */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+                  </div>
+                  {/* Info */}
+                  <div className="border-t border-neutral-200 pt-4">
+                    <h3 className="font-serif text-xl font-medium text-neutral-900 group-hover:text-amber-700 transition-colors duration-300">
+                      {member.name}
+                    </h3>
+                    <p className="text-xs uppercase tracking-[0.18em] text-neutral-500 mt-1" style={{ letterSpacing: "0.14em" }}>
+                      {member.designation}
+                    </p>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}

@@ -2,7 +2,7 @@ import { useNavigate, Link } from "react-router-dom";
 import ScrollReveal from "./ScrollReveal";
 import { portfolioProjects } from "@/data/projects";
 
-const categories = ["All", "Commercial", "Competition", "Cultural", "Education", "Hospitality", "Interior", "Residential", "Urban"];
+const categories = ["All", "Commercial", "Cultural", "Education", "Hospitality", "Interior", "Residential", "Urban", "Competition"];
 
 const sizeMap: Record<string, "large" | "small"> = {
   "cedar-house":      "large",

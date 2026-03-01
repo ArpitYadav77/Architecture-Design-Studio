@@ -120,8 +120,8 @@ const Hero = () => {
         </span>
       </div>
 
-      {/* Location badge — right side */}
-      <div className="absolute top-[76px] right-6 md:right-12 z-20 flex items-center gap-2 opacity-0 animate-fade-up"
+      {/* Location badge — right side (hidden on mobile) */}
+      <div className="absolute top-[76px] right-6 md:right-12 z-20 hidden md:flex items-center gap-2 opacity-0 animate-fade-up"
         style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
       >
         <MapPin className="w-4 h-4 text-accent" />
@@ -131,7 +131,7 @@ const Hero = () => {
       </div>
 
       {/* Left-Aligned Text Content */}
-      <div className="relative z-10 h-full flex flex-col justify-end pb-32 px-6 md:px-12 lg:px-24">
+      <div className="relative z-10 h-full flex flex-col justify-end pb-24 md:pb-32 px-6 md:px-12 lg:px-24">
         {/* Slide label */}
         <p
           key={`label-${currentSlide}`}
@@ -144,7 +144,7 @@ const Hero = () => {
         {/* Main heading */}
         <h1
           key={`h-${currentSlide}`}
-          className="text-5xl md:text-7xl lg:text-8xl font-serif font-light leading-[1.08] mb-6 text-white opacity-0 animate-fade-up"
+          className="text-4xl md:text-7xl lg:text-8xl font-serif font-light leading-[1.08] mb-6 text-white opacity-0 animate-fade-up"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards", letterSpacing: "0.01em", whiteSpace: "pre-line" }}
         >
           {slides[currentSlide].heading}

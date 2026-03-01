@@ -7,13 +7,13 @@ import { portfolioProjects, landmarkProjects } from "@/data/projects";
 // Competition always last
 const categories = [
   "All",
-  "Residential",
   "Commercial",
   "Cultural",
-  "Interior",
-  "Urban",
   "Education",
   "Hospitality",
+  "Interior",
+  "Residential",
+  "Urban",
   "Competition",
 ];
 
