@@ -80,27 +80,38 @@ const Services = () => {
   );
 };
 
-const ServiceCard = ({ service }) => {
+type Service = {
+  title: string;
+  category: string;
+  tag: string;
+  description: string;
+  images: string[];
+};
+
+const ServiceCard = ({ service }: { service: Service }) => {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  // Auto slide every 3 seconds
-useEffect(() => {
-  if (!paused) return;
+  // Auto slide every 3 seconds (only when not hovered)
+  useEffect(() => {
+    if (paused) return;
 
-  const interval = setInterval(() => {
-    setCurrent((prev) =>
-      prev === service.images.length - 1 ? 0 : prev + 1
-    );
-  }, 3000);
+    const interval = setInterval(() => {
+      setCurrent((prev) =>
+        prev === service.images.length - 1 ? 0 : prev + 1
+      );
+    }, 3000);
 
-  return () => clearInterval(interval);
-}, [paused, service.images.length]);
+    return () => clearInterval(interval);
+  }, [paused, service.images.length]);
   return (
     <div
       className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
       onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      onMouseLeave={(e) => {
+        setPaused(false);
+        e.currentTarget.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+      }}
       onMouseMove={(e) => {
         const card = e.currentTarget;
         const rect = card.getBoundingClientRect();
@@ -111,9 +122,6 @@ useEffect(() => {
         const rotateX = (y - centerY) / 25;
         const rotateY = (centerX - x) / 25;
         card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-      }}
-      onMouseLeaveCapture={(e) => {
-        e.currentTarget.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
       }}
     >
       {/* Image Slider */}

@@ -77,11 +77,11 @@ const Footer = () => {
       </div>
 
       {/* Underline Animation */}
-      <style jsx>{`
+      <style>{`
         .hover-link {
           position: relative;
-          display: inline-block; /* Important */
-          width: fit-content;    /* Prevents full-width stretching */
+          display: inline-block;
+          width: fit-content;
         }
 
         .hover-link::after {
