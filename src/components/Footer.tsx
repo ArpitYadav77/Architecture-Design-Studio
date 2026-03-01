@@ -38,9 +38,6 @@ const Footer = () => {
               bachittersingh@yahoo.com
             </a>
 
-            <a href="mailto:pryaasthakur14@gmail.com" className="hover-link">
-              pryaasthakur14@gmail.com
-            </a>
 
           </div>
         </div>
@@ -53,15 +50,7 @@ const Footer = () => {
 
           <div className="flex flex-col gap-3 text-neutral-800">
 
-            <a
-              href="https://www.bachittersinghassociates.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover-link"
-            >
-              www.bachittersinghassociates.com
-            </a>
-
+  
             {/* Instagram in next line */}
             <a href="#" className="hover-link">
               Instagram
