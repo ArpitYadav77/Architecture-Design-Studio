@@ -18,7 +18,6 @@ const Navbar = () => {
     { label: "Projects", mobileLabel: "Projects", path: "/", id: "home" },
     { label: "About", mobileLabel: "About", path: "/about", id: "about" },
     { label: "Services", mobileLabel: "Services", path: "/services", id: "services" },
-    { label: "Process", mobileLabel: "Process", path: "/about", id: "process" },
     { label: "Contact", mobileLabel: "Contact", path: "/contact", id: "contact" },
   ];
 

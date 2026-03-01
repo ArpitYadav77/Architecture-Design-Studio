@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
-import Process from "@/components/Process";
 
 const AboutPage = () => {
   return (
@@ -9,7 +8,6 @@ const AboutPage = () => {
       <Navbar />
       <div className="pt-20">
         <About />
-        <Process />
       </div>
       <Footer />
     </div>

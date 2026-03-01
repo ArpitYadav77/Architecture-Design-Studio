@@ -16,9 +16,27 @@
     <meta name="twitter:site" content="@Lovable" />
     <meta name="twitter:image" content="/logo1.png" />
     <link rel="icon" type="image/png" href="/logo1.png" />
+    
+    <style>
+      #preloader {
+        position: fixed;
+        inset: 0;
+        background: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        z-index: 9999;
+      }
+    </style>
   </head>
 
   <body>
+    <div id="preloader">
+      <div class="preloader-content">
+        <p>Inventive. Intuitive. Timeless.</p>
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
