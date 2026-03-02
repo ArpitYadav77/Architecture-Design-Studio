@@ -69,22 +69,28 @@ const Hero = memo(() => {
     setTimeout(() => setIsAnimating(false), 700);
   }, [isAnimating, currentSlide]);
 
-  // Auto-slide
+  // Auto-slide — only on mobile (poster-only); on desktop the video `onEnded` drives transitions
   useEffect(() => {
-    if (!isPaused) {
+    if (isMobile && !isPaused) {
       autoSlideRef.current = setInterval(nextSlide, 5000);
     }
     return () => {
       if (autoSlideRef.current) clearInterval(autoSlideRef.current);
     };
+  }, [isMobile, isPaused, nextSlide]);
+
+  // When a video finishes playing, advance to the next slide
+  const handleVideoEnded = useCallback(() => {
+    if (!isPaused) nextSlide();
   }, [isPaused, nextSlide]);
 
-  // Play only current video, pause others — skip on mobile (poster only)
+  // Play only current video, pause & reset others — skip on mobile (poster only)
   useEffect(() => {
     if (isMobile) return;
     videoRefs.current.forEach((v, i) => {
       if (!v) return;
       if (i === currentSlide) {
+        v.currentTime = 0;
         v.play().catch(() => {});
       } else {
         v.pause();
@@ -135,10 +141,10 @@ const Hero = memo(() => {
                       src={slide.video}
                       autoPlay={index === currentSlide}
                       muted
-                      loop
                       playsInline
                       preload={index === 0 ? "auto" : "none"}
                       poster={slide.poster}
+                      onEnded={handleVideoEnded}
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{ zIndex: 1 }}
                     />
