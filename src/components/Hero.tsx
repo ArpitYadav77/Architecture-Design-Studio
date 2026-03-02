@@ -37,7 +37,7 @@ const Hero = memo(() => {
   const [isPaused, setIsPaused] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isMobile, setIsMobile] = useState(isMobileQuery?.matches ?? false);
-  const autoSlideRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const autoSlideRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   // Track mobile state
@@ -69,17 +69,19 @@ const Hero = memo(() => {
     setTimeout(() => setIsAnimating(false), 700);
   }, [isAnimating, currentSlide]);
 
-  // Fallback auto-slide — only if video fails to trigger onEnded (e.g. poster-only)
-  // Normally the video onEnded callback drives slide transitions
+  // Fallback timer — advances slide after 10s if onEnded never fires (mobile Safari quirk).
+  // Resets on every slide change so it always counts from the start of each slide.
   useEffect(() => {
-    // No interval needed — onEnded handles it
+    if (isPaused) return;
+    autoSlideRef.current = setTimeout(nextSlide, 10000);
     return () => {
-      if (autoSlideRef.current) clearInterval(autoSlideRef.current);
+      if (autoSlideRef.current) clearTimeout(autoSlideRef.current);
     };
-  }, []);
+  }, [currentSlide, isPaused, nextSlide]);
 
-  // When a video finishes playing, advance to the next slide
+  // onEnded — advance immediately when video finishes (clears the fallback timer via state update)
   const handleVideoEnded = useCallback(() => {
+    if (autoSlideRef.current) clearTimeout(autoSlideRef.current);
     if (!isPaused) nextSlide();
   }, [isPaused, nextSlide]);
 
