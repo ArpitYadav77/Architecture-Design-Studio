@@ -1,9 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImg from "@/assets/hero-architecture.jpg";
-import commercialImg from "@/assets/project-commercial.jpg";
-import museumImg from "@/assets/project-museum.jpg";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -13,19 +10,19 @@ const Hero = () => {
 
   const slides = [
     {
-      image: heroImg,
+      video: "/architecture/building_view.mp4",
       label: "Architecture & Civic Design",
       heading: "Bachitter Singh\nAssociates",
       sub: "Over four decades of shaping India's most enduring civic, institutional, and architectural landmarks.",
     },
     {
-      image: commercialImg,
+      video: "/architecture/society_view.mp4",
       label: "Commercial & Institutional",
       heading: "Where Form\nMeets Purpose",
       sub: "From high courts to legislative assemblies — spaces built for permanence, authority, and the public good.",
     },
     {
-      image: museumImg,
+      video: "/architecture/house_lawn.mp4",
       label: "Cultural & Urban Works",
       heading: "Legacy\nIn Every Line",
       sub: "200+ delivered projects across India, master-planning 420+ acres of civic and cultural landscape.",
@@ -68,12 +65,6 @@ const Hero = () => {
     };
   }, [isPaused, currentSlide]);
 
-  // Preload next image
-  useEffect(() => {
-    const nextIndex = (currentSlide + 1) % slides.length;
-    const img = new Image();
-    img.src = slides[nextIndex].image;
-  }, [currentSlide]);
 
   return (
     <section
@@ -90,9 +81,12 @@ const Hero = () => {
           >
             {slides.map((slide, index) => (
               <div key={index} className="w-full h-screen flex-shrink-0 relative">
-                <img
-                  src={slide.image}
-                  alt={slide.label}
+                <video
+                  src={slide.video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                   className="w-full h-full object-cover"
                 />
                 {/* Dark gradient overlay */}
