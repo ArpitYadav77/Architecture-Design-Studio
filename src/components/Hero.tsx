@@ -1,37 +1,52 @@
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback, memo } from "react";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const slides = [
   {
     video: "/architecture/building_view.mp4",
-    poster: "/architecture/arch1.png",
+    poster: "/architecture/building_view_poster.webp",
     label: "Architecture & Civic Design",
     heading: "Bachitter Singh\nAssociates",
     sub: "Over four decades of shaping India's most enduring civic, institutional, and architectural landmarks.",
   },
   {
     video: "/architecture/society_view.mp4",
-    poster: "/architecture/arch2.png",
+    poster: "/architecture/society_view_poster.webp",
     label: "Commercial & Institutional",
     heading: "Where Form\nMeets Purpose",
     sub: "From high courts to legislative assemblies — spaces built for permanence, authority, and the public good.",
   },
   {
     video: "/architecture/house_lawn.mp4",
-    poster: "/architecture/arch3.png",
+    poster: "/architecture/house_lawn_poster.webp",
     label: "Cultural & Urban Works",
     heading: "Legacy\nIn Every Line",
     sub: "200+ delivered projects across India, master-planning 420+ acres of civic and cultural landscape.",
   },
 ] as const;
 
-const Hero = () => {
+/** Detect mobile via matchMedia (no resize thrashing) */
+const isMobileQuery =
+  typeof window !== "undefined"
+    ? window.matchMedia("(max-width: 768px)")
+    : null;
+
+const Hero = memo(() => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const autoSlideRef = useRef<NodeJS.Timeout | null>(null);
+  const [isMobile, setIsMobile] = useState(isMobileQuery?.matches ?? false);
+  const autoSlideRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  // Track mobile state
+  useEffect(() => {
+    if (!isMobileQuery) return;
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    isMobileQuery.addEventListener("change", handler);
+    return () => isMobileQuery.removeEventListener("change", handler);
+  }, []);
 
   const nextSlide = useCallback(() => {
     if (isAnimating) return;
@@ -64,8 +79,9 @@ const Hero = () => {
     };
   }, [isPaused, nextSlide]);
 
-  // Play only current video, pause others for performance
+  // Play only current video, pause others — skip on mobile (poster only)
   useEffect(() => {
+    if (isMobile) return;
     videoRefs.current.forEach((v, i) => {
       if (!v) return;
       if (i === currentSlide) {
@@ -74,18 +90,17 @@ const Hero = () => {
         v.pause();
       }
     });
-  }, [currentSlide]);
-
+  }, [currentSlide, isMobile]);
 
   return (
     <section
-      className="relative h-screen w-full overflow-hidden"
+      className="relative h-[100svh] w-full overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Video Slides — GPU-accelerated transform */}
       <div className="absolute inset-0">
-        <div className="relative w-full h-screen overflow-hidden">
+        <div className="relative w-full h-full overflow-hidden">
           <div
             className="flex h-full"
             style={{
@@ -101,16 +116,20 @@ const Hero = () => {
                 (currentSlide === slides.length - 1 && index === 0);
 
               return (
-                <div key={index} className="w-full h-screen flex-shrink-0 relative" style={{ contain: "layout paint" }}>
-                  {/* Poster image — always present, prevents blank state */}
+                <div key={index} className="w-full h-full flex-shrink-0 relative" style={{ contain: "layout paint" }}>
+                  {/* Poster image — always present, fast LCP, mobile fallback */}
                   <img
                     src={slide.poster}
                     alt=""
                     aria-hidden="true"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    decoding={index === 0 ? "sync" : "async"}
+                    fetchPriority={index === 0 ? "high" : "auto"}
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{ zIndex: 0 }}
                   />
-                  {shouldLoad && (
+                  {/* Video — desktop only, lazy loaded */}
+                  {!isMobile && shouldLoad && (
                     <video
                       ref={(el) => { videoRefs.current[index] = el; }}
                       src={slide.video}
@@ -119,6 +138,7 @@ const Hero = () => {
                       loop
                       playsInline
                       preload={index === 0 ? "auto" : "none"}
+                      poster={slide.poster}
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{ zIndex: 1 }}
                     />
@@ -133,18 +153,14 @@ const Hero = () => {
       </div>
 
       {/* Firm identity bar — top left below navbar */}
-      <div className="absolute top-[76px] left-6 md:left-12 lg:left-24 z-20 flex items-center gap-3 opacity-0 animate-fade-up"
+      <div className="absolute top-[76px] left-4 sm:left-6 md:left-12 lg:left-24 z-20 flex items-center gap-3 opacity-0 animate-fade-up"
         style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
       >
-        <span
-          className="text-[10px] text-white/70 uppercase font-medium tracking-[0.22em]"
-        >
+        <span className="text-[10px] text-white/70 uppercase font-medium tracking-[0.22em]">
           Est. 1983
         </span>
         <span className="w-8 h-[1px] bg-accent/80" />
-        <span
-          className="text-[10px] text-white/70 uppercase font-medium tracking-[0.22em]"
-        >
+        <span className="text-[10px] text-white/70 uppercase font-medium tracking-[0.22em]">
           Chandigarh, India
         </span>
       </div>
@@ -160,20 +176,20 @@ const Hero = () => {
       </div>
 
       {/* Left-Aligned Text Content */}
-      <div className="relative z-10 h-full flex flex-col justify-end pb-24 md:pb-32 px-6 md:px-12 lg:px-24">
+      <div className="relative z-10 h-full flex flex-col justify-end pb-20 sm:pb-24 md:pb-32 px-4 sm:px-6 md:px-12 lg:px-24">
         {/* Slide label */}
         <p
           key={`label-${currentSlide}`}
-          className="text-[11px] text-accent font-semibold mb-5 opacity-0 animate-fade-up uppercase"
+          className="text-[10px] sm:text-[11px] text-accent font-semibold mb-4 sm:mb-5 opacity-0 animate-fade-up uppercase"
           style={{ animationDelay: "0.2s", animationFillMode: "forwards", letterSpacing: "0.20em" }}
         >
           {slides[currentSlide].label}
         </p>
 
-        {/* Main heading */}
+        {/* Main heading — responsive to prevent overflow on mobile */}
         <h1
           key={`h-${currentSlide}`}
-          className="text-4xl md:text-7xl lg:text-8xl font-serif font-light leading-[1.08] mb-6 text-white opacity-0 animate-fade-up"
+          className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-serif font-light leading-[1.08] mb-4 sm:mb-6 text-white opacity-0 animate-fade-up"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards", letterSpacing: "0.01em", whiteSpace: "pre-line" }}
         >
           {slides[currentSlide].heading}
@@ -182,80 +198,72 @@ const Hero = () => {
         {/* Line */}
         <div
           key={`line-${currentSlide}`}
-          className="w-12 h-[2px] bg-accent mb-6 opacity-0 animate-fade-up"
+          className="w-10 sm:w-12 h-[2px] bg-accent mb-4 sm:mb-6 opacity-0 animate-fade-up"
           style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}
         />
 
         {/* Subtext */}
         <p
           key={`sub-${currentSlide}`}
-          className="text-base md:text-lg text-white/80 font-light mb-10 max-w-xl opacity-0 animate-fade-up"
+          className="text-sm sm:text-base md:text-lg text-white/80 font-light mb-8 sm:mb-10 max-w-xl opacity-0 animate-fade-up"
           style={{ animationDelay: "0.6s", animationFillMode: "forwards", letterSpacing: "0.02em", lineHeight: "1.7" }}
         >
           {slides[currentSlide].sub}
         </p>
 
-        {/* CTAs */}
+        {/* CTAs — stack on very small screens, 44px min tap target */}
         <div
-          className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-up"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 opacity-0 animate-fade-up"
           style={{ animationDelay: "0.75s", animationFillMode: "forwards" }}
         >
           <Link
             to="/projects"
-            className="px-10 py-4 bg-accent hover:bg-[#D4A45C] text-white text-sm font-medium uppercase transition-all duration-300"
+            className="px-8 sm:px-10 py-3.5 sm:py-4 bg-accent hover:bg-[#D4A45C] text-white text-xs sm:text-sm font-medium uppercase transition-colors duration-300 text-center min-h-[44px] flex items-center justify-center"
             style={{ letterSpacing: "0.12em" }}
           >
             View Portfolio
           </Link>
           <Link
             to="/contact"
-            className="px-10 py-4 border border-white/40 hover:border-white text-white text-sm font-medium uppercase transition-all duration-300 hover:bg-white/10"
+            className="px-8 sm:px-10 py-3.5 sm:py-4 border border-white/40 hover:border-white text-white text-xs sm:text-sm font-medium uppercase transition-colors duration-300 hover:bg-white/10 text-center min-h-[44px] flex items-center justify-center"
             style={{ letterSpacing: "0.12em" }}
           >
             Get in Touch
           </Link>
         </div>
-
-        {/* Firm intro strip — bottom right */}
-        <div
-          className="absolute bottom-8 right-6 md:right-12 lg:right-24 text-right opacity-0 animate-fade-up"
-          style={{ animationDelay: "1s", animationFillMode: "forwards" }}
-        >
-         
-        </div>
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows — 44px min tap target for mobile */}
       <button
         onClick={prevSlide}
         disabled={isAnimating}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 text-white/60 hover:text-white transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed group"
+        className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 text-white/60 hover:text-white transition-colors duration-300 disabled:opacity-30 disabled:cursor-not-allowed group"
         aria-label="Previous slide"
       >
-        <div className="p-2 bg-black/20 hover:bg-black/40 backdrop-blur-sm rounded-full transition-all duration-300 group-hover:scale-110">
-          <ChevronLeft className="w-8 h-8" />
+        <div className="p-3 sm:p-2 bg-black/20 hover:bg-black/40 backdrop-blur-sm rounded-full transition-colors duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center">
+          <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
         </div>
       </button>
 
       <button
         onClick={nextSlide}
         disabled={isAnimating}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 text-white/60 hover:text-white transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed group"
+        className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 text-white/60 hover:text-white transition-colors duration-300 disabled:opacity-30 disabled:cursor-not-allowed group"
         aria-label="Next slide"
       >
-        <div className="p-2 bg-black/20 hover:bg-black/40 backdrop-blur-sm rounded-full transition-all duration-300 group-hover:scale-110">
-          <ChevronRight className="w-8 h-8" />
+        <div className="p-3 sm:p-2 bg-black/20 hover:bg-black/40 backdrop-blur-sm rounded-full transition-colors duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center">
+          <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
         </div>
       </button>
 
-      {/* Pagination Dots */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+      {/* Pagination Dots — padded for mobile tap */}
+      <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             disabled={isAnimating}
-            className="group disabled:cursor-not-allowed"
+            className="group disabled:cursor-not-allowed p-2 -m-2"
             aria-label={`Go to slide ${index + 1}`}
           >
             <div
@@ -270,7 +278,9 @@ const Hero = () => {
       </div>
     </section>
   );
-};
+});
+
+Hero.displayName = "Hero";
 
 export default Hero;
 

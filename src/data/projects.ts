@@ -22,87 +22,87 @@ export interface ProjectData {
 
 // ── resolved at module level so images are bundled by Vite ──────────────────
 
-// ── Real project assets ──────────────────────────────────────────────────────
+// ── Real project assets (WebP — 91% smaller than PNG originals) ──────────────
 // Vidhan Sabha
-import vidhanSabhaImg         from "@/assets/Vidhan_Sabha.png";
+import vidhanSabhaImg         from "@/assets/Vidhan_Sabha.webp";
 
 // Punjab & Haryana High Court
-import punjabHCImg            from "@/assets/Punjab_Haryana_HC.png";
+import punjabHCImg            from "@/assets/Punjab_Haryana_HC.webp";
 
 // Amritsar Residence
-import amritsarCover          from "@/assets/Amritsar.png";
-import amritsarInt1           from "@/assets/Amritsar_cover_Interior.png";
-import amritsarInt2           from "@/assets/Amritsar_Interior.png";
-import amritsarInt3           from "@/assets/Amritsar_Interior2.png";
-import amritsarInt4           from "@/assets/Amritsar_cover2_interior.png";
+import amritsarCover          from "@/assets/Amritsar.webp";
+import amritsarInt1           from "@/assets/Amritsar_cover_Interior.webp";
+import amritsarInt2           from "@/assets/Amritsar_Interior.webp";
+import amritsarInt3           from "@/assets/Amritsar_Interior2.webp";
+import amritsarInt4           from "@/assets/Amritsar_cover2_interior.webp";
 
 // Chandigarh Golf Club
-import golfCover              from "@/assets/chandigarh_golf_cover.png";
-import golfTopview            from "@/assets/Chandigarh_Golf_Club_topview.png";
+import golfCover              from "@/assets/chandigarh_golf_cover.webp";
+import golfTopview            from "@/assets/Chandigarh_Golf_Club_topview.webp";
 
 // Chandigarh Square
-import chandigarhSqCover      from "@/assets/chandigarh_square.png";
-import chandigarhSq2          from "@/assets/chandigarh_square2.png";
+import chandigarhSqCover      from "@/assets/chandigarh_square.webp";
+import chandigarhSq2          from "@/assets/chandigarh_square2.webp";
 
 // Kasauli Retreat
-import kasauliCover           from "@/assets/Kasuli_cover.png";
-import kasauliInterior        from "@/assets/Kasauli_Interior.png";
-import kasauliSideview        from "@/assets/sideview_Kasuli.png";
-import kasauliInt2            from "@/assets/Kasuli_interior2.png";
-import kasauliInt3            from "@/assets/kasuli_interior3.png";
+import kasauliCover           from "@/assets/Kasuli_cover.webp";
+import kasauliInterior        from "@/assets/Kasauli_Interior.webp";
+import kasauliSideview        from "@/assets/sideview_Kasuli.webp";
+import kasauliInt2            from "@/assets/Kasuli_interior2.webp";
+import kasauliInt3            from "@/assets/kasuli_interior3.webp";
 
 // University Campus
-import universityCover        from "@/assets/university_cover.png";
-import universityInt1         from "@/assets/university_interior.png";
-import universityInt2         from "@/assets/university_interior2.png";
-import uniAdmin               from "@/assets/uni_admin_building.png";
-import uniBuilding            from "@/assets/uni_building.png";
-import uniBuildingInt         from "@/assets/uni_building_interior.png";
-import uniLibrary             from "@/assets/Uni_library_building.png";
+import universityCover        from "@/assets/university_cover.webp";
+import universityInt1         from "@/assets/university_interior.webp";
+import universityInt2         from "@/assets/university_interior2.webp";
+import uniAdmin               from "@/assets/uni_admin_building.webp";
+import uniBuilding            from "@/assets/uni_building.webp";
+import uniBuildingInt         from "@/assets/uni_building_interior.webp";
+import uniLibrary             from "@/assets/Uni_library_building.webp";
 
 // Vidhan Sabha extra
-import vidhanSabha2           from "@/assets/vidhan_sabha2.png";
+import vidhanSabha2           from "@/assets/vidhan_sabha2.webp";
 
 // Amritsar exterior
-import amritsarExterior       from "@/assets/Amrtisar_exterior.png";
+import amritsarExterior       from "@/assets/Amrtisar_exterior.webp";
 
 // Ambala Mall
-import ambalaMallCover        from "@/assets/Ambala_Mall.png";
-import ambalaInt1             from "@/assets/Ambala_interior.png";
-import ambalaInt2             from "@/assets/Ambala_interior2.png";
-import ambalaInt3             from "@/assets/Ambala_interior3.png";
+import ambalaMallCover        from "@/assets/Ambala_Mall.webp";
+import ambalaInt1             from "@/assets/Ambala_interior.webp";
+import ambalaInt2             from "@/assets/Ambala_interior2.webp";
+import ambalaInt3             from "@/assets/Ambala_interior3.webp";
 
 // Clinic
-import clinicCover            from "@/assets/clinic_cover.png";
-import clinicInt1             from "@/assets/clinic_interior.png";
-import clinicPassage          from "@/assets/clinic_passage_interior.png";
+import clinicCover            from "@/assets/clinic_cover.webp";
+import clinicInt1             from "@/assets/clinic_interior.webp";
+import clinicPassage          from "@/assets/clinic_passage_interior.webp";
 
 // Farmhouse
-import farmhouseCover         from "@/assets/farmhouse.png";
-import farmhouseExt1          from "@/assets/farmhouse_exterior.png";
-import farmhouseExt2          from "@/assets/farmhouse_exterior2.png";
-import farmhouseInt1          from "@/assets/farmhouse_interior.png";
-import farmhouseInt2          from "@/assets/farmhouse_interior2.png";
-import farmhouseInt3          from "@/assets/farmhouse_interior3.png";
+import farmhouseCover         from "@/assets/farmhouse.webp";
+import farmhouseExt1          from "@/assets/farmhouse_exterior.webp";
+import farmhouseExt2          from "@/assets/farmhouse_exterior2.webp";
+import farmhouseInt1          from "@/assets/farmhouse_interior.webp";
+import farmhouseInt2          from "@/assets/farmhouse_interior2.webp";
+import farmhouseInt3          from "@/assets/farmhouse_interior3.webp";
 
 // Haryana CM Residence
-import haryanaCMInterior      from "@/assets/haryana_CM_interior.png";
+import haryanaCMInterior      from "@/assets/haryana_CM_interior.webp";
 
 // HP Tower
-import hpTowerCover           from "@/assets/HP_tower.png";
-import hpTower2               from "@/assets/HP_tower2.png";
-import hpInterior             from "@/assets/HP_interior.png";
+import hpTowerCover           from "@/assets/HP_tower.webp";
+import hpTower2               from "@/assets/HP_tower2.webp";
+import hpInterior             from "@/assets/HP_interior.webp";
 
 // LandMark Wave
-import landmarkWaveCover      from "@/assets/LandMark_wave_cover.png";
-import landmarkWaveExt        from "@/assets/landmark_wave_exterior.png";
-import landmarkWaveInt1       from "@/assets/LandMark_wave_interior.png";
-import landmarkWaveInt2       from "@/assets/landMark_wave_interior2.png";
+import landmarkWaveCover      from "@/assets/LandMark_wave_cover.webp";
+import landmarkWaveExt        from "@/assets/landmark_wave_exterior.webp";
+import landmarkWaveInt1       from "@/assets/LandMark_wave_interior.webp";
+import landmarkWaveInt2       from "@/assets/landMark_wave_interior2.webp";
 
 // Mohali Club
-import mohaliClubCover        from "@/assets/Mohali_club.png";
-import mohaliClubInt1         from "@/assets/mohali_club_interior.png";
-import mohaliInt2             from "@/assets/mohali_interior2.png";
+import mohaliClubCover        from "@/assets/Mohali_club.webp";
+import mohaliClubInt1         from "@/assets/mohali_club_interior.webp";
+import mohaliInt2             from "@/assets/mohali_interior2.webp";
 
 // ── project catalogue ────────────────────────────────────────────────────────
 export const allProjects: ProjectData[] = [

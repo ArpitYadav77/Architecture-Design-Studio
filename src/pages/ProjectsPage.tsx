@@ -1,7 +1,9 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
+import { useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import ProjectCard from "@/components/ProjectCard";
 import { portfolioProjects, landmarkProjects } from "@/data/projects";
 
 // Competition always last
@@ -35,11 +37,16 @@ const ProjectsPage = () => {
 
   const showLandmarks = activeCategory === "All";
 
+  const handleNav = useCallback(
+    (cat: string) => navigate(categoryPath(cat)),
+    [navigate]
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <div className="pt-24 pb-20 max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+      <div className="pt-20 sm:pt-24 pb-14 sm:pb-20 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24">
         {/* Breadcrumb + heading */}
         <ScrollReveal>
           <div className="mb-4 flex items-center gap-2">
@@ -83,11 +90,11 @@ const ProjectsPage = () => {
 
         {/* Category navigation */}
         <ScrollReveal delay={100}>
-          <div className="flex flex-wrap gap-8 mt-10 mb-14">
+          <div className="flex flex-wrap gap-4 sm:gap-8 mt-8 sm:mt-10 mb-10 sm:mb-14">
             {categories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => navigate(categoryPath(cat))}
+                onClick={() => handleNav(cat)}
                 className="relative group text-sm text-foreground/60 hover:text-foreground transition-colors duration-300 py-2"
                 style={{ letterSpacing: "0.12em" }}
               >
@@ -120,41 +127,16 @@ const ProjectsPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {landmarkProjects.map((project, i) => (
                 <ScrollReveal key={project.slug} delay={i * 120}>
-                  <Link
-                    to={`/project/${project.slug}`}
-                    className="group block cursor-pointer overflow-hidden"
-                  >
-                    <div className="aspect-[4/3] overflow-hidden bg-muted relative">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute top-4 left-4 bg-accent/90 text-white text-[10px] uppercase tracking-widest px-3 py-1">
-                        Landmark
-                      </div>
-                      <div
-                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6"
-                        style={{ backgroundColor: "rgba(28, 23, 20, 0.78)" }}
-                      >
-                        <p className="text-white/80 text-sm leading-relaxed">{project.tagline}</p>
-                        <span className="mt-3 text-[10px] text-white/80 border border-white/30 px-4 py-2 uppercase tracking-widest self-start" style={{ letterSpacing: "0.15em" }}>
-                          View Project
-                        </span>
-                      </div>
-                    </div>
-                    <div className="mt-4 pb-6 border-b border-foreground/10">
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <h3 className="font-serif text-xl font-medium text-foreground group-hover:text-accent transition-colors duration-300">{project.title}</h3>
-                          <p className="label-text text-foreground/60 mt-1">{project.category} · {project.location}</p>
-                        </div>
-                        <span className="text-xs text-accent font-medium uppercase tracking-widest mt-1">{project.year}</span>
-                      </div>
-                    </div>
-                  </Link>
+                  <ProjectCard
+                    slug={project.slug}
+                    image={project.image}
+                    title={project.title}
+                    category={project.category}
+                    location={project.location}
+                    year={project.year}
+                    isLandmark
+                    tagline={project.tagline}
+                  />
                 </ScrollReveal>
               ))}
             </div>
@@ -194,49 +176,14 @@ const ProjectsPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {filtered.map((project, i) => (
               <ScrollReveal key={project.slug} delay={i * 100}>
-                <Link
-                  to={`/project/${project.slug}`}
-                  className="group block cursor-pointer overflow-hidden relative"
-                >
-                  <div className="aspect-[4/3] overflow-hidden bg-muted relative">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                    />
-                    <div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      style={{ backgroundColor: "rgba(28, 23, 20, 0.65)" }}
-                    />
-                    <div className="absolute inset-0 flex flex-col items-start justify-end p-8 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                      <p className="text-[10px] text-accent uppercase font-semibold mb-2" style={{ letterSpacing: "0.18em" }}>
-                        {project.category}
-                      </p>
-                      <h3
-                        className="font-serif text-2xl md:text-3xl font-light text-white mb-2"
-                        style={{ letterSpacing: "0.02em" }}
-                      >
-                        {project.title}
-                      </h3>
-                      <p className="text-white/70 text-xs uppercase" style={{ letterSpacing: "0.12em" }}>
-                        {project.location} · {project.year}
-                      </p>
-                      <span className="mt-4 text-[10px] text-white/90 border border-white/40 px-4 py-2 uppercase tracking-widest" style={{ letterSpacing: "0.15em" }}>
-                        View Project
-                      </span>
-                    </div>
-                  </div>
-                  <div className="mt-4">
-                    <h3 className="font-serif text-xl font-medium text-foreground group-hover:text-accent transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                    <p className="label-text text-foreground/70 mt-1 font-medium">
-                      {project.category} · {project.location}
-                    </p>
-                  </div>
-                </Link>
+                <ProjectCard
+                  slug={project.slug}
+                  image={project.image}
+                  title={project.title}
+                  category={project.category}
+                  location={project.location}
+                  year={project.year}
+                />
               </ScrollReveal>
             ))}
           </div>

@@ -47,7 +47,7 @@ const ProjectDetailPage = () => {
       <Navbar />
 
       {/* ── HERO BANNER ──────────────────────────────────────────────────── */}
-      <div className="relative w-full h-[72vh] md:h-[80vh] overflow-hidden opacity-0 animate-fade-in">
+      <div className="relative w-full h-[55vh] sm:h-[65vh] md:h-[72vh] lg:h-[80vh] overflow-hidden opacity-0 animate-fade-in">
         <img
           src={project.image}
           alt={project.title}
@@ -65,7 +65,7 @@ const ProjectDetailPage = () => {
           </div>
         )}
         {/* Title over image */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 lg:px-24 pb-10 md:pb-14">
+        <div className="absolute bottom-0 left-0 right-0 z-10 px-4 sm:px-6 md:px-12 lg:px-24 pb-8 sm:pb-10 md:pb-14">
           <p
             className="text-accent text-[11px] font-semibold uppercase mb-3 opacity-0 animate-fade-up"
             style={{ letterSpacing: "0.18em", animationDelay: "0.2s" }}
@@ -73,7 +73,7 @@ const ProjectDetailPage = () => {
             {project.category}
           </p>
           <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-serif font-light text-white leading-[1.06] opacity-0 animate-fade-up"
+            className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-light text-white leading-[1.06] opacity-0 animate-fade-up"
             style={{ animationDelay: "0.35s" }}
           >
             {project.title}
@@ -89,7 +89,7 @@ const ProjectDetailPage = () => {
       </div>
 
       {/* ── BREADCRUMB + BACK ────────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 pt-10 pb-2 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24 pt-8 sm:pt-10 pb-2 flex items-center justify-between">
         <nav className="flex items-center gap-2 text-xs text-foreground/40 uppercase tracking-widest" style={{ letterSpacing: "0.14em" }}>
           <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
           <span className="text-foreground/20">›</span>
@@ -108,7 +108,7 @@ const ProjectDetailPage = () => {
       </div>
 
       {/* ── MAIN CONTENT ─────────────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-14 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-10 sm:py-14 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-20">
 
         {/* Left — metadata panel */}
         <ScrollReveal>
@@ -166,7 +166,7 @@ const ProjectDetailPage = () => {
 
       {/* ── GALLERY ──────────────────────────────────────────────────────── */}
       {project.gallery && project.gallery.length > 0 && (
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24 pb-16 sm:pb-20">
           <ScrollReveal>
             <div className="flex items-center gap-4 mb-10">
               <div className="w-1 h-8 bg-accent" />
@@ -228,7 +228,7 @@ const ProjectDetailPage = () => {
           className="py-20 border-t border-foreground/10"
           style={{ backgroundColor: "#F9F7F4" }}
         >
-          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24">
             <ScrollReveal>
               <p className="text-accent text-[10px] uppercase mb-2 font-semibold" style={{ letterSpacing: "0.2em" }}>Continue Exploring</p>
               <h2 className="text-2xl md:text-3xl font-serif font-light text-foreground mb-12">

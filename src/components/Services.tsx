@@ -121,14 +121,14 @@ const Services = () => {
   return (
     <>
       {/* Header band */}
-      <div className="bg-[#2A221D] py-20 px-6 md:px-12 lg:px-24">
+      <div className="bg-[#2A221D] py-14 sm:py-20 px-4 sm:px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <p className="text-[10px] uppercase tracking-[0.25em] text-amber-400 mb-4">What We Do</p>
-            <h1 className="font-serif text-4xl md:text-6xl font-light text-white leading-tight">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl font-light text-white leading-tight">
               Our <em className="italic">Services</em>
             </h1>
-            <p className="mt-6 text-white/60 text-base max-w-xl leading-relaxed">
+            <p className="mt-4 sm:mt-6 text-white/60 text-sm sm:text-base max-w-xl leading-relaxed">
               Four decades of practice across architecture, urban design, project management, 
               and heritage conservation — trusted by government and private clients alike.
             </p>
@@ -137,7 +137,7 @@ const Services = () => {
       </div>
 
       {/* Services grid */}
-      <section className="bg-[#f5f2ee] py-20 px-6 md:px-12 lg:px-24">
+      <section className="bg-[#f5f2ee] py-14 sm:py-20 px-4 sm:px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <p className="text-[10px] uppercase tracking-[0.25em] text-amber-700 mb-6">Capabilities</p>

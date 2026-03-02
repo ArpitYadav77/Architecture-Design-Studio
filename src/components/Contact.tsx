@@ -19,15 +19,15 @@ const Contact = () => {
   return (
     <section id="contact" className="bg-[#f5f2ee]">
       {/* Page header band */}
-      <div className="bg-[#2A221D] py-20 px-6 md:px-12 lg:px-24">
+      <div className="bg-[#2A221D] py-14 sm:py-20 px-4 sm:px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <p className="text-[10px] uppercase tracking-[0.25em] text-amber-400 mb-4">Contact</p>
-            <h1 className="font-serif text-4xl md:text-6xl font-light text-white leading-tight">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl font-light text-white leading-tight">
               Bachitter Singh<br />
               <em className="italic">Associates</em>
             </h1>
-            <p className="mt-6 text-white/60 text-base max-w-xl leading-relaxed" style={{ letterSpacing: "0.02em" }}>
+            <p className="mt-4 sm:mt-6 text-white/60 text-sm sm:text-base max-w-xl leading-relaxed" style={{ letterSpacing: "0.02em" }}>
               We welcome project enquiries, collaborations, and consultations. 
               Reach out through any of the channels below or send us a query directly.
             </p>
@@ -35,8 +35,8 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-14 sm:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24">
 
           {/* LEFT — Contact Details */}
           <div>

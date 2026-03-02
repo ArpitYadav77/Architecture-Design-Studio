@@ -136,21 +136,30 @@
   }
 }
 
+/* ── Lightweight page-fade animation ──────────────────────────────── */
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-page-fade {
+  animation: pageFadeIn 0.3s ease-out both;
+}
+
 @layer utilities {
   .section-padding {
-    @apply px-6 md:px-12 lg:px-24 py-20 md:py-32;
+    @apply px-4 sm:px-6 md:px-12 lg:px-24 py-14 sm:py-20 md:py-32;
   }
 
   .heading-xl {
-    @apply font-serif text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[0.9];
+    @apply font-serif text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[0.9];
   }
 
   .heading-lg {
-    @apply font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[0.95];
+    @apply font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[0.95];
   }
 
   .heading-md {
-    @apply font-serif text-2xl md:text-3xl font-light tracking-tight;
+    @apply font-serif text-xl sm:text-2xl md:text-3xl font-light tracking-tight;
   }
 
   .body-lg {

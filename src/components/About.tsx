@@ -1,5 +1,5 @@
 import ScrollReveal from "./ScrollReveal";
-import architectPortrait from "@/assets/architect-portrait.jpg";
+import architectPortrait from "@/assets/architect-portrait.webp";
 
 const stats = [
   { number: "1983", label: "Year Established" },
@@ -87,8 +87,8 @@ const AboutAndTeam = () => {
   return (
     <>
       {/* ================= ABOUT SECTION ================= */}
-      <section id="about" className="py-28 bg-[#f5f2ee] text-neutral-900">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+      <section id="about" className="py-14 sm:py-20 md:py-28 bg-[#f5f2ee] text-neutral-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24">
 
           <ScrollReveal>
             <p className="uppercase tracking-[0.3em] text-xs text-amber-700 mb-10">
@@ -96,13 +96,13 @@ const AboutAndTeam = () => {
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-start">
 
             {/* LEFT CONTENT */}
             <div>
               <ScrollReveal delay={100}>
-                <h2 className="text-4xl md:text-5xl font-serif font-light leading-tight mb-8">
-                  Architecture that harmonises <br />
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-light leading-tight mb-6 sm:mb-8">
+                  Architecture that harmonises <br className="hidden sm:block" />
                   <span className="italic">vision, function & legacy</span>
                 </h2>
               </ScrollReveal>
@@ -177,8 +177,8 @@ const AboutAndTeam = () => {
       </section>
 
       {/* ================= OUR TEAM SECTION ================= */}
-      <section id="team" className="py-28 bg-white text-neutral-900">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+      <section id="team" className="py-14 sm:py-20 md:py-28 bg-white text-neutral-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24">
 
           <ScrollReveal>
             <p className="uppercase tracking-[0.3em] text-xs text-amber-700 mb-6">
@@ -248,8 +248,8 @@ const AboutAndTeam = () => {
       </section>
 
       {/* ================= MILESTONES SECTION ================= */}
-      <section id="milestones" className="py-28 bg-[#2A221D] text-white">
-        <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-24">
+      <section id="milestones" className="py-14 sm:py-20 md:py-28 bg-[#2A221D] text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24">
 
           <ScrollReveal>
             <p className="uppercase tracking-[0.3em] text-xs text-amber-400 mb-6">
