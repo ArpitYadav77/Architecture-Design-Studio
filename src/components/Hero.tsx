@@ -69,24 +69,22 @@ const Hero = memo(() => {
     setTimeout(() => setIsAnimating(false), 700);
   }, [isAnimating, currentSlide]);
 
-  // Auto-slide — only on mobile (poster-only); on desktop the video `onEnded` drives transitions
+  // Fallback auto-slide — only if video fails to trigger onEnded (e.g. poster-only)
+  // Normally the video onEnded callback drives slide transitions
   useEffect(() => {
-    if (isMobile && !isPaused) {
-      autoSlideRef.current = setInterval(nextSlide, 5000);
-    }
+    // No interval needed — onEnded handles it
     return () => {
       if (autoSlideRef.current) clearInterval(autoSlideRef.current);
     };
-  }, [isMobile, isPaused, nextSlide]);
+  }, []);
 
   // When a video finishes playing, advance to the next slide
   const handleVideoEnded = useCallback(() => {
     if (!isPaused) nextSlide();
   }, [isPaused, nextSlide]);
 
-  // Play only current video, pause & reset others — skip on mobile (poster only)
+  // Play only current video, pause & reset others
   useEffect(() => {
-    if (isMobile) return;
     videoRefs.current.forEach((v, i) => {
       if (!v) return;
       if (i === currentSlide) {
@@ -96,7 +94,7 @@ const Hero = memo(() => {
         v.pause();
       }
     });
-  }, [currentSlide, isMobile]);
+  }, [currentSlide]);
 
   return (
     <section
@@ -134,8 +132,8 @@ const Hero = memo(() => {
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{ zIndex: 0 }}
                   />
-                  {/* Video — desktop only, lazy loaded */}
-                  {!isMobile && shouldLoad && (
+                  {/* Video — lazy loaded */}
+                  {shouldLoad && (
                     <video
                       ref={(el) => { videoRefs.current[index] = el; }}
                       src={slide.video}
