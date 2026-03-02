@@ -88,6 +88,8 @@ const Hero = memo(() => {
     videoRefs.current.forEach((v, i) => {
       if (!v) return;
       if (i === currentSlide) {
+        // Ensure muted is set as a property (React prop alone can miss the HTML attribute)
+        v.muted = true;
         v.currentTime = 0;
         v.play().catch(() => {});
       } else {
@@ -135,12 +137,17 @@ const Hero = memo(() => {
                   {/* Video — lazy loaded */}
                   {shouldLoad && (
                     <video
-                      ref={(el) => { videoRefs.current[index] = el; }}
+                      ref={(el) => {
+                        videoRefs.current[index] = el;
+                        // React's `muted` prop doesn't always set the HTML attribute
+                        // — force it on the DOM element so mobile browsers allow autoplay
+                        if (el) el.muted = true;
+                      }}
                       src={slide.video}
                       autoPlay={index === currentSlide}
                       muted
                       playsInline
-                      preload={index === 0 ? "auto" : "none"}
+                      preload="auto"
                       poster={slide.poster}
                       onEnded={handleVideoEnded}
                       className="absolute inset-0 w-full h-full object-cover"
