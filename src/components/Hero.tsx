@@ -1,69 +1,80 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const slides = [
+  {
+    video: "/architecture/building_view.mp4",
+    poster: "/architecture/arch1.png",
+    label: "Architecture & Civic Design",
+    heading: "Bachitter Singh\nAssociates",
+    sub: "Over four decades of shaping India's most enduring civic, institutional, and architectural landmarks.",
+  },
+  {
+    video: "/architecture/society_view.mp4",
+    poster: "/architecture/arch2.png",
+    label: "Commercial & Institutional",
+    heading: "Where Form\nMeets Purpose",
+    sub: "From high courts to legislative assemblies — spaces built for permanence, authority, and the public good.",
+  },
+  {
+    video: "/architecture/house_lawn.mp4",
+    poster: "/architecture/arch3.png",
+    label: "Cultural & Urban Works",
+    heading: "Legacy\nIn Every Line",
+    sub: "200+ delivered projects across India, master-planning 420+ acres of civic and cultural landscape.",
+  },
+] as const;
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const autoSlideRef = useRef<NodeJS.Timeout | null>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
-  const slides = [
-    {
-      video: "/architecture/building_view.mp4",
-      label: "Architecture & Civic Design",
-      heading: "Bachitter Singh\nAssociates",
-      sub: "Over four decades of shaping India's most enduring civic, institutional, and architectural landmarks.",
-    },
-    {
-      video: "/architecture/society_view.mp4",
-      label: "Commercial & Institutional",
-      heading: "Where Form\nMeets Purpose",
-      sub: "From high courts to legislative assemblies — spaces built for permanence, authority, and the public good.",
-    },
-    {
-      video: "/architecture/house_lawn.mp4",
-      label: "Cultural & Urban Works",
-      heading: "Legacy\nIn Every Line",
-      sub: "200+ delivered projects across India, master-planning 420+ acres of civic and cultural landscape.",
-    },
-  ];
-
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentSlide((prev) => (prev + 1) % slides.length);
     setTimeout(() => setIsAnimating(false), 700);
-  };
+  }, [isAnimating]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
     setTimeout(() => setIsAnimating(false), 700);
-  };
+  }, [isAnimating]);
 
-  const goToSlide = (index: number) => {
+  const goToSlide = useCallback((index: number) => {
     if (isAnimating || index === currentSlide) return;
     setIsAnimating(true);
     setCurrentSlide(index);
     setTimeout(() => setIsAnimating(false), 700);
-  };
+  }, [isAnimating, currentSlide]);
 
-  // Auto-slide functionality
+  // Auto-slide
   useEffect(() => {
     if (!isPaused) {
-      autoSlideRef.current = setInterval(() => {
-        nextSlide();
-      }, 3000); // 3 seconds
+      autoSlideRef.current = setInterval(nextSlide, 5000);
     }
-
     return () => {
-      if (autoSlideRef.current) {
-        clearInterval(autoSlideRef.current);
-      }
+      if (autoSlideRef.current) clearInterval(autoSlideRef.current);
     };
-  }, [isPaused, currentSlide]);
+  }, [isPaused, nextSlide]);
+
+  // Play only current video, pause others for performance
+  useEffect(() => {
+    videoRefs.current.forEach((v, i) => {
+      if (!v) return;
+      if (i === currentSlide) {
+        v.play().catch(() => {});
+      } else {
+        v.pause();
+      }
+    });
+  }, [currentSlide]);
 
 
   return (
@@ -72,27 +83,51 @@ const Hero = () => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Image Slides */}
+      {/* Video Slides — GPU-accelerated transform */}
       <div className="absolute inset-0">
         <div className="relative w-full h-screen overflow-hidden">
           <div
-            className="flex transition-transform duration-700 ease-in-out"
-            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            className="flex h-full"
+            style={{
+              transform: `translate3d(-${currentSlide * 100}%, 0, 0)`,
+              transition: "transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)",
+              willChange: "transform",
+            }}
           >
-            {slides.map((slide, index) => (
-              <div key={index} className="w-full h-screen flex-shrink-0 relative">
-                <video
-                  src={slide.video}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
-                {/* Dark gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/70" />
-              </div>
-            ))}
+            {slides.map((slide, index) => {
+              // Only mount video for current and adjacent slides
+              const shouldLoad = Math.abs(index - currentSlide) <= 1 ||
+                (currentSlide === 0 && index === slides.length - 1) ||
+                (currentSlide === slides.length - 1 && index === 0);
+
+              return (
+                <div key={index} className="w-full h-screen flex-shrink-0 relative" style={{ contain: "layout paint" }}>
+                  {/* Poster image — always present, prevents blank state */}
+                  <img
+                    src={slide.poster}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ zIndex: 0 }}
+                  />
+                  {shouldLoad && (
+                    <video
+                      ref={(el) => { videoRefs.current[index] = el; }}
+                      src={slide.video}
+                      autoPlay={index === currentSlide}
+                      muted
+                      loop
+                      playsInline
+                      preload={index === 0 ? "auto" : "none"}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      style={{ zIndex: 1 }}
+                    />
+                  )}
+                  {/* Dark gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/70" style={{ zIndex: 2 }} />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

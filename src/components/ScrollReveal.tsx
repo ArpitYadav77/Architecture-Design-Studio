@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, ReactNode } from "react";
+import { useState, useEffect, useRef, ReactNode, memo } from "react";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -6,35 +6,54 @@ interface ScrollRevealProps {
   delay?: number;
 }
 
-const ScrollReveal = ({ children, className = "", delay = 0 }: ScrollRevealProps) => {
+/**
+ * GPU-accelerated scroll reveal using IntersectionObserver.
+ * - Uses translate3d for hardware-accelerated compositing (avoids layout thrashing).
+ * - Single observer per component; disconnects after trigger (one-shot).
+ * - Respects `prefers-reduced-motion` via CSS (animations become instant).
+ */
+const ScrollReveal = memo(({ children, className = "", delay = 0 }: ScrollRevealProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), delay);
+          if (delay > 0) {
+            setTimeout(() => setIsVisible(true), delay);
+          } else {
+            setIsVisible(true);
+          }
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(el);
     return () => observer.disconnect();
   }, [delay]);
 
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      } ${className}`}
+      className={className}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translate3d(0,0,0)" : "translate3d(0,24px,0)",
+        transition: "opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)",
+        willChange: isVisible ? "auto" : "transform, opacity",
+      }}
     >
       {children}
     </div>
   );
-};
+});
+
+ScrollReveal.displayName = "ScrollReveal";
 
 export default ScrollReveal;

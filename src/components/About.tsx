@@ -156,6 +156,8 @@ const AboutAndTeam = () => {
                 <img
                   src={architectPortrait}
                   alt="Ar. Bachitter Singh — Principal Architect"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute bottom-8 left-8 bg-[#b37a45] text-white px-10 py-6 shadow-2xl">
@@ -201,6 +203,8 @@ const AboutAndTeam = () => {
                         <img
                           src={member.image}
                           alt={member.name}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover object-top transition-all duration-500 ease-in-out grayscale group-hover:grayscale-0 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />

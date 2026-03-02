@@ -71,6 +71,8 @@ const ServiceCard = ({ service }: { service: Service }) => {
             key={index}
             src={img}
             alt={service.title}
+            loading="lazy"
+            decoding="async"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
               index === current ? "opacity-100" : "opacity-0"
             }`}

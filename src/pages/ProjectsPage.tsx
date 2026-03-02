@@ -128,6 +128,8 @@ const ProjectsPage = () => {
                       <img
                         src={project.image}
                         alt={project.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                       />
                       <div className="absolute top-4 left-4 bg-accent/90 text-white text-[10px] uppercase tracking-widest px-3 py-1">
@@ -200,6 +202,8 @@ const ProjectsPage = () => {
                     <img
                       src={project.image}
                       alt={project.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                     />
                     <div

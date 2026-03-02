@@ -185,6 +185,8 @@ const ProjectDetailPage = () => {
               <img
                 src={project.gallery[0]}
                 alt={`${project.title} — main view`}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
@@ -199,6 +201,8 @@ const ProjectDetailPage = () => {
                     <img
                       src={img}
                       alt={`${project.title} — view ${idx + 2}`}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
@@ -234,6 +238,8 @@ const ProjectDetailPage = () => {
                       <img
                         src={rel.image}
                         alt={rel.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       <div
