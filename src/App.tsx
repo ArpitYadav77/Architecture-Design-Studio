@@ -27,8 +27,6 @@ const queryClient = new QueryClient();
 const App = () => {
   const [loading, setLoading] = useState(true);
 
-  if (loading) return <Loader onFinish={() => setLoading(false)} />;
-
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -51,6 +49,8 @@ const App = () => {
             </Routes>
           </Suspense>
         </BrowserRouter>
+        {/* Loader overlays the already-mounted app — no cold-mount delay */}
+        {loading && <Loader onFinish={() => setLoading(false)} />}
       </TooltipProvider>
     </QueryClientProvider>
   );
