@@ -5,12 +5,20 @@ import { portfolioProjects } from "@/data/projects";
 const categories = ["All", "Commercial", "Cultural", "Education", "Hospitality", "Interior", "Residential", "Urban", "Competition"];
 
 const sizeMap: Record<string, "large" | "small"> = {
-  "cedar-house":      "large",
-  "vertex-tower":     "small",
-  "the-loft-gallery": "small",
-  "dune-villa":       "large",
-  "civic-promenade":  "small",
-  "the-wave-museum":  "large",
+  "amritsar-residence":    "large",
+  "chandigarh-golf-club":  "small",
+  "chandigarh-square":     "small",
+  "kasauli-retreat":       "large",
+  "ambala-mall":           "large",
+  "hp-tower":              "small",
+  "mohali-club":           "small",
+  "farmhouse":             "large",
+  "clinic":                "small",
+  "haryana-cm-residence":  "small",
+  "landmark-wave":         "large",
+  "vidhan-sabha":          "large",
+  "punjab-haryana-high-court": "small",
+  "university-campus":     "small",
 };
 
 const Projects = () => {

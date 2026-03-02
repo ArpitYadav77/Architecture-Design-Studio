@@ -192,24 +192,33 @@ const ProjectDetailPage = () => {
             </div>
           </ScrollReveal>
 
-          {/* Secondary grid */}
-          {project.gallery.length > 1 && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {project.gallery.slice(1).map((img, idx) => (
-                <ScrollReveal key={idx} delay={idx * 80 + 100}>
-                  <div className="aspect-[4/3] overflow-hidden bg-muted group">
-                    <img
-                      src={img}
-                      alt={`${project.title} — view ${idx + 2}`}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          )}
+          {/* Secondary images — stacked vertically (1 col) or grid (2-3 cols) */}
+          {project.gallery.length > 1 && (() => {
+            const secondary = project.gallery.slice(1);
+            const gridCols =
+              secondary.length === 1
+                ? "grid-cols-1"
+                : secondary.length === 2
+                ? "grid-cols-1 md:grid-cols-2"
+                : "grid-cols-1 md:grid-cols-3";
+            return (
+              <div className={`grid ${gridCols} gap-4`}>
+                {secondary.map((img, idx) => (
+                  <ScrollReveal key={idx} delay={idx * 80 + 100}>
+                    <div className="aspect-[4/3] overflow-hidden bg-muted group">
+                      <img
+                        src={img}
+                        alt={`${project.title} — view ${idx + 2}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            );
+          })()}
         </div>
       )}
 

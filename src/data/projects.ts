@@ -10,8 +10,8 @@ export interface ProjectData {
   category: string;
   location: string;
   year: string;
-  image: string;           // primary / hero image (resolved asset URL)
-  gallery: string[];       // detail-page gallery images
+  image: string;           // primary / hero image (cover — shown on card + detail hero)
+  gallery: string[];       // detail-page gallery: [interior1, interior2, ...]
   tagline: string;         // short one-liner shown on card hover
   description: string;     // body text on detail page
   area?: string;           // gross floor / site area
@@ -21,25 +21,104 @@ export interface ProjectData {
 }
 
 // ── resolved at module level so images are bundled by Vite ──────────────────
-import residentialImg from "@/assets/project-residential.jpg";
-import commercialImg   from "@/assets/project-commercial.jpg";
-import interiorImg     from "@/assets/project-interior.jpg";
-import urbanImg        from "@/assets/project-urban.jpg";
-import villaImg        from "@/assets/project-villa.jpg";
-import museumImg       from "@/assets/project-museum.jpg";
-import heroImg         from "@/assets/hero-architecture.jpg";
+
+// ── Real project assets ──────────────────────────────────────────────────────
+// Vidhan Sabha
+import vidhanSabhaImg         from "@/assets/Vidhan_Sabha.png";
+
+// Punjab & Haryana High Court
+import punjabHCImg            from "@/assets/Punjab_Haryana_HC.png";
+
+// Amritsar Residence
+import amritsarCover          from "@/assets/Amritsar.png";
+import amritsarInt1           from "@/assets/Amritsar_cover_Interior.png";
+import amritsarInt2           from "@/assets/Amritsar_Interior.png";
+import amritsarInt3           from "@/assets/Amritsar_Interior2.png";
+import amritsarInt4           from "@/assets/Amritsar_cover2_interior.png";
+
+// Chandigarh Golf Club
+import golfCover              from "@/assets/chandigarh_golf_cover.png";
+import golfTopview            from "@/assets/Chandigarh_Golf_Club_topview.png";
+
+// Chandigarh Square
+import chandigarhSqCover      from "@/assets/chandigarh_square.png";
+import chandigarhSq2          from "@/assets/chandigarh_square2.png";
+
+// Kasauli Retreat
+import kasauliCover           from "@/assets/Kasuli_cover.png";
+import kasauliInterior        from "@/assets/Kasauli_Interior.png";
+import kasauliSideview        from "@/assets/sideview_Kasuli.png";
+import kasauliInt2            from "@/assets/Kasuli_interior2.png";
+import kasauliInt3            from "@/assets/kasuli_interior3.png";
+
+// University Campus
+import universityCover        from "@/assets/university_cover.png";
+import universityInt1         from "@/assets/university_interior.png";
+import universityInt2         from "@/assets/university_interior2.png";
+import uniAdmin               from "@/assets/uni_admin_building.png";
+import uniBuilding            from "@/assets/uni_building.png";
+import uniBuildingInt         from "@/assets/uni_building_interior.png";
+import uniLibrary             from "@/assets/Uni_library_building.png";
+
+// Vidhan Sabha extra
+import vidhanSabha2           from "@/assets/vidhan_sabha2.png";
+
+// Amritsar exterior
+import amritsarExterior       from "@/assets/Amrtisar_exterior.png";
+
+// Ambala Mall
+import ambalaMallCover        from "@/assets/Ambala_Mall.png";
+import ambalaInt1             from "@/assets/Ambala_interior.png";
+import ambalaInt2             from "@/assets/Ambala_interior2.png";
+import ambalaInt3             from "@/assets/Ambala_interior3.png";
+
+// Clinic
+import clinicCover            from "@/assets/clinic_cover.png";
+import clinicInt1             from "@/assets/clinic_interior.png";
+import clinicPassage          from "@/assets/clinic_passage_interior.png";
+
+// Farmhouse
+import farmhouseCover         from "@/assets/farmhouse.png";
+import farmhouseExt1          from "@/assets/farmhouse_exterior.png";
+import farmhouseExt2          from "@/assets/farmhouse_exterior2.png";
+import farmhouseInt1          from "@/assets/farmhouse_interior.png";
+import farmhouseInt2          from "@/assets/farmhouse_interior2.png";
+import farmhouseInt3          from "@/assets/farmhouse_interior3.png";
+
+// Haryana CM Residence
+import haryanaCMInterior      from "@/assets/haryana_CM_interior.png";
+
+// HP Tower
+import hpTowerCover           from "@/assets/HP_tower.png";
+import hpTower2               from "@/assets/HP_tower2.png";
+import hpInterior             from "@/assets/HP_interior.png";
+
+// LandMark Wave
+import landmarkWaveCover      from "@/assets/LandMark_wave_cover.png";
+import landmarkWaveExt        from "@/assets/landmark_wave_exterior.png";
+import landmarkWaveInt1       from "@/assets/LandMark_wave_interior.png";
+import landmarkWaveInt2       from "@/assets/landMark_wave_interior2.png";
+
+// Mohali Club
+import mohaliClubCover        from "@/assets/Mohali_club.png";
+import mohaliClubInt1         from "@/assets/mohali_club_interior.png";
+import mohaliInt2             from "@/assets/mohali_interior2.png";
 
 // ── project catalogue ────────────────────────────────────────────────────────
 export const allProjects: ProjectData[] = [
-  // ── LANDMARK projects ─────────────────────────────────────────────────────
+
+  // ════════════════════════════════════════════════════════════════════════════
+  // LANDMARK PROJECTS  (isLandmark: true → appear in the Prestige band)
+  // ════════════════════════════════════════════════════════════════════════════
+
   {
     slug: "vidhan-sabha",
     title: "Vidhan Sabha",
     category: "Civic & Legislative",
     location: "Punjab, India",
     year: "2000s",
-    image: heroImg,
-    gallery: [heroImg, commercialImg, urbanImg, museumImg],
+    image: vidhanSabhaImg,
+    gallery: [vidhanSabha2],
     tagline: "A civic landmark of public trust and architectural permanence.",
     description:
       "The Vidhan Sabha commission represents the pinnacle of Bachitter Singh Associates' civic practice — a legislative assembly campus conceived to reflect democratic authority, public transparency, and enduring architectural permanence.\n\nThe complex is arranged around a central ceremonial axis that draws visitors through a procession of arrival courts, colonnaded galleries, and a principal chamber whose proportions echo the gravitas of institutional purpose. Stone surfaces are detailed to age with dignity, while the plan hierarchy ensures clear separation of public, representative, and administrative precincts.\n\nDelivered over a decade of coordinated design and construction management, the project remains among the most significant legislative commissions in the region — a building that citizens recognise as belonging to them.",
@@ -48,14 +127,15 @@ export const allProjects: ProjectData[] = [
     status: "Built",
     isLandmark: true,
   },
+
   {
     slug: "punjab-haryana-high-court",
     title: "Punjab & Haryana High Court",
     category: "Judiciary",
     location: "Chandigarh, India",
     year: "1990s",
-    image: commercialImg,
-    gallery: [commercialImg, heroImg, urbanImg, residentialImg],
+    image: punjabHCImg,
+    gallery: [punjabHCImg],
     tagline: "Institutional gravity expressed in restrained, authoritative form.",
     description:
       "The Punjab & Haryana High Court extension and renovation project demanded a response that was simultaneously deferential to Le Corbusier's Chandigarh master plan and confident in its own contemporary voice.\n\nOur approach centred on three principles: civic dignity, material continuity with the existing fabric, and spatial clarity that supports the complex choreography of judicial proceedings. Courtrooms are precisely oriented for natural light while maintaining acoustic integrity; public circulation is separated from the judiciary's internal routes by a layered sequence of lobbies and transitional courts.\n\nThe muscular concrete detailing, brise-soleil screens, and load-bearing masonry walls create a building that reads as permanent — resistant to trend and rooted in place.",
@@ -64,98 +144,208 @@ export const allProjects: ProjectData[] = [
     status: "Built",
     isLandmark: true,
   },
+
   {
-    slug: "the-wave-museum",
-    title: "The Wave Museum",
-    category: "Cultural",
-    location: "Miami, FL",
-    year: "2024",
-    image: museumImg,
-    gallery: [museumImg, interiorImg, commercialImg, heroImg],
-    tagline: "Fluid structure redefining public engagement with art and memory.",
+    slug: "university-campus",
+    title: "University Campus",
+    category: "Education",
+    location: "Punjab, India",
+    year: "2010s",
+    image: universityCover,
+    gallery: [universityInt1, universityInt2, uniAdmin, uniBuilding, uniBuildingInt, uniLibrary],
+    tagline: "A campus designed for knowledge, community, and institutional pride.",
     description:
-      "The Wave Museum takes its formal cue from the coastal topography of Miami — a building that appears to have emerged from the shoreline rather than been placed upon it. The undulating roof structure is a hybrid shell engineered in collaboration with Arup, spanning 80 metres without intermediate columns and flooding the main gallery with calibrated, diffuse natural light.\n\nThe public programme threads from street level through a landscaped arrival plaza, into double-height entrance lobbies, and finally into a sequence of galleries whose proportions shift with the exhibit type. Permanent collections occupy controlled, top-lit halls; temporary exhibitions inhabit flexible loft spaces with operable curtain walls that open to the waterfront terrace.\n\nThe project has been shortlisted for the AIA National Honor Award and the World Architecture Festival Cultural category.",
-    area: "18,200 sq m",
-    client: "City of Miami Cultural Trust",
-    status: "Built — 2024",
+      "This university campus project embodies Bachitter Singh Associates' commitment to institutional design that balances civic grandeur with functional clarity. The master plan organises academic, administrative, and residential precincts along a central pedestrian spine that encourages movement and interaction between faculties.\n\nThe main administration block anchors the campus with a bold facade that draws from regional architectural tradition while embracing contemporary construction methods. Expansive glazing floods lecture halls and seminar rooms with natural light; landscaped courtyards between blocks create sheltered outdoor spaces for study and congregation.\n\nThe campus plan was designed to accommodate future growth phases — each addition reinforcing the existing spatial grammar rather than competing with it.",
+    area: "85,000 sq m",
+    client: "State University Trust",
+    status: "Built",
     isLandmark: true,
   },
 
-  // ── PORTFOLIO projects ─────────────────────────────────────────────────────
+  // ════════════════════════════════════════════════════════════════════════════
+  // PORTFOLIO PROJECTS  (appear on homepage Selected Works + full portfolio grid)
+  // ════════════════════════════════════════════════════════════════════════════
+
   {
-    slug: "cedar-house",
-    title: "Cedar House",
+    slug: "amritsar-residence",
+    title: "Amritsar Residence",
     category: "Residential",
-    location: "Portland, OR",
-    year: "2024",
-    image: residentialImg,
-    gallery: [residentialImg, interiorImg, villaImg, urbanImg],
-    tagline: "Refined contemporary living within a Pacific Northwest forest setting.",
+    location: "Amritsar, India",
+    year: "2018",
+    image: amritsarCover,
+    gallery: [amritsarExterior, amritsarInt1, amritsarInt2, amritsarInt3, amritsarInt4],
+    tagline: "Refined contemporary living rooted in the warmth of Punjabi culture.",
     description:
-      "Cedar House sits on a steeply wooded lot in the West Hills of Portland, its form negotiated between the tree canopy and the ground plane with deliberate restraint. The structure is lifted slightly above the slope on a concrete plinth, allowing the landscape to pass beneath and the main living volumes to hover at canopy level.\n\nThe material palette — board-formed concrete, Douglas fir cladding, and floor-to-ceiling glazing — was chosen to age alongside the forest. Interior planning prioritises a single great room oriented toward the tree line, with sleeping wings arranged along a spine corridor that draws north light throughout the day.\n\nThe project received LEED Gold certification and the 2024 AIA Oregon Residential Design Award.",
-    area: "420 sq m",
-    client: "Private",
-    status: "Completed 2024",
+      "The Amritsar Residence is a private family home commissioned with a clear brief: a house that feels open and generous in its public spaces, while offering absolute privacy and serenity in the private wing.\n\nThe exterior composition presents a confident contemporary facade with deep-set windows and textured stone cladding that references the material heritage of the region. The interior, by contrast, is light and voluminous — double-height living areas dissolve the boundary between formal reception and everyday living, while a central courtyard garden brings landscape and light deep into the plan.\n\nFinishes throughout were selected for longevity and warmth: marble floors in public areas, hand-trowelled plaster walls, and custom joinery in solid timber. Each space was detailed to the same standard of precision applied to the firm's larger civic commissions.",
+    area: "680 sq m",
+    client: "Private Family",
+    status: "Completed 2018",
   },
+
   {
-    slug: "vertex-tower",
-    title: "Vertex Tower",
+    slug: "chandigarh-golf-club",
+    title: "Chandigarh Golf Club",
+    category: "Hospitality",
+    location: "Chandigarh, India",
+    year: "2015",
+    image: golfCover,
+    gallery: [golfTopview],
+    tagline: "A hospitality landmark set within the lush greens of Chandigarh.",
+    description:
+      "The Chandigarh Golf Club commission asked for a clubhouse facility that would be equally at home hosting elite tournament events and relaxed weekend rounds. The design responds to the landscape first — the building traces the contour of the 18th fairway, its long horizontal profile reading as a natural extension of the rolling greens rather than an imposition upon them.\n\nFrom the approach drive, the building presents a welcoming forecourt framed by a generous porte-cochère. Inside, the plan organises changing rooms, pro shop, bar, and dining room in a clear sequence from arrival to the panoramic terrace overlooking the course. The terrace — shaded by a deep cantilevered canopy — functions as the social heart of the building: a place to watch play, celebrate results, and simply enjoy the landscape.\n\nMaterial choices reinforce the relationship with the course: warm sandstone, open timber ceilings, and brass fittings that will patina beautifully over time.",
+    area: "4,200 sq m",
+    client: "Chandigarh Golf Association",
+    status: "Built",
+  },
+
+  {
+    slug: "chandigarh-square",
+    title: "Chandigarh Square",
     category: "Commercial",
-    location: "Chicago, IL",
-    year: "2023",
-    image: commercialImg,
-    gallery: [commercialImg, interiorImg, heroImg, museumImg],
-    tagline: "High-performance commercial tower redefining Chicago's west loop skyline.",
+    location: "Chandigarh, India",
+    year: "2012",
+    image: chandigarhSqCover,
+    gallery: [chandigarhSq2],
+    tagline: "A landmark commercial address at the heart of Chandigarh's civic grid.",
     description:
-      "Vertex Tower occupies a prominent corner site in Chicago's West Loop, its 38-storey profile clad in a unitised curtain wall that references the city's tradition of structural expression while achieving LEED Platinum energy performance.\n\nThe tapering plan responds to solar geometry: the broader south face is shaded by integrated horizontal fins; the narrower north face is fully glazed to draw in the diffuse northern light prized by the creative-industry tenants. A publicly accessible sky terrace at level 28 provides panoramic views across the city grid and Lake Michigan.\n\nThe building achieved a WELL Gold accreditation for workplace wellness indicators — air quality, biophilic daylighting, and end-of-trip cycling facilities — making it among the first in Illinois to combine LEED Platinum with WELL Gold.",
-    area: "62,000 sq m",
-    client: "Meridian Real Estate Partners",
-    status: "Completed 2023",
+      "Chandigarh Square occupies a prominent site within the city's sector grid — a location that demanded an architectural response conscious of both its civic visibility and its commercial purpose. The building reads as a composed ensemble of volumes: a taller tower element marking the corner, and a lower podium base that mediates between the street and the formal public space of the forecourt.\n\nThe facade system is a refined grid of pre-cast concrete panels and full-height glazing, its proportions calibrated to the scale of the boulevard. At street level, double-height retail frontage animates the public realm; above, office floors are served by efficient plate configurations that maximise natural light penetration.\n\nThe project was delivered on a fast-track programme while maintaining the firm's characteristic attention to material quality and spatial generosity at the building's public interfaces.",
+    area: "22,000 sq m",
+    client: "Chandigarh Commercial Developers",
+    status: "Built",
   },
+
   {
-    slug: "the-loft-gallery",
-    title: "The Loft Gallery",
-    category: "Interior",
-    location: "New York, NY",
-    year: "2023",
-    image: interiorImg,
-    gallery: [interiorImg, residentialImg, museumImg, commercialImg],
-    tagline: "A raw Tribeca loft transformed into an artist's live-work sanctuary.",
-    description:
-      "The brief called for transforming a 600 sq m Tribeca raw loft into a combined gallery, studio, and private residence — a space that would be simultaneously gallery-white and warmly domestic, open for collectors on weekends and intimate for everyday life.\n\nThe solution layers three zones along the loft's 40-metre length: a public gallery zone at the street-facing end with polished concrete floors and gallery lighting track; a transitional library-studio in the middle, separated by a full-height bookcase wall that also doubles as an acoustic buffer; and a private residential wing at the rear with warm timber flooring and a kitchen that opens through sliding glass to a planted terrace.\n\nAll existing structural columns were retained and celebrated as compositional elements, their steel flanges wire-brushed and left clear-sealed as a counterpoint to the white plaster ceiling.",
-    area: "600 sq m",
-    client: "Private collector",
-    status: "Completed 2023",
-  },
-  {
-    slug: "dune-villa",
-    title: "Dune Villa",
+    slug: "kasauli-retreat",
+    title: "Kasauli Retreat",
     category: "Residential",
-    location: "Scottsdale, AZ",
-    year: "2024",
-    image: villaImg,
-    gallery: [villaImg, residentialImg, urbanImg, interiorImg],
-    tagline: "Desert luxury distilled into clean geometric form under an Arizona sky.",
+    location: "Kasauli, Himachal Pradesh",
+    year: "2020",
+    image: kasauliCover,
+    gallery: [kasauliSideview, kasauliInterior, kasauliInt2, kasauliInt3],
+    tagline: "A hillside retreat where architecture defers entirely to the landscape.",
     description:
-      "Dune Villa is a private desert retreat set within a 12-acre land holding in the Sonoran Desert. The programme — four bedroom suites, a poolside pavilion, a home theatre, and a contemplative garden — was organised as a linear series of pavilions linked by a shaded walkway that functions as an outdoor circulation spine.\n\nThe architecture is minimal and assertive: rammed-earth walls in three tones of local desert soil, flat concrete roofs with generous overhangs calibrated to the summer sun angle, and floor-to-ceiling pivot doors that fully open the living pavilion to the infinity pool and desert panorama beyond.\n\nPassive cooling strategies — thermal mass, cross-ventilation, and deep shade — reduce mechanical cooling loads by 60% compared to a comparable conventional house. The project achieved Living Future Institute Net Zero Carbon certification.",
-    area: "780 sq m",
+      "Perched on a cedar-forested ridge above Kasauli, this private retreat was designed around a deceptively simple proposition: build as little as possible, and make every built element count.\n\nThe single-storey plan traces the contour of the hillside, minimising cut and fill while aligning all primary living spaces toward the valley panorama. The structure is a hybrid of local stone masonry — echoing the vernacular buildings of the region — and precision-fabricated steel that enables the generous overhangs and cantilevered decks which are the building's signature moments.\n\nInteriors are spare and material-honest: exposed stone walls, wide-plank timber floors, and a restrained palette of white-washed surfaces that frame rather than compete with the views. The retreat operates off-grid with solar generation, rainwater harvesting, and passive heating strategies appropriate to the mountain climate.",
+    area: "320 sq m",
     client: "Private",
-    status: "Completed 2024",
+    status: "Completed 2020",
   },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // NEW PROJECTS FROM ASSET SCAN
+  // ═══════════════════════════════════════════════════════════════════════════
+
   {
-    slug: "civic-promenade",
-    title: "Civic Promenade",
-    category: "Urban",
-    location: "Seattle, WA",
+    slug: "landmark-wave",
+    title: "LandMark Wave",
+    category: "Commercial",
+    location: "Chandigarh, India",
     year: "2022",
-    image: urbanImg,
-    gallery: [urbanImg, heroImg, residentialImg, museumImg],
-    tagline: "1.2 km of re-stitched waterfront returning the city to its shoreline.",
+    image: landmarkWaveCover,
+    gallery: [landmarkWaveExt, landmarkWaveInt1, landmarkWaveInt2],
+    tagline: "A wave-form commercial landmark reshaping Chandigarh's skyline.",
     description:
-      "The Seattle Civic Promenade was a major urban-design and landscape commission to reclaim a 1.2-kilometre stretch of the Elliott Bay waterfront for pedestrian and civic use, following the removal of the Alaskan Way Viaduct.\n\nOur masterplan organises the promenade as a sequence of distinct civic rooms — a ferry arrival plaza, a performance lawn, a market canopy, a marina overlook, and a children's nature play zone — each with its own programme identity but united by a continuous paving datum and a double row of native Western Red Cedar planting.\n\nNight-time lighting was designed as an integral part of the public realm, using warm 2700K fixtures embedded in seating elements and bollards to create a safe, inviting atmosphere without light spill onto the bay. The project was awarded the ASLA National Award of Excellence in Urban Design.",
-    area: "58,000 sq m (site)",
-    client: "City of Seattle Office of the Waterfront",
-    status: "Completed 2022",
+      "LandMark Wave is a mixed-use commercial development whose undulating facade gives the project its identity — a continuous surface that rises and dips along the street edge, offering shaded retail frontage at grade and a distinctive silhouette against the city sky.\n\nThe building programme stacks retail at the base, flexible commercial floors above, and a public sky terrace at the crown that frames views across Chandigarh's sector grid. The facade's wave geometry is not merely formal — each curve is oriented to deflect the prevailing west sun while channelling cross-ventilation through the common areas.\n\nMaterial choices reinforce the building's civic ambition: polished stone cladding, fritted glass panels, and warm-toned metal fins that shift in colour through the day as light conditions change.",
+    area: "32,000 sq m",
+    client: "LandMark Group",
+    status: "Built",
+    isLandmark: true,
+  },
+
+  {
+    slug: "ambala-mall",
+    title: "Ambala Mall",
+    category: "Commercial",
+    location: "Ambala, Haryana",
+    year: "2016",
+    image: ambalaMallCover,
+    gallery: [ambalaInt1, ambalaInt2, ambalaInt3],
+    tagline: "A retail destination designed for movement, light, and civic life.",
+    description:
+      "The Ambala Mall is a full-scale retail and entertainment destination anchored by a clear organisational logic: a central atrium that floods the interior with natural light and acts as the social spine around which all retail, dining, and entertainment units are arranged.\n\nThe exterior composition is confident and welcoming — a layered facade of glass and stone that signals the building's scale while maintaining a human-scaled street interface at ground level. Entry sequences are ceremonial without being theatrical, guiding visitors naturally into the atrium and the retail floors beyond.\n\nInterior detailing prioritises durability and ease of maintenance while maintaining a quality of finish appropriate to the building's civic role as a major gathering place for the city.",
+    area: "45,000 sq m",
+    client: "Ambala Mall Developers",
+    status: "Built",
+  },
+
+  {
+    slug: "hp-tower",
+    title: "HP Tower",
+    category: "Commercial",
+    location: "Chandigarh, India",
+    year: "2014",
+    image: hpTowerCover,
+    gallery: [hpTower2, hpInterior],
+    tagline: "Corporate presence and civic identity in one composed tower form.",
+    description:
+      "HP Tower was designed to serve as a flagship corporate address — a building that announces institutional permanence while offering the spatial flexibility demanded by a major technology and services organisation.\n\nThe tower's profile is defined by its expressed structural frame and the rhythm of its facade panels, which alternate solid and glazed bays to control solar gain on the east and west orientations. The base podium is carved to create a generous covered public plaza — a civic gesture that connects the building to the life of the surrounding precinct.\n\nInternally, floor plates are column-free over large spans, enabling efficient open-plan working arrangements. A shared conference centre and visitor reception occupy the most prominent position in the building — at the junction of the podium and the tower — where views and natural light are maximised.",
+    area: "18,500 sq m",
+    client: "HP India",
+    status: "Built",
+  },
+
+  {
+    slug: "mohali-club",
+    title: "Mohali Club",
+    category: "Hospitality",
+    location: "Mohali, Punjab",
+    year: "2017",
+    image: mohaliClubCover,
+    gallery: [mohaliClubInt1, mohaliInt2],
+    tagline: "A members' club conceived for leisure, community, and refined living.",
+    description:
+      "The Mohali Club is a private members' facility serving one of Punjab's fastest-growing residential and commercial precincts. The brief called for a clubhouse that would feel genuinely exclusive without being unwelcoming — a place where members could entertain guests, conduct informal business, or simply relax in surroundings of understated quality.\n\nThe building is organised around a landscaped internal courtyard that acts as a cooling device, a visual amenity, and a spatial anchor. Dining, bar, and lounge spaces wrap this courtyard on three sides, each zone with a distinct character but unified by a consistent material language of terracotta tile, teak joinery, and painted plaster.\n\nA sports wing to the rear houses a gymnasium, squash courts, and a 25-metre pool. The connection between social and sports wings was designed as a sheltered walkway lined with planting — a transition that reinforces the sense of moving through different parts of a composed estate rather than a single building.",
+    area: "6,800 sq m",
+    client: "Mohali Club Society",
+    status: "Built",
+  },
+
+  {
+    slug: "farmhouse",
+    title: "Farmhouse",
+    category: "Residential",
+    location: "Punjab, India",
+    year: "2019",
+    image: farmhouseCover,
+    gallery: [farmhouseExt1, farmhouseExt2, farmhouseInt1, farmhouseInt2, farmhouseInt3],
+    tagline: "A countryside residence where open land and refined living meet.",
+    description:
+      "This private farmhouse occupies a generous rural landholding outside Chandigarh, its architecture conceived as a series of interlocking volumes that frame views across open fields while maintaining a composed, legible facade from the approach drive.\n\nThe plan separates the house into a formal wing for entertaining and guest accommodation and a private family wing oriented toward the garden and the evening sun. Both wings are connected by a covered verandah that runs the full length of the building — a threshold between interior and landscape that is the most-used space in the house.\n\nConstruction is in load-bearing brick with concrete-framed openings, the external walls finished in a warm ochre plaster that references the agricultural buildings of the Punjab plains. Interior finishes were selected for their material warmth and practicality: stone floors throughout, hand-painted tiles in the kitchen and bathrooms, and bespoke joinery crafted by local workshops.",
+    area: "950 sq m",
+    client: "Private Family",
+    status: "Completed 2019",
+  },
+
+  {
+    slug: "clinic",
+    title: "Clinic",
+    category: "Interior",
+    location: "Chandigarh, India",
+    year: "2021",
+    image: clinicCover,
+    gallery: [clinicInt1, clinicPassage],
+    tagline: "A healthcare interior that prioritises calm, clarity, and patient dignity.",
+    description:
+      "Designing a medical clinic requires resolving a fundamental tension: the space must be efficient and hygienic, yet calming and humane. This project in Chandigarh addressed that challenge through material restraint, careful spatial sequencing, and a palette chosen to reduce clinical anxiety without sacrificing cleanliness or function.\n\nThe entry and waiting area is deliberately airy, with high ceilings, warm-toned wall panels, and indirect lighting that avoids the harshness of conventional medical environments. Consultation rooms are compact but precisely planned — each with a window, good natural light, and storage that keeps clinical equipment out of sight when not in use.\n\nThe circulation spine — a wide, gently lit passage — connects all zones of the clinic while providing clear wayfinding. Materials throughout are selected for ease of cleaning and long-term durability: porcelain floor tiles, moisture-resistant wall finishes, and solid-core joinery.",
+    area: "380 sq m",
+    client: "Private Medical Practice",
+    status: "Completed 2021",
+  },
+
+  {
+    slug: "haryana-cm-residence",
+    title: "Haryana CM Residence",
+    category: "Civic & Legislative",
+    location: "Haryana, India",
+    year: "2005",
+    image: haryanaCMInterior,
+    gallery: [],
+    tagline: "An official residence that balances state protocol with domestic grace.",
+    description:
+      "The Chief Minister's official residence in Haryana demanded an architecture that could hold two competing requirements simultaneously: the formal weight appropriate to a head-of-government residence, and the domestic comfort and privacy expected of a private home.\n\nThe design achieves this through clear zoning — public reception rooms occupy the formal front of the building, while the private residential quarters are set behind a landscaped court that screens them from the arrival sequence. The interior of the formal wing is designed for state occasions: high ceilings, generous circulation, and a material palette of marble, polished plaster, and solid timber that signals institutional quality without resorting to ostentation.\n\nEvery detail — from the pattern of the stone floors to the design of the window hardware — was treated with the same care the firm applies to its major public commissions.",
+    area: "2,400 sq m",
+    client: "Government of Haryana",
+    status: "Built",
+    isLandmark: true,
   },
 ];
 
