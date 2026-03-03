@@ -105,10 +105,10 @@ import mohaliClubInt1         from "@/assets/mohali_club_interior.webp";
 import mohaliInt2             from "@/assets/mohali_interior2.webp";
 
 // Reception
-import receptionCover         from "@/assets/Reception_cover.jpeg";
-import receptionInt1          from "@/assets/reception_interior.jpeg";
-import receptionInt2          from "@/assets/reception_interior2.jpeg";
-import receptionInt3          from "@/assets/reception_interior3.jpeg";
+import receptionCover         from "@/assets/Reception_cover.webp";
+import receptionInt1          from "@/assets/reception_interior.webp";
+import receptionInt2          from "@/assets/reception_interior2.webp";
+import receptionInt3          from "@/assets/reception_interior3.webp";
 
 // ── project catalogue ────────────────────────────────────────────────────────
 export const allProjects: ProjectData[] = [
