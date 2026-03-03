@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const slides = [
   {
-    video: "/architecture/building_view.mp4",
-    poster: "/architecture/building_view_poster.webp",
+    video: "/architecture/reception.mp4",
+    poster: "/architecture/reception_poster.webp",
     label: "Architecture & Civic Design",
     heading: "Bachitter Singh\nAssociates",
     sub: "Over four decades of shaping India's most enduring civic, institutional, and architectural landmarks.",

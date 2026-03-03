@@ -162,10 +162,10 @@ const AboutAndTeam = () => {
                 />
                 <div className="absolute bottom-8 left-8 bg-[#b37a45] text-white px-10 py-6 shadow-2xl">
                   <p className="uppercase tracking-[0.35em] text-xs">
-                    AR. BACHITTER SINGH
+                    Mr.BACHITTER SINGH
                   </p>
                   <p className="font-serif text-xl font-light mt-2">
-                    Principal Architect
+                    Sr. Architect  
                   </p>
                   <p className="text-xs text-white/70 mt-1 uppercase tracking-widest">Est. 1983 · Chandigarh</p>
                 </div>
@@ -176,7 +176,7 @@ const AboutAndTeam = () => {
         </div>
       </section>
 
-      {/* ================= OUR TEAM SECTION ================= */}
+      {/* ================= OUR TEAM SECTION (commented out) =================
       <section id="team" className="py-14 sm:py-20 md:py-28 bg-white text-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24">
 
@@ -196,7 +196,6 @@ const AboutAndTeam = () => {
             {team.map((member, i) => (
               <ScrollReveal key={member.name} delay={i * 80}>
                 <div className="group cursor-pointer">
-                  {/* Photo or Initials */}
                   <div className="aspect-[3/4] overflow-hidden bg-neutral-100 mb-5 relative">
                     {member.image ? (
                       <>
@@ -217,7 +216,6 @@ const AboutAndTeam = () => {
                       </div>
                     )}
                   </div>
-                  {/* Info */}
                   <div className="border-t border-neutral-200 pt-4">
                     <h3 className="font-serif text-lg font-medium text-neutral-900 group-hover:text-amber-700 transition-colors duration-300 leading-snug">
                       {member.name}
@@ -246,6 +244,7 @@ const AboutAndTeam = () => {
           </div>
         </div>
       </section>
+      ================= END OUR TEAM SECTION ================= */}
 
       {/* ================= MILESTONES SECTION ================= */}
       <section id="milestones" className="py-14 sm:py-20 md:py-28 bg-[#2A221D] text-white">
