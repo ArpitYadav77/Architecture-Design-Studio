@@ -104,6 +104,12 @@ import mohaliClubCover        from "@/assets/Mohali_club.webp";
 import mohaliClubInt1         from "@/assets/mohali_club_interior.webp";
 import mohaliInt2             from "@/assets/mohali_interior2.webp";
 
+// Reception
+import receptionCover         from "@/assets/Reception_cover.jpeg";
+import receptionInt1          from "@/assets/reception_interior.jpeg";
+import receptionInt2          from "@/assets/reception_interior2.jpeg";
+import receptionInt3          from "@/assets/reception_interior3.jpeg";
+
 // ── project catalogue ────────────────────────────────────────────────────────
 export const allProjects: ProjectData[] = [
 
@@ -329,6 +335,22 @@ export const allProjects: ProjectData[] = [
     area: "380 sq m",
     client: "Private Medical Practice",
     status: "Completed 2021",
+  },
+
+  {
+    slug: "reception",
+    title: "Reception",
+    category: "Interior",
+    location: "India",
+    year: "2023",
+    image: receptionCover,
+    gallery: [receptionInt1, receptionInt2, receptionInt3],
+    tagline: "A reception space designed to welcome with elegance and purpose.",
+    description:
+      "This contemporary reception interior was conceived around a single design intent: to make an instant, lasting impression on every visitor who enters. The space balances a refined material palette with a layout that guides people naturally from arrival to their destination.\n\nThe reception desk is positioned as the visual anchor — a sculpted, backlit centrepiece that communicates identity and authority. Behind it, a textured feature wall provides depth and warmth while concealing service zones from public view. Seating areas are arranged to feel generous and unhurried, with carefully chosen upholstery and ambient lighting that softens the formality of the setting.\n\nFloor finishes transition from polished stone at the entry threshold to warmer material zones in the waiting area, reinforcing the spatial hierarchy of the plan. Every detail — joinery profiles, light fitting selections, and the placement of greenery — was coordinated to deliver a coherent, high-quality environment appropriate to the client's brand and culture.",
+    area: "220 sq m",
+    client: "Private",
+    status: "Completed 2023",
   },
 
   {
