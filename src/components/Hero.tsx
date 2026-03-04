@@ -61,7 +61,6 @@ const Hero = memo(() => {
   /* ── State ── */
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeLayer, setActiveLayer] = useState<0 | 1>(0);
-  const [isPaused, setIsPaused] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   /* ── Refs ── */
@@ -133,15 +132,13 @@ const Hero = memo(() => {
 
   /* ── Video ended → advance to next slide automatically ────────── */
   const handleVideoEnded = useCallback(() => {
-    if (!isPaused) nextSlide();
-  }, [isPaused, nextSlide]);
+    nextSlide();
+  }, [nextSlide]);
 
   /* ── Render ───────────────────────────────────────────────────── */
   return (
     <section
       className="relative h-[100svh] w-full overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
     >
       {/* ─── Video layers (always mounted, crossfaded via opacity) ─── */}
       <div className="absolute inset-0">
