@@ -7,7 +7,7 @@
 
 backend:
   name: github
-  repo: your-github-username/your-repo-name # ← UPDATE THIS
+  repo: ArpitYadav77/Architecture-Design-Studio
   branch: main
   commit_messages:
     create: "content: add project {{slug}}"
@@ -38,11 +38,7 @@ collections:
     format: "json"
     slug: "{{slug}}"
     summary: "{{title}} — {{category}} · {{location}}"
-    sortable_fields:
-      fields: ["date", "title", "category"]
-      default:
-        field: "date"
-        direction: "Descending"
+    sortable_fields: ["date", "title", "category"]
 
     fields:
       - label: "Title"
@@ -120,7 +116,7 @@ collections:
         required: false
         hint: "e.g. Built, Completed 2024, In Progress"
 
-      - label: "Date Added"
+      - label: "Date"
         name: "date"
         widget: "datetime"
         date_format: "YYYY-MM-DD"
