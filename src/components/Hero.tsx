@@ -13,35 +13,35 @@ const FADE_DURATION = 1_200;  // crossfade transition in ms
    ═══════════════════════════════════════════════════════════════════ */
 const slides = [
   {
-    video: "/architecture/receptionHD.mp4",
+    video: "/architecture/reception.mp4",
     poster: undefined,
     label: "Architecture & Civic Design",
     heading: "Bachitter Singh\nAssociates",
     sub: "Over four decades of shaping India's most enduring civic, institutional, and architectural landmarks.",
   },
   {
-    video: "/architecture/colonyHD.mp4",
+    video: "/architecture/colony.mp4",
     poster: undefined,
     label: "Commercial & Institutional",
     heading: "Where Form\nMeets Purpose",
     sub: "From high courts to legislative assemblies — spaces built for permanence, authority, and the public good.",
   },
   {
-    video: "/architecture/lawnHD.mp4",
+    video: "/architecture/lawn.mp4",
     poster: undefined,
     label: "Cultural & Urban Works",
     heading: "Legacy\nIn Every Line",
     sub: "200+ delivered projects across India, master-planning 420+ acres of civic and cultural landscape.",
   },
   {
-    video: "/architecture/buildingHD.mp4",
+    video: "/architecture/building.mp4",
     poster: undefined,
     label: "Skyline & Urban Design",
     heading: "Defining\nSkylines",
     sub: "Bold silhouettes that reshape cityscapes — towers, complexes, and mixed-use developments designed at metropolitan scale.",
   },
   {
-    video: "/architecture/schoolHD.mp4",
+    video: "/architecture/school.mp4",
     poster: undefined,
     label: "Healthcare & Wellness",
     heading: "Healing\nBy Design",
