@@ -1,7 +1,17 @@
 import { useEffect, useState, useRef, useCallback, memo } from "react";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import LazyVideo, { type LazyVideoHandle } from "./LazyVideo";
 
+/* ═══════════════════════════════════════════════════════════════════
+   Constants
+   ═══════════════════════════════════════════════════════════════════ */
+const SLIDE_INTERVAL = 6_000; // auto-advance every 6 s
+const FADE_DURATION = 1_200;  // crossfade transition in ms
+
+/* ═══════════════════════════════════════════════════════════════════
+   Slide data — 5 cinematic background videos
+   ═══════════════════════════════════════════════════════════════════ */
 const slides = [
   {
     video: "/architecture/reception.mp4",
@@ -24,149 +34,143 @@ const slides = [
     heading: "Legacy\nIn Every Line",
     sub: "200+ delivered projects across India, master-planning 420+ acres of civic and cultural landscape.",
   },
+  {
+    video: "/architecture/building_view.mp4",
+    poster: "/architecture/building_view_poster.webp",
+    label: "Skyline & Urban Design",
+    heading: "Defining\nSkylines",
+    sub: "Bold silhouettes that reshape cityscapes — towers, complexes, and mixed-use developments designed at metropolitan scale.",
+  },
+  {
+    video: "/architecture/hospital.mp4",
+    poster: undefined,
+    label: "Healthcare & Wellness",
+    heading: "Healing\nBy Design",
+    sub: "State-of-the-art hospitals and wellness centres where architecture supports care, recovery, and human dignity.",
+  },
 ] as const;
 
-/** Detect mobile via matchMedia (no resize thrashing) */
-const isMobileQuery =
-  typeof window !== "undefined"
-    ? window.matchMedia("(max-width: 768px)")
-    : null;
+/* ═══════════════════════════════════════════════════════════════════
+   Hero component
 
+   Two-layer crossfade system:
+   ─ Layer A and Layer B are always mounted (never remounted).
+   ─ One plays while the other preloads the next video.
+   ─ On slide change, opacity swaps — zero flicker, no DOM churn.
+   ═══════════════════════════════════════════════════════════════════ */
 const Hero = memo(() => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  /* ── State ── */
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeLayer, setActiveLayer] = useState<0 | 1>(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [isMobile, setIsMobile] = useState(isMobileQuery?.matches ?? false);
-  const autoSlideRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Track mobile state
+  /* ── Refs ── */
+  const layerA = useRef<LazyVideoHandle>(null);
+  const layerB = useRef<LazyVideoHandle>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+  // Mutable mirrors — prevent stale closures inside setTimeout
+  const activeRef = useRef<0 | 1>(0);
+  const indexRef = useRef(0);
+  const busyRef = useRef(false);
+
+  const layer = useCallback(
+    (l: 0 | 1) => (l === 0 ? layerA : layerB),
+    [],
+  );
+
+  /* ── Core transition ──────────────────────────────────────────── */
+  const goTo = useCallback(
+    (target: number) => {
+      if (busyRef.current || target === indexRef.current) return;
+      busyRef.current = true;
+      setIsTransitioning(true);
+
+      const cur: 0 | 1 = activeRef.current;
+      const nxt: 0 | 1 = cur === 0 ? 1 : 0;
+      const standby = layer(nxt);
+      const old = layer(cur);
+
+      // Ensure standby has the target video, then play
+      standby.current?.load(slides[target].video, slides[target].poster);
+      standby.current?.play();
+
+      // Swap opacity
+      activeRef.current = nxt;
+      indexRef.current = target;
+      setActiveLayer(nxt);
+      setCurrentIndex(target);
+
+      // After crossfade completes → housekeeping
+      setTimeout(() => {
+        old.current?.pause();
+        // Preload the FOLLOWING video on the now-hidden layer
+        const preIdx = (target + 1) % slides.length;
+        old.current?.load(slides[preIdx].video, slides[preIdx].poster);
+        busyRef.current = false;
+        setIsTransitioning(false);
+      }, FADE_DURATION);
+    },
+    [layer],
+  );
+
+  const nextSlide = useCallback(
+    () => goTo((indexRef.current + 1) % slides.length),
+    [goTo],
+  );
+
+  const prevSlide = useCallback(
+    () => goTo((indexRef.current - 1 + slides.length) % slides.length),
+    [goTo],
+  );
+
+  /* ── Bootstrap: play first video, preload second ──────────────── */
   useEffect(() => {
-    if (!isMobileQuery) return;
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    isMobileQuery.addEventListener("change", handler);
-    return () => isMobileQuery.removeEventListener("change", handler);
+    layerA.current?.play();
+    if (slides.length > 1) {
+      layerB.current?.load(slides[1].video, slides[1].poster);
+    }
   }, []);
 
-  const nextSlide = useCallback(() => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-    setTimeout(() => setIsAnimating(false), 700);
-  }, [isAnimating]);
-
-  const prevSlide = useCallback(() => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    setTimeout(() => setIsAnimating(false), 700);
-  }, [isAnimating]);
-
-  const goToSlide = useCallback((index: number) => {
-    if (isAnimating || index === currentSlide) return;
-    setIsAnimating(true);
-    setCurrentSlide(index);
-    setTimeout(() => setIsAnimating(false), 700);
-  }, [isAnimating, currentSlide]);
-
-  // Fallback timer — advances slide after 10s if onEnded never fires (mobile Safari quirk).
-  // Resets on every slide change so it always counts from the start of each slide.
+  /* ── Auto-advance timer ───────────────────────────────────────── */
   useEffect(() => {
-    if (isPaused) return;
-    autoSlideRef.current = setTimeout(nextSlide, 10000);
-    return () => {
-      if (autoSlideRef.current) clearTimeout(autoSlideRef.current);
-    };
-  }, [currentSlide, isPaused, nextSlide]);
+    if (isPaused || isTransitioning) return;
+    timerRef.current = setTimeout(nextSlide, SLIDE_INTERVAL);
+    return () => clearTimeout(timerRef.current);
+  }, [currentIndex, isPaused, isTransitioning, nextSlide]);
 
-  // onEnded — advance immediately when video finishes (clears the fallback timer via state update)
-  const handleVideoEnded = useCallback(() => {
-    if (autoSlideRef.current) clearTimeout(autoSlideRef.current);
-    if (!isPaused) nextSlide();
-  }, [isPaused, nextSlide]);
-
-  // Play only current video, pause & reset others
-  useEffect(() => {
-    videoRefs.current.forEach((v, i) => {
-      if (!v) return;
-      if (i === currentSlide) {
-        // Ensure muted is set as a property (React prop alone can miss the HTML attribute)
-        v.muted = true;
-        v.currentTime = 0;
-        v.play().catch(() => {});
-      } else {
-        v.pause();
-      }
-    });
-  }, [currentSlide]);
-
+  /* ── Render ───────────────────────────────────────────────────── */
   return (
     <section
       className="relative h-[100svh] w-full overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Video Slides — GPU-accelerated transform */}
+      {/* ─── Video layers (always mounted, crossfaded via opacity) ─── */}
       <div className="absolute inset-0">
-        <div className="relative w-full h-full overflow-hidden">
-          <div
-            className="flex h-full"
-            style={{
-              transform: `translate3d(-${currentSlide * 100}%, 0, 0)`,
-              transition: "transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)",
-              willChange: "transform",
-            }}
-          >
-            {slides.map((slide, index) => {
-              // Only mount video for current and adjacent slides
-              const shouldLoad = Math.abs(index - currentSlide) <= 1 ||
-                (currentSlide === 0 && index === slides.length - 1) ||
-                (currentSlide === slides.length - 1 && index === 0);
-
-              return (
-                <div key={index} className="w-full h-full flex-shrink-0 relative" style={{ contain: "layout paint" }}>
-                  {/* Poster image — always present, fast LCP, mobile fallback */}
-                  <img
-                    src={slide.poster}
-                    alt=""
-                    aria-hidden="true"
-                    loading={index === 0 ? "eager" : "lazy"}
-                    decoding={index === 0 ? "sync" : "async"}
-                    fetchPriority={index === 0 ? "high" : "auto"}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    style={{ zIndex: 0 }}
-                  />
-                  {/* Video — lazy loaded */}
-                  {shouldLoad && (
-                    <video
-                      ref={(el) => {
-                        videoRefs.current[index] = el;
-                        // React's `muted` prop doesn't always set the HTML attribute
-                        // — force it on the DOM element so mobile browsers allow autoplay
-                        if (el) el.muted = true;
-                      }}
-                      src={slide.video}
-                      autoPlay={index === currentSlide}
-                      muted
-                      playsInline
-                      preload="auto"
-                      poster={slide.poster}
-                      onEnded={handleVideoEnded}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      style={{ zIndex: 1 }}
-                    />
-                  )}
-                  {/* Dark gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/70" style={{ zIndex: 2 }} />
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <LazyVideo
+          ref={layerA}
+          initialSrc={slides[0].video}
+          poster={slides[0].poster}
+          isActive={activeLayer === 0}
+          fadeDuration={FADE_DURATION}
+        />
+        <LazyVideo
+          ref={layerB}
+          isActive={activeLayer === 1}
+          fadeDuration={FADE_DURATION}
+        />
+        {/* Dark gradient overlay — always above both video layers */}
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/70"
+          style={{ zIndex: 3 }}
+        />
       </div>
 
-      {/* Firm identity bar — top left below navbar */}
-      <div className="absolute top-[76px] left-4 sm:left-6 md:left-12 lg:left-24 z-20 flex items-center gap-3 opacity-0 animate-fade-up"
+      {/* ─── Firm identity bar — top left below navbar ─── */}
+      <div
+        className="absolute top-[76px] left-4 sm:left-6 md:left-12 lg:left-24 z-20 flex items-center gap-3 opacity-0 animate-fade-up"
         style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
       >
         <span className="text-[10px] text-white/70 uppercase font-medium tracking-[0.22em]">
@@ -178,8 +182,9 @@ const Hero = memo(() => {
         </span>
       </div>
 
-      {/* Location badge — right side (hidden on mobile) */}
-      <div className="absolute top-[76px] right-6 md:right-12 z-20 hidden md:flex items-center gap-2 opacity-0 animate-fade-up"
+      {/* ─── Location badge — right side (desktop only) ─── */}
+      <div
+        className="absolute top-[76px] right-6 md:right-12 z-20 hidden md:flex items-center gap-2 opacity-0 animate-fade-up"
         style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
       >
         <MapPin className="w-4 h-4 text-accent" />
@@ -188,40 +193,54 @@ const Hero = memo(() => {
         </span>
       </div>
 
-      {/* Left-Aligned Text Content */}
+      {/* ─── Left-aligned text content ─── */}
       <div className="relative z-10 h-full flex flex-col justify-end pb-20 sm:pb-24 md:pb-32 px-4 sm:px-6 md:px-12 lg:px-24">
         {/* Slide label */}
         <p
-          key={`label-${currentSlide}`}
+          key={`label-${currentIndex}`}
           className="text-[10px] sm:text-[11px] text-accent font-semibold mb-4 sm:mb-5 opacity-0 animate-fade-up uppercase"
-          style={{ animationDelay: "0.2s", animationFillMode: "forwards", letterSpacing: "0.20em" }}
+          style={{
+            animationDelay: "0.2s",
+            animationFillMode: "forwards",
+            letterSpacing: "0.20em",
+          }}
         >
-          {slides[currentSlide].label}
+          {slides[currentIndex].label}
         </p>
 
-        {/* Main heading — responsive to prevent overflow on mobile */}
+        {/* Main heading */}
         <h1
-          key={`h-${currentSlide}`}
+          key={`h-${currentIndex}`}
           className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-serif font-light leading-[1.08] mb-4 sm:mb-6 text-white opacity-0 animate-fade-up"
-          style={{ animationDelay: "0.35s", animationFillMode: "forwards", letterSpacing: "0.01em", whiteSpace: "pre-line" }}
+          style={{
+            animationDelay: "0.35s",
+            animationFillMode: "forwards",
+            letterSpacing: "0.01em",
+            whiteSpace: "pre-line",
+          }}
         >
-          {slides[currentSlide].heading}
+          {slides[currentIndex].heading}
         </h1>
 
-        {/* Line */}
+        {/* Accent line */}
         <div
-          key={`line-${currentSlide}`}
+          key={`line-${currentIndex}`}
           className="w-10 sm:w-12 h-[2px] bg-accent mb-4 sm:mb-6 opacity-0 animate-fade-up"
           style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}
         />
 
         {/* Subtext */}
         <p
-          key={`sub-${currentSlide}`}
+          key={`sub-${currentIndex}`}
           className="text-sm sm:text-base md:text-lg text-white/80 font-light mb-8 sm:mb-10 max-w-xl opacity-0 animate-fade-up"
-          style={{ animationDelay: "0.6s", animationFillMode: "forwards", letterSpacing: "0.02em", lineHeight: "1.7" }}
+          style={{
+            animationDelay: "0.6s",
+            animationFillMode: "forwards",
+            letterSpacing: "0.02em",
+            lineHeight: "1.7",
+          }}
         >
-          {slides[currentSlide].sub}
+          {slides[currentIndex].sub}
         </p>
 
         {/* CTAs — stack on very small screens, 44px min tap target */}
@@ -246,10 +265,10 @@ const Hero = memo(() => {
         </div>
       </div>
 
-      {/* Navigation Arrows — 44px min tap target for mobile */}
+      {/* ─── Navigation arrows — 44px min tap target ─── */}
       <button
         onClick={prevSlide}
-        disabled={isAnimating}
+        disabled={isTransitioning}
         className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 text-white/60 hover:text-white transition-colors duration-300 disabled:opacity-30 disabled:cursor-not-allowed group"
         aria-label="Previous slide"
       >
@@ -260,7 +279,7 @@ const Hero = memo(() => {
 
       <button
         onClick={nextSlide}
-        disabled={isAnimating}
+        disabled={isTransitioning}
         className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 text-white/60 hover:text-white transition-colors duration-300 disabled:opacity-30 disabled:cursor-not-allowed group"
         aria-label="Next slide"
       >
@@ -269,19 +288,19 @@ const Hero = memo(() => {
         </div>
       </button>
 
-      {/* Pagination Dots — padded for mobile tap */}
+      {/* ─── Pagination dots — padded for mobile tap ─── */}
       <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {slides.map((_, index) => (
           <button
             key={index}
-            onClick={() => goToSlide(index)}
-            disabled={isAnimating}
+            onClick={() => goTo(index)}
+            disabled={isTransitioning}
             className="group disabled:cursor-not-allowed p-2 -m-2"
             aria-label={`Go to slide ${index + 1}`}
           >
             <div
               className={`h-[1px] transition-all duration-500 ${
-                index === currentSlide
+                index === currentIndex
                   ? "w-12 bg-accent"
                   : "w-8 bg-white/40 group-hover:bg-white/70"
               }`}

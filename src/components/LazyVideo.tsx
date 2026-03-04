@@ -1,136 +1,178 @@
-import { useEffect, useRef, useState, memo } from "react";
+import {
+  useRef,
+  useState,
+  useCallback,
+  useEffect,
+  forwardRef,
+  useImperativeHandle,
+  memo,
+} from "react";
 
-interface LazyVideoProps {
-  src: string;
-  poster?: string;
-  className?: string;
-  style?: React.CSSProperties;
-  /** Root margin for IntersectionObserver — how early to start loading */
-  rootMargin?: string;
-  /** Whether to force-load regardless of viewport (e.g. above-the-fold) */
-  priority?: boolean;
+/* ═══════════════════════════════════════════════════════════════════
+   Public imperative API
+   ═══════════════════════════════════════════════════════════════════ */
+export interface LazyVideoHandle {
+  /** Hot-swap the video source without remounting the DOM node. */
+  load(src: string, poster?: string): void;
+  /** Start playback (catches autoplay rejections silently). */
+  play(): Promise<void>;
+  /** Pause playback. */
+  pause(): void;
+  /** `true` once the current source can play without buffering. */
+  readonly ready: boolean;
+  /** The underlying HTMLVideoElement (escape hatch). */
+  readonly el: HTMLVideoElement | null;
 }
 
-/**
- * Viewport-aware lazy video component.
- * - Only loads the video source when the element enters (or is near) the viewport.
- * - Shows a poster image until the video is ready, preventing blank loading states.
- * - Autoplay, muted, loop, playsInline — optimised for background/cinematic use.
- * - Uses `preload="none"` until intersection, then switches to `preload="auto"`.
- * - Pauses videos that scroll out of view to save resources.
- */
-const LazyVideo = memo(({
-  src,
-  poster,
-  className = "",
-  style,
-  rootMargin = "200px 0px",
-  priority = false,
-}: LazyVideoProps) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(priority);
-  const [isLoaded, setIsLoaded] = useState(false);
+/* ═══════════════════════════════════════════════════════════════════
+   Props
+   ═══════════════════════════════════════════════════════════════════ */
+interface LazyVideoProps {
+  /** Video loaded on first mount — later changes use handle.load(). */
+  initialSrc?: string;
+  /** Poster image displayed while the video buffers. */
+  poster?: string;
+  /** Drive layer opacity: true → 1, false → 0. */
+  isActive: boolean;
+  /** Crossfade transition duration in ms (default 1 200). */
+  fadeDuration?: number;
+  /** Extra Tailwind / CSS classes on the wrapper. */
+  className?: string;
+}
 
-  // Intersection Observer — load video when near viewport
-  useEffect(() => {
-    if (priority) {
-      setIsInView(true);
-      return;
-    }
+/* ═══════════════════════════════════════════════════════════════════
+   Component
 
-    const el = containerRef.current;
-    if (!el) return;
+   GPU-accelerated background-video layer for the hero crossfade
+   system.
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-        }
+   Guarantees:
+   ─ The <video> DOM node is NEVER unmounted / recreated.
+   ─ Source changes are imperative (handle.load()), so React never
+     tears down the element.
+   ─ Opacity is compositor-only (will-change: opacity) → 60 fps.
+   ─ A poster <img> dissolves out once the buffer is ready,
+     preventing any white / black flash on first load.
+   ═══════════════════════════════════════════════════════════════════ */
+const LazyVideo = memo(
+  forwardRef<LazyVideoHandle, LazyVideoProps>(
+    (
+      {
+        initialSrc,
+        poster: initialPoster,
+        isActive,
+        fadeDuration = 1200,
+        className = "",
       },
-      { rootMargin, threshold: 0 }
-    );
+      ref,
+    ) => {
+      const videoRef = useRef<HTMLVideoElement>(null);
+      const srcRef = useRef(initialSrc);
+      const [ready, setReady] = useState(false);
+      const [posterSrc, setPosterSrc] = useState(initialPoster);
 
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [priority, rootMargin]);
+      /* ── Imperative handle ────────────────────────────────────── */
+      useImperativeHandle(
+        ref,
+        () => ({
+          load(src: string, poster?: string) {
+            const v = videoRef.current;
+            if (!v || srcRef.current === src) return;
+            srcRef.current = src;
+            setReady(false);
+            setPosterSrc(poster);
+            // Disable autoplay so the preloading layer doesn't
+            // start playing while it's still hidden (opacity 0).
+            v.autoplay = false;
+            v.src = src;
+            v.load();
+          },
 
-  // Play/pause based on visibility to save GPU/CPU
-  useEffect(() => {
-    if (!videoRef.current || !isInView) return;
+          play() {
+            const v = videoRef.current;
+            if (!v) return Promise.resolve();
+            v.muted = true;
+            return v.play().catch(() => {});
+          },
 
-    const el = containerRef.current;
-    if (!el) return;
+          pause() {
+            videoRef.current?.pause();
+          },
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        const video = videoRef.current;
-        if (!video) return;
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
+          get ready() {
+            return ready;
+          },
+
+          get el() {
+            return videoRef.current;
+          },
+        }),
+        [ready],
+      );
+
+      /* ── First mount: set initial source ──────────────────────── */
+      useEffect(() => {
+        const v = videoRef.current;
+        if (!v) return;
+        // React's `muted` JSX prop doesn't always propagate the DOM
+        // property on every browser — force it for autoplay compat.
+        v.muted = true;
+        if (initialSrc) {
+          v.src = initialSrc;
+          v.load();
         }
-      },
-      { threshold: 0.1 }
-    );
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, []);
 
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [isInView]);
+      const handleCanPlayThrough = useCallback(() => setReady(true), []);
 
-  return (
-    <div
-      ref={containerRef}
-      className={className}
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        backgroundColor: "#1a1510",
-        ...style,
-      }}
-    >
-      {/* Poster fallback — visible until video loads */}
-      {poster && !isLoaded && (
-        <img
-          src={poster}
-          alt=""
-          aria-hidden="true"
+      /* ── Render ───────────────────────────────────────────────── */
+      return (
+        <div
+          className={`absolute inset-0 ${className}`}
           style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: 1,
+            opacity: isActive ? 1 : 0,
+            transition: `opacity ${fadeDuration}ms cubic-bezier(0.4, 0, 0.2, 1)`,
+            willChange: "opacity",
+            zIndex: isActive ? 2 : 1,
+            backfaceVisibility: "hidden",
+            contain: "layout paint",
           }}
-        />
-      )}
+          aria-hidden={!isActive}
+        >
+          {/* Poster fallback — dissolves once the video can play */}
+          {posterSrc && (
+            <img
+              src={posterSrc}
+              alt=""
+              aria-hidden="true"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{
+                zIndex: 0,
+                opacity: ready ? 0 : 1,
+                transition: "opacity 0.6s ease",
+              }}
+            />
+          )}
 
-      {isInView && (
-        <video
-          ref={videoRef}
-          src={src}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload={priority ? "auto" : "metadata"}
-          onLoadedData={() => setIsLoaded(true)}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            display: "block",
-            opacity: isLoaded ? 1 : 0,
-            transition: "opacity 0.6s ease",
-          }}
-        />
-      )}
-    </div>
-  );
-});
+          {/* Video — this DOM node is NEVER destroyed */}
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            onCanPlayThrough={handleCanPlayThrough}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ zIndex: 1 }}
+          />
+        </div>
+      );
+    },
+  ),
+);
 
 LazyVideo.displayName = "LazyVideo";
-
 export default LazyVideo;
