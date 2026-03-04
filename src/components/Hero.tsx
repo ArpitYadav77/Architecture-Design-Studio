@@ -6,7 +6,6 @@ import LazyVideo, { type LazyVideoHandle } from "./LazyVideo";
 /* ═══════════════════════════════════════════════════════════════════
    Constants
    ═══════════════════════════════════════════════════════════════════ */
-const SLIDE_INTERVAL = 6_000; // auto-advance every 6 s
 const FADE_DURATION = 1_200;  // crossfade transition in ms
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -68,7 +67,6 @@ const Hero = memo(() => {
   /* ── Refs ── */
   const layerA = useRef<LazyVideoHandle>(null);
   const layerB = useRef<LazyVideoHandle>(null);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   // Mutable mirrors — prevent stale closures inside setTimeout
   const activeRef = useRef<0 | 1>(0);
@@ -133,12 +131,10 @@ const Hero = memo(() => {
     }
   }, []);
 
-  /* ── Auto-advance timer ───────────────────────────────────────── */
-  useEffect(() => {
-    if (isPaused || isTransitioning) return;
-    timerRef.current = setTimeout(nextSlide, SLIDE_INTERVAL);
-    return () => clearTimeout(timerRef.current);
-  }, [currentIndex, isPaused, isTransitioning, nextSlide]);
+  /* ── Video ended → advance to next slide automatically ────────── */
+  const handleVideoEnded = useCallback(() => {
+    if (!isPaused) nextSlide();
+  }, [isPaused, nextSlide]);
 
   /* ── Render ───────────────────────────────────────────────────── */
   return (
@@ -155,11 +151,13 @@ const Hero = memo(() => {
           poster={slides[0].poster}
           isActive={activeLayer === 0}
           fadeDuration={FADE_DURATION}
+          onEnded={handleVideoEnded}
         />
         <LazyVideo
           ref={layerB}
           isActive={activeLayer === 1}
           fadeDuration={FADE_DURATION}
+          onEnded={handleVideoEnded}
         />
         {/* Dark gradient overlay — always above both video layers */}
         <div

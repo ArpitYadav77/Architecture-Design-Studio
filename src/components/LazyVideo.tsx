@@ -36,6 +36,8 @@ interface LazyVideoProps {
   isActive: boolean;
   /** Crossfade transition duration in ms (default 1 200). */
   fadeDuration?: number;
+  /** Called when the video finishes playing (no loop). */
+  onEnded?: () => void;
   /** Extra Tailwind / CSS classes on the wrapper. */
   className?: string;
 }
@@ -62,6 +64,7 @@ const LazyVideo = memo(
         poster: initialPoster,
         isActive,
         fadeDuration = 1200,
+        onEnded,
         className = "",
       },
       ref,
@@ -161,10 +164,10 @@ const LazyVideo = memo(
             ref={videoRef}
             autoPlay
             muted
-            loop
             playsInline
             preload="auto"
             onCanPlayThrough={handleCanPlayThrough}
+            onEnded={onEnded}
             className="absolute inset-0 w-full h-full object-cover"
             style={{ zIndex: 1 }}
           />
