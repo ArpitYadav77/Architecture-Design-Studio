@@ -6,10 +6,8 @@
 # ──────────────────────────────────────────────────────────────────────────────
 
 backend:
-  name: github
-  repo: ArpitYadav77/Architecture-Design-Studio
+  name: git-gateway
   branch: main
-  auth_endpoint: https://oauth.decapcms.org/auth
   commit_messages:
     create: "content: add project {{slug}}"
     update: "content: update project {{slug}}"
