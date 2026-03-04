@@ -6,7 +6,8 @@
 # ──────────────────────────────────────────────────────────────────────────────
 
 backend:
-  name: git-gateway
+  name: github
+  repo: ArpitYadav77/Architecture-Design-Studio
   branch: main
   commit_messages:
     create: "content: add project {{slug}}"
