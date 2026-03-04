@@ -48,10 +48,7 @@
               format: "json",
               slug: "{{slug}}",
               summary: "{{title}} — {{category}} · {{location}}",
-              sortable_fields: {
-                fields: ["date", "title", "category"],
-                default: { field: "date", direction: "Descending" }
-              },
+              sortable_fields: ["date", "title", "category"],
               fields: [
                 { label: "Title", name: "title", widget: "string", hint: "Project name displayed on the card and detail page." },
                 { label: "Category", name: "category", widget: "select", options: ["Commercial", "Cultural", "Education", "Hospitality", "Interior", "Residential", "Urban", "Competition", "Civic & Legislative"] },
