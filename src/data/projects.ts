@@ -371,12 +371,65 @@ export const allProjects: ProjectData[] = [
   },
 ];
 
+// ── CMS-managed projects (Decap CMS → /content/projects/*.json) ─────────────
+// At build time Vite eagerly imports every JSON file from the content folder.
+// When the admin publishes a new project via Decap, it commits a JSON file to
+// the repo → Vercel redeploys → the glob picks up the new file automatically.
+
+interface CMSProjectRaw {
+  title: string;
+  category: string;
+  location: string;
+  year: string;
+  description: string;
+  tagline?: string;
+  coverImage: string;
+  galleryImages?: string[];
+  date?: string;
+  area?: string;
+  client?: string;
+  status?: string;
+}
+
+const _cmsModules = import.meta.glob<CMSProjectRaw>(
+  "/content/projects/*.json",
+  { eager: true, import: "default" },
+);
+
+const _cmsProjects: ProjectData[] = Object.entries(_cmsModules)
+  .map(([filePath, raw]) => ({
+    slug: filePath.split("/").pop()?.replace(".json", "") || "",
+    title: raw.title,
+    category: raw.category,
+    location: raw.location,
+    year: raw.year,
+    image: raw.coverImage,
+    gallery: raw.galleryImages ?? [],
+    tagline: raw.tagline ?? "",
+    description: raw.description,
+    area: raw.area,
+    client: raw.client,
+    status: raw.status,
+    _cmsDate: raw.date, // kept for sorting, stripped below
+  }))
+  // newest CMS project first
+  .sort((a, b) => {
+    const da = a._cmsDate ? new Date(a._cmsDate).getTime() : 0;
+    const db = b._cmsDate ? new Date(b._cmsDate).getTime() : 0;
+    return db - da;
+  })
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  .map(({ _cmsDate, ...rest }) => rest as ProjectData);
+
+// ── combined dataset: CMS projects (latest first) + hardcoded projects ──────
+const _allCombined: ProjectData[] = [..._cmsProjects, ...allProjects];
+
 // ── helper: look up by slug ──────────────────────────────────────────────────
 export const getProjectBySlug = (slug: string): ProjectData | undefined =>
-  allProjects.find((p) => p.slug === slug);
+  _allCombined.find((p) => p.slug === slug);
 
 // ── landmark subset (for ProjectsPage landmark band) ────────────────────────
-export const landmarkProjects = allProjects.filter((p) => p.isLandmark);
+export const landmarkProjects = _allCombined.filter((p) => p.isLandmark);
 
-// ── portfolio subset (non-landmark) ─────────────────────────────────────────
-export const portfolioProjects = allProjects.filter((p) => !p.isLandmark);
+// ── portfolio subset (non-landmark — includes all CMS projects) ─────────────
+export const portfolioProjects = _allCombined.filter((p) => !p.isLandmark);

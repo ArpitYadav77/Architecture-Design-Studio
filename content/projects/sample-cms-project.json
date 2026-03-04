@@ -1,0 +1,14 @@
+{
+  "title": "Sample CMS Project",
+  "category": "Commercial",
+  "location": "Chandigarh, India",
+  "year": "2025",
+  "tagline": "A sample project added via Decap CMS to verify the integration.",
+  "description": "This is a sample project created to verify that the Decap CMS integration is working correctly.\n\nYou can safely delete this file from content/projects/ once you have confirmed the setup works. Any new project you create from the /admin dashboard will generate a similar JSON file in this folder.\n\nWhen you publish a project via the CMS, Decap commits the JSON file to your GitHub repository. Vercel then detects the new commit and automatically redeploys the site, making the new project visible on the frontend.",
+  "coverImage": "/architecture/building_view_poster.webp",
+  "galleryImages": [],
+  "area": "1,200 sq m",
+  "client": "Demo Client",
+  "status": "Sample",
+  "date": "2025-01-01T00:00:00.000Z"
+}

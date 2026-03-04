@@ -1,5 +1,5 @@
 import ScrollReveal from "./ScrollReveal";
-import architectPortrait from "@/assets/architect-portrait.webp";
+import architectPortrait from "@/assets/bachitter-singh.jpg";
 
 const stats = [
   { number: "1983", label: "Year Established" },
@@ -162,10 +162,10 @@ const AboutAndTeam = () => {
                 />
                 <div className="absolute bottom-8 left-8 bg-[#b37a45] text-white px-10 py-6 shadow-2xl">
                   <p className="uppercase tracking-[0.35em] text-xs">
-                    Mr.BACHITTER SINGH
+                    Ar.BACHITTER SINGH
                   </p>
                   <p className="font-serif text-xl font-light mt-2">
-                    Sr. Architect  
+                    Principal Architect 
                   </p>
                   <p className="text-xs text-white/70 mt-1 uppercase tracking-widest">Est. 1983 · Chandigarh</p>
                 </div>
