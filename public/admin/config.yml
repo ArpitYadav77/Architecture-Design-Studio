@@ -7,7 +7,7 @@
 
 backend:
   name: github
-  repo: https://github.com/ArpitYadav77/Architecture-Design-Studio # ← UPDATE THIS
+  repo: ArpitYadav77/Architecture-Design-Studio # ← UPDATE THIS
   branch: main
   commit_messages:
     create: "content: add project {{slug}}"
