@@ -44,7 +44,7 @@ const serviceData: Service[] = [
     ],
   },
   {
-    title: "Project Management & Supervision",
+    title: "Project Management & Consultation",
     category: "Construction",
     tag: "Execution",
     description:

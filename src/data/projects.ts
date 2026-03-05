@@ -137,6 +137,9 @@ import kurkushetraInterior1   from "@/assets/kurkushetra_interior1.png";
 import kurkushetraInterior2   from "@/assets/kurkushetra_interior2.png";
 import kurshetraExte          from "@/assets/kurshetra_exte.png";
 
+// RGTPP Residential Township
+import rgtppTower             from "@/assets/residence_tower.png";
+
 // ── project catalogue ────────────────────────────────────────────────────────
 export const allProjects: ProjectData[] = [
 
@@ -283,7 +286,7 @@ export const allProjects: ProjectData[] = [
   {
     slug: "kasauli-retreat",
     title: "AMAYA, KASAULI",
-    category: "Residential",
+    category: "Hospitality",
     location: "Kasauli, Himachal Pradesh",
     year: "2020",
     image: kasauliCover,
@@ -301,9 +304,25 @@ export const allProjects: ProjectData[] = [
   // ═══════════════════════════════════════════════════════════════════════════
 
   {
+    slug: "hotel-le-meridien-amritsar",
+    title: "HOTEL LE MERIDIEN, AMRITSAR",
+    category: "Hospitality",
+    location: "Amritsar, Punjab",
+    year: "2015",
+    image: amritsarCover,
+    gallery: [amritsarExterior, amritsarInt1, amritsarInt2, amritsarInt3],
+    tagline: "A luxury hotel landmark bringing world-class hospitality to the city of the Golden Temple.",
+    description:
+      "Hotel Le Meridien, Amritsar is a landmark hospitality commission that demanded architecture capable of holding its own against one of the world's most iconic pilgrimage cities.\n\nThe hotel's design draws from the classical layering and material richness of Amritsari architecture — warm stone cladding, deep-set arched openings, and ornamental grilles — while delivering the spatial efficiency and contemporary comfort expected of an international five-star property. The arrival sequence is ceremonial: a long approach drive, a generous porte-cochère, and a double-height lobby whose proportions command immediate attention.\n\nGuest rooms are oriented to maximise natural light while maintaining privacy; the landscaped podium gardens and rooftop pool create a private world of calm within the city's vibrant fabric.",
+    area: "22,000 sq m",
+    client: "Le Meridien Hotels & Resorts",
+    status: "Built",
+  },
+
+  {
     slug: "landmark-wave",
     title: "LandMark Wave",
-    category: "Commercial",
+    category: "Residential",
     location: "Chandigarh, India",
     year: "2022",
     image: landmarkWaveCover,
@@ -522,6 +541,22 @@ export const allProjects: ProjectData[] = [
       "Pt. Sundarlal Sharma (Open) University in Chhattisgarh is an educational campus designed to deliver flexible, accessible higher education to students across the state.\n\nThe masterplan organises academic, examination, and administrative functions around a central courtyard that provides both a gathering space and a climatic buffer against the region's hot summers. Buildings are designed with deep overhangs, shaded verandahs, and cross-ventilated corridors that reduce dependence on mechanical cooling.\n\nThe architecture expresses the university's public mission through generous entrance lobbies, clear wayfinding, and a material language of fair-faced brick and concrete that communicates institutional permanence without unnecessary embellishment.",
     area: "35,000 sq m",
     client: "Pt. Sundarlal Sharma Open University",
+    status: "Built",
+  },
+
+  {
+    slug: "rgtpp-residential-township-hisar",
+    title: "Residential Township for RGTPP, Hisar",
+    category: "Misc",
+    location: "Hisar, Haryana",
+    year: "2015",
+    image: rgtppTower,
+    gallery: [],
+    tagline: "A planned residential township serving the Rajiv Gandhi Thermal Power Plant community.",
+    description:
+      "The Residential Township for RGTPP (Rajiv Gandhi Thermal Power Plant) at Hisar is a planned community designed to provide quality housing, civic amenities, and shared infrastructure for plant employees and their families.\n\nThe township plan organises residential units of varying typologies — from senior officer bungalows to multi-storey staff quarters — along a clear hierarchy of roads and pedestrian green corridors. Community facilities including a school, health centre, recreational club, and markets are placed at the heart of the plan to ensure equitable access from all residential zones.\n\nThe architecture employs a consistent palette of brick and concrete with shaded verandahs and courtyard gardens suited to Haryana's climate, creating a cohesive neighbourhood character across a large and varied programme.",
+    area: "48,000 sq m",
+    client: "HPGCL / RGTPP",
     status: "Built",
   },
 
