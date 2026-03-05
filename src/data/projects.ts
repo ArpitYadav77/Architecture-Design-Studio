@@ -115,6 +115,28 @@ import receptionInt1          from "@/assets/reception_interior.webp";
 import receptionInt2          from "@/assets/reception_interior2.webp";
 import receptionInt3          from "@/assets/reception_interior3.webp";
 
+// NV Distilleries
+import nvCover                from "@/assets/NV_cover.png";
+import nvExterior             from "@/assets/NV_exterior.png";
+import nvExterior2            from "@/assets/NV_exterior2.png";
+import nvExterior3            from "@/assets/NV_exterior3.png";
+import nvInterior             from "@/assets/NV_interior.png";
+import nvInterior2            from "@/assets/NV_interior2.png";
+
+// TRIAM Tower
+import triamCover             from "@/assets/triam_cover.png";
+import triamExterior          from "@/assets/traim_exterior.png";
+import triamExterior2         from "@/assets/triam_exterior2.png";
+
+// Kurukshetra University
+import kurkushetraExterior    from "@/assets/kurkushetra_exterior.png";
+import kurkushetraExterior3   from "@/assets/kurkushetra_exterior3.png";
+import kurkushetraExterior4   from "@/assets/kurkushetra_exterior4.png";
+import kurkushetraInterior    from "@/assets/kurkushetra_interior.png";
+import kurkushetraInterior1   from "@/assets/kurkushetra_interior1.png";
+import kurkushetraInterior2   from "@/assets/kurkushetra_interior2.png";
+import kurshetraExte          from "@/assets/kurshetra_exte.png";
+
 // ── project catalogue ────────────────────────────────────────────────────────
 export const allProjects: ProjectData[] = [
 
@@ -191,7 +213,7 @@ export const allProjects: ProjectData[] = [
 
   {
     slug: "baghat-university",
-    title: "Baghat University",
+    title: "Bhagat Phool Singh Mahila VishWavidyalaya",
     category: "Education",
     location: "Punjab, India",
     year: "2000s",
@@ -260,7 +282,7 @@ export const allProjects: ProjectData[] = [
 
   {
     slug: "kasauli-retreat",
-    title: "Kasauli Retreat",
+    title: "AMAYA, KASAULI",
     category: "Residential",
     location: "Kasauli, Himachal Pradesh",
     year: "2020",
@@ -314,7 +336,7 @@ export const allProjects: ProjectData[] = [
   {
     slug: "hp-tower",
     title: "HP Tower",
-    category: "Commercial",
+    category: "Corporate",
     location: "Chandigarh, India",
     year: "2014",
     image: hpTowerCover,
@@ -328,8 +350,40 @@ export const allProjects: ProjectData[] = [
   },
 
   {
+    slug: "triam-tower",
+    title: "TRIAM TOWER, I-42, SECTOR 83, ALPHA",
+    category: "Corporate",
+    location: "Sector 83, Alpha, India",
+    year: "2020",
+    image: triamCover,
+    gallery: [triamExterior, triamExterior2],
+    tagline: "A bold corporate tower designed for presence and performance.",
+    description:
+      "TRIAM TOWER at I-42, Sector 83, Alpha is a corporate office development conceived to project institutional confidence while delivering efficient, flexible floor plates suited to modern commercial tenants.\n\nThe tower's facade is a disciplined composition of glass and pre-cast concrete panels that modulate light and scale across the elevation. At street level, a double-height lobby with stone finishes and curated lighting establishes the building's identity from the moment of arrival.\n\nThe project demonstrates Bachitter Singh Associates' ability to deliver corporate architecture that balances civic presence with the pragmatic demands of commercial real estate.",
+    area: "15,000 sq m",
+    client: "Private Developer",
+    status: "Built",
+  },
+
+  {
+    slug: "nv-distilleries",
+    title: "NV DISTILLERIES & BREWERIES PVT. LTD",
+    category: "Corporate",
+    location: "India",
+    year: "2018",
+    image: nvCover,
+    gallery: [nvExterior, nvExterior2, nvExterior3, nvInterior, nvInterior2],
+    tagline: "A purpose-built corporate facility for one of India's leading beverage enterprises.",
+    description:
+      "The NV Distilleries & Breweries corporate facility was designed to house the administrative headquarters and visitor experience centre of one of India's prominent beverage manufacturers.\n\nThe building's plan separates operational and representational functions across two distinct wings connected by a central reception atrium that serves as the building's social and circulatory heart. The facade employs a restrained palette of stone cladding and tinted glazing, projecting corporate sobriety while admitting generous natural light to the office floors.\n\nLandscaping plays an integral role — approach drives, forecourts, and perimeter planting were designed as part of the architectural composition rather than as afterthoughts, ensuring the building reads as a coherent campus from every approach.",
+    area: "10,000 sq m",
+    client: "NV Distilleries & Breweries Pvt. Ltd",
+    status: "Built",
+  },
+
+  {
     slug: "mohali-club",
-    title: "Mohali Club",
+    title: "CLUBHOUSE TDI MOHALI",
     category: "Hospitality",
     location: "Mohali, Punjab",
     year: "2017",
@@ -389,6 +443,86 @@ export const allProjects: ProjectData[] = [
     area: "220 sq m",
     client: "Private",
     status: "Completed 2023",
+  },
+
+  {
+    slug: "haryana-vidhan-sabha-interior",
+    title: "Haryana Vidhan Sabha",
+    category: "Interior",
+    location: "Haryana, India",
+    year: "2000s",
+    image: vidhanSabhaImg,
+    gallery: [vidhanSabha2],
+    tagline: "Interior design that honours the dignity and gravitas of legislative architecture.",
+    description:
+      "The interior design of the Haryana Vidhan Sabha required a response equal to the building's civic significance — spaces that convey democratic authority, institutional permanence, and public trust.\n\nThe principal chamber, lobbies, and committee rooms were detailed with a material palette of polished stone, carved timber panelling, and brass hardware selected for their durability and visual weight. Lighting was carefully layered to support both televised proceedings and the more intimate scale of committee deliberation.\n\nEvery interior element — from the pattern of the floor to the design of the furniture — was treated as an expression of the state's identity and the seriousness of legislative purpose.",
+    area: "42,000 sq m",
+    client: "Government of Haryana",
+    status: "Built",
+  },
+
+  {
+    slug: "haryana-cm-secretariat-interior",
+    title: "Haryana Chief Minister Secretariat Building",
+    category: "Interior",
+    location: "Haryana, India",
+    year: "2005",
+    image: haryanaCMInterior,
+    gallery: [],
+    tagline: "An interior of quiet authority befitting the office of the Chief Minister.",
+    description:
+      "The interior of the Haryana Chief Minister Secretariat Building was designed to project institutional authority while maintaining the warmth and functionality required of a working government building.\n\nPublic-facing areas — the reception hall, conference rooms, and ministerial lobbies — employ a restrained palette of marble, polished plaster, and solid timber that signals quality without ostentation. Private offices and working areas are planned for efficiency and natural light, with bespoke joinery and carefully selected furnishings that reinforce the building's character of measured dignity.\n\nThe project demonstrates the firm's ability to translate civic purpose into interior spaces that serve both protocol and daily governance.",
+    area: "2,400 sq m",
+    client: "Government of Haryana",
+    status: "Built",
+  },
+
+  {
+    slug: "mahila-bhawan",
+    title: "Mahila Bhawan",
+    category: "Cultural",
+    location: "India",
+    year: "2015",
+    image: baghatCover,
+    gallery: [],
+    tagline: "A cultural centre dedicated to women's empowerment and community life.",
+    description:
+      "Mahila Bhawan is a cultural and community centre designed to serve as a gathering place for women's organisations, cultural events, and civic programmes.\n\nThe building is organised around a central multipurpose hall flanked by administrative offices, meeting rooms, and a small library. The entrance sequence leads visitors through a landscaped forecourt into a generous double-height foyer that establishes the building's public character from the moment of arrival.\n\nThe facade combines local stone cladding with contemporary glazing, creating a building that feels rooted in its context while signalling its progressive institutional purpose. Interior finishes prioritise durability and ease of maintenance appropriate to a high-traffic public facility.",
+    area: "3,500 sq m",
+    client: "State Government",
+    status: "Built",
+  },
+
+  {
+    slug: "kurukshetra-university",
+    title: "KURUKSHETRA UNIVERSITY, KURUKSHETRA",
+    category: "Education",
+    location: "Kurukshetra, Haryana",
+    year: "2010s",
+    image: kurkushetraExterior,
+    gallery: [kurshetraExte, kurkushetraExterior3, kurkushetraExterior4, kurkushetraInterior, kurkushetraInterior1, kurkushetraInterior2],
+    tagline: "A university campus rooted in academic tradition and contemporary design.",
+    description:
+      "Kurukshetra University is a comprehensive academic campus that brings together teaching, research, and residential facilities within a masterplan conceived for clarity, connectivity, and growth.\n\nAcademic blocks are arranged along a landscaped central axis that serves as the campus's primary social and circulation spine. Each building is oriented to maximise natural light and cross-ventilation while presenting a composed, institutional facade to the public realm.\n\nThe material palette — exposed concrete frames, brick infill panels, and stone base courses — reflects the firm's commitment to robust, maintenance-friendly construction suited to the demands of a public university.",
+    area: "60,000 sq m",
+    client: "Kurukshetra University",
+    status: "Built",
+  },
+
+  {
+    slug: "pt-sundarlal-sharma-university",
+    title: "PT. SUNDARLAL SHARMA (OPEN) UNIVERSITY, CHHATTISGARH",
+    category: "Education",
+    location: "Chhattisgarh, India",
+    year: "2010s",
+    image: kurkushetraInterior,
+    gallery: [],
+    tagline: "An open university campus designed for accessible higher education.",
+    description:
+      "Pt. Sundarlal Sharma (Open) University in Chhattisgarh is an educational campus designed to deliver flexible, accessible higher education to students across the state.\n\nThe masterplan organises academic, examination, and administrative functions around a central courtyard that provides both a gathering space and a climatic buffer against the region's hot summers. Buildings are designed with deep overhangs, shaded verandahs, and cross-ventilated corridors that reduce dependence on mechanical cooling.\n\nThe architecture expresses the university's public mission through generous entrance lobbies, clear wayfinding, and a material language of fair-faced brick and concrete that communicates institutional permanence without unnecessary embellishment.",
+    area: "35,000 sq m",
+    client: "Pt. Sundarlal Sharma Open University",
+    status: "Built",
   },
 
   {

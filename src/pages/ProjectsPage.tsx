@@ -10,6 +10,7 @@ import { portfolioProjects, landmarkProjects, allProjects } from "@/data/project
 const categories = [
   "All",
   "Commercial",
+  "Corporate",
   "Cultural",
   "Education",
   "Hospitality",
