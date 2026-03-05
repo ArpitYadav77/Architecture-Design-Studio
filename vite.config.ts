@@ -48,6 +48,12 @@ export default defineConfig(({ mode }) => ({
     // ── Inline small assets (< 8KB) to reduce HTTP requests ────────────
     assetsInlineLimit: 8192,
     rollupOptions: {
+      onwarn(warning, warn) {
+        // vite-plugin-compression2 can emit the same .gz/.br filename more
+        // than once across multiple Rollup output passes – silence it.
+        if (warning.message?.includes("overwrites a previously emitted file")) return;
+        warn(warning);
+      },
       output: {
         // ── Smart chunk splitting ──────────────────────────────────────
         manualChunks: {
