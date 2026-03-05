@@ -158,7 +158,7 @@ const AboutAndTeam = () => {
                   alt="Ar. Bachitter Singh — Principal Architect"
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-[center_20%]"
                 />
                 <div className="absolute bottom-8 left-8 bg-[#b37a45] text-white px-10 py-6 shadow-2xl">
                   <p className="uppercase tracking-[0.35em] text-xs">

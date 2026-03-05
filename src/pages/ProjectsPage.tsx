@@ -17,6 +17,7 @@ const categories = [
   "Residential",
   "Urban",
   "Competition",
+  "Misc",
 ];
 
 const categoryPath = (cat: string) =>
