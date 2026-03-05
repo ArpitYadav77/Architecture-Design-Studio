@@ -26,6 +26,11 @@ export interface ProjectData {
 // Vidhan Sabha
 import vidhanSabhaImg         from "@/assets/Vidhan_Sabha.webp";
 
+//Baghat_university
+import baghatCover              from "@/assets/bhagat_cover.png";
+import baghatInt1               from "@/assets/baghat_interior.png";
+import baghatInt2               from "@/assets/bhagat_exterior.png";
+
 // Punjab & Haryana High Court
 import punjabHCImg            from "@/assets/Punjab_Haryana_HC.webp";
 
@@ -182,6 +187,23 @@ export const allProjects: ProjectData[] = [
     area: "12,000 sq m",
     client: "State University Trust",
     status: "Built",
+  },
+
+  {
+    slug: "baghat-university",
+    title: "Baghat University",
+    category: "Education",
+    location: "Punjab, India",
+    year: "2000s",
+    image: baghatCover,
+    gallery: [baghatInt1, baghatInt2],
+    tagline: "An educational campus designed to foster learning, community, and institutional pride.",
+    description:
+      "Baghat University is a comprehensive educational campus that embodies Bachitter Singh Associates' commitment to institutional design that balances civic grandeur with functional clarity. The master plan organises academic, administrative, and residential precincts along a central pedestrian spine that encourages movement and interaction between faculties.\n\nThe main administration block anchors the campus with a bold facade that draws from regional architectural tradition while embracing contemporary construction methods. Expansive glazing floods lecture halls and seminar rooms with natural light; landscaped courtyards between blocks create sheltered outdoor spaces for study and congregation.\n\nThe campus plan was designed to accommodate future growth phases — each addition reinforcing the existing spatial grammar rather than competing with it.",
+    area: "85,000 sq m",
+    client: "State University Trust",
+    status: "Built",
+    isLandmark: true,
   },
 
   // ════════════════════════════════════════════════════════════════════════════
