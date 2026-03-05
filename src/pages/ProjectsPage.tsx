@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import ProjectCard from "@/components/ProjectCard";
-import { portfolioProjects, landmarkProjects } from "@/data/projects";
+import { portfolioProjects, landmarkProjects, allProjects } from "@/data/projects";
 
 // Competition always last
 const categories = [
@@ -34,7 +34,7 @@ const ProjectsPage = () => {
   const filtered =
     activeCategory === "All"
       ? portfolioProjects
-      : portfolioProjects.filter((p) => p.category.toLowerCase() === activeCategory.toLowerCase());
+      : allProjects.filter((p) => p.category.toLowerCase() === activeCategory.toLowerCase());
 
   const showLandmarks = activeCategory === "All";
 

@@ -152,13 +152,13 @@ export const allProjects: ProjectData[] = [
   },
 
   {
-    slug: "university-campus",
-    title: "University Campus",
+    slug: "luvas-hisar",
+    title: "Lala Lajpat Rai University of Veterinary & Animal Sciences",
     category: "Education",
-    location: "Punjab, India",
+    location: "LUVAS, Hisar",
     year: "2010s",
     image: universityCover,
-    gallery: [universityInt1, universityInt2, uniAdmin, uniBuilding, uniBuildingInt, uniLibrary],
+    gallery: [uniAdmin, universityInt1, universityInt2, uniBuildingInt, uniLibrary],
     tagline: "A campus designed for knowledge, community, and institutional pride.",
     description:
       "This university campus project embodies Bachitter Singh Associates' commitment to institutional design that balances civic grandeur with functional clarity. The master plan organises academic, administrative, and residential precincts along a central pedestrian spine that encourages movement and interaction between faculties.\n\nThe main administration block anchors the campus with a bold facade that draws from regional architectural tradition while embracing contemporary construction methods. Expansive glazing floods lecture halls and seminar rooms with natural light; landscaped courtyards between blocks create sheltered outdoor spaces for study and congregation.\n\nThe campus plan was designed to accommodate future growth phases — each addition reinforcing the existing spatial grammar rather than competing with it.",
@@ -166,6 +166,22 @@ export const allProjects: ProjectData[] = [
     client: "State University Trust",
     status: "Built",
     isLandmark: true,
+  },
+
+  {
+    slug: "crsu-jind",
+    title: "Chaudhary Ranbir Singh University",
+    category: "Education",
+    location: "Jind, Haryana",
+    year: "2010s",
+    image: uniBuilding,
+    gallery: [uniBuilding, uniBuildingInt],
+    tagline: "A faculty building shaped by clarity, light, and academic purpose.",
+    description:
+      "The University Building is an academic block within the larger campus masterplan, designed to house lecture halls, seminar rooms, and faculty offices in a composition that balances institutional formality with the openness required for contemporary pedagogy.\n\nThe facade is articulated through a disciplined grid of deep-set windows and projecting concrete fins that control western sun while lending the elevation a measured rhythm. At ground level, covered walkways connect the building to the broader campus circulation — ensuring the block participates in the life of the institution rather than standing apart from it.\n\nInterior planning prioritises natural ventilation and daylight, with corridors oriented to channel prevailing breezes and generous floor-to-ceiling heights that keep classrooms comfortable through the Punjab summer.",
+    area: "12,000 sq m",
+    client: "State University Trust",
+    status: "Built",
   },
 
   // ════════════════════════════════════════════════════════════════════════════
