@@ -45,7 +45,7 @@ import amritsarInt4           from "@/assets/Amritsar_cover2_interior.webp";
 import golfCover              from "@/assets/chandigarh_golf_cover.webp";
 import golfTopview            from "@/assets/Chandigarh_Golf_Club_topview.webp";
 
-// Chandigarh Square
+// Paras Downtown Mall, Zirakpur
 import chandigarhSqCover      from "@/assets/chandigarh_square.webp";
 import chandigarhSq2          from "@/assets/chandigarh_square2.webp";
 
@@ -71,7 +71,7 @@ import vidhanSabha2           from "@/assets/vidhan_sabha2.webp";
 // Amritsar exterior
 import amritsarExterior       from "@/assets/Amrtisar_exterior.webp";
 
-// Ambala Mall
+// Galaxy Mall
 import ambalaMallCover        from "@/assets/Ambala_Mall.webp";
 import ambalaInt1             from "@/assets/Ambala_interior.webp";
 import ambalaInt2             from "@/assets/Ambala_interior2.webp";
@@ -236,19 +236,19 @@ export const allProjects: ProjectData[] = [
   // ════════════════════════════════════════════════════════════════════════════
 
   {
-    slug: "amritsar-residence",
-    title: "Amritsar Residence",
-    category: "Residential",
-    location: "Amritsar, India",
-    year: "2018",
+    slug: "hotel-le-meridien-amritsar",
+    title: "HOTEL LE MERIDIEN, AMRITSAR",
+    category: "Hospitality",
+    location: "Amritsar, Punjab",
+    year: "2015",
     image: amritsarCover,
     gallery: [amritsarExterior, amritsarInt1, amritsarInt2, amritsarInt3, amritsarInt4],
-    tagline: "Refined contemporary living rooted in the warmth of Punjabi culture.",
+    tagline: "A luxury hotel landmark bringing world-class hospitality to the city of the Golden Temple.",
     description:
-      "The Amritsar Residence is a private family home commissioned with a clear brief: a house that feels open and generous in its public spaces, while offering absolute privacy and serenity in the private wing.\n\nThe exterior composition presents a confident contemporary facade with deep-set windows and textured stone cladding that references the material heritage of the region. The interior, by contrast, is light and voluminous — double-height living areas dissolve the boundary between formal reception and everyday living, while a central courtyard garden brings landscape and light deep into the plan.\n\nFinishes throughout were selected for longevity and warmth: marble floors in public areas, hand-trowelled plaster walls, and custom joinery in solid timber. Each space was detailed to the same standard of precision applied to the firm's larger civic commissions.",
-    area: "680 sq m",
-    client: "Private Family",
-    status: "Completed 2018",
+      "Hotel Le Meridien, Amritsar is a landmark hospitality commission that demanded architecture capable of holding its own against one of the world's most iconic pilgrimage cities.\n\nThe hotel's design draws from the classical layering and material richness of Amritsari architecture — warm stone cladding, deep-set arched openings, and ornamental grilles — while delivering the spatial efficiency and contemporary comfort expected of an international five-star property. The arrival sequence is ceremonial: a long approach drive, a generous porte-cochère, and a double-height lobby whose proportions command immediate attention.\n\nGuest rooms are oriented to maximise natural light while maintaining privacy; the landscaped podium gardens and rooftop pool create a private world of calm within the city's vibrant fabric.",
+    area: "22,000 sq m",
+    client: "Le Meridien Hotels & Resorts",
+    status: "Built",
   },
 
   {
@@ -268,18 +268,18 @@ export const allProjects: ProjectData[] = [
   },
 
   {
-    slug: "chandigarh-square",
-    title: "Chandigarh Square",
+    slug: "paras-downtown-mall-zirakpur",
+    title: "Paras Downtown Mall, Zirakpur",
     category: "Commercial",
-    location: "Chandigarh, India",
+    location: "Zirakpur, Punjab",
     year: "2012",
     image: chandigarhSqCover,
     gallery: [chandigarhSq2],
-    tagline: "A landmark commercial address at the heart of Chandigarh's civic grid.",
+    tagline: "A landmark commercial address anchoring Zirakpur's rapidly evolving urban corridor.",
     description:
-      "Chandigarh Square occupies a prominent site within the city's sector grid — a location that demanded an architectural response conscious of both its civic visibility and its commercial purpose. The building reads as a composed ensemble of volumes: a taller tower element marking the corner, and a lower podium base that mediates between the street and the formal public space of the forecourt.\n\nThe facade system is a refined grid of pre-cast concrete panels and full-height glazing, its proportions calibrated to the scale of the boulevard. At street level, double-height retail frontage animates the public realm; above, office floors are served by efficient plate configurations that maximise natural light penetration.\n\nThe project was delivered on a fast-track programme while maintaining the firm's characteristic attention to material quality and spatial generosity at the building's public interfaces.",
+      "Paras Downtown Mall occupies a prominent site along Zirakpur's main arterial — a location that demanded an architectural response conscious of both its civic visibility and its commercial purpose. The building reads as a composed ensemble of volumes: a taller tower element marking the corner, and a lower podium base that mediates between the street and the formal public space of the forecourt.\n\nThe facade system is a refined grid of pre-cast concrete panels and full-height glazing, its proportions calibrated to the scale of the boulevard. At street level, double-height retail frontage animates the public realm; above, office floors are served by efficient plate configurations that maximise natural light penetration.\n\nThe project was delivered on a fast-track programme while maintaining the firm's characteristic attention to material quality and spatial generosity at the building's public interfaces.",
     area: "22,000 sq m",
-    client: "Chandigarh Commercial Developers",
+    client: "Paras Buildtech",
     status: "Built",
   },
 
@@ -304,22 +304,6 @@ export const allProjects: ProjectData[] = [
   // ═══════════════════════════════════════════════════════════════════════════
 
   {
-    slug: "hotel-le-meridien-amritsar",
-    title: "HOTEL LE MERIDIEN, AMRITSAR",
-    category: "Hospitality",
-    location: "Amritsar, Punjab",
-    year: "2015",
-    image: amritsarCover,
-    gallery: [amritsarExterior, amritsarInt1, amritsarInt2, amritsarInt3],
-    tagline: "A luxury hotel landmark bringing world-class hospitality to the city of the Golden Temple.",
-    description:
-      "Hotel Le Meridien, Amritsar is a landmark hospitality commission that demanded architecture capable of holding its own against one of the world's most iconic pilgrimage cities.\n\nThe hotel's design draws from the classical layering and material richness of Amritsari architecture — warm stone cladding, deep-set arched openings, and ornamental grilles — while delivering the spatial efficiency and contemporary comfort expected of an international five-star property. The arrival sequence is ceremonial: a long approach drive, a generous porte-cochère, and a double-height lobby whose proportions command immediate attention.\n\nGuest rooms are oriented to maximise natural light while maintaining privacy; the landscaped podium gardens and rooftop pool create a private world of calm within the city's vibrant fabric.",
-    area: "22,000 sq m",
-    client: "Le Meridien Hotels & Resorts",
-    status: "Built",
-  },
-
-  {
     slug: "landmark-wave",
     title: "LandMark Wave",
     category: "Residential",
@@ -337,8 +321,8 @@ export const allProjects: ProjectData[] = [
   },
 
   {
-    slug: "ambala-mall",
-    title: "Ambala Mall",
+    slug: "galaxy-mall",
+    title: "Galaxy Mall",
     category: "Commercial",
     location: "Ambala, Haryana",
     year: "2016",
@@ -346,9 +330,9 @@ export const allProjects: ProjectData[] = [
     gallery: [ambalaInt1, ambalaInt2, ambalaInt3],
     tagline: "A retail destination designed for movement, light, and civic life.",
     description:
-      "The Ambala Mall is a full-scale retail and entertainment destination anchored by a clear organisational logic: a central atrium that floods the interior with natural light and acts as the social spine around which all retail, dining, and entertainment units are arranged.\n\nThe exterior composition is confident and welcoming — a layered facade of glass and stone that signals the building's scale while maintaining a human-scaled street interface at ground level. Entry sequences are ceremonial without being theatrical, guiding visitors naturally into the atrium and the retail floors beyond.\n\nInterior detailing prioritises durability and ease of maintenance while maintaining a quality of finish appropriate to the building's civic role as a major gathering place for the city.",
+      "Galaxy Mall is a full-scale retail and entertainment destination anchored by a clear organisational logic: a central atrium that floods the interior with natural light and acts as the social spine around which all retail, dining, and entertainment units are arranged.\n\nThe exterior composition is confident and welcoming — a layered facade of glass and stone that signals the building's scale while maintaining a human-scaled street interface at ground level. Entry sequences are ceremonial without being theatrical, guiding visitors naturally into the atrium and the retail floors beyond.\n\nInterior detailing prioritises durability and ease of maintenance while maintaining a quality of finish appropriate to the building's civic role as a major gathering place for the city.",
     area: "45,000 sq m",
-    client: "Ambala Mall Developers",
+    client: "Galaxy Mall Developers",
     status: "Built",
   },
 

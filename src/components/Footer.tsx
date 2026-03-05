@@ -11,7 +11,7 @@ const Footer = () => {
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="w-4 h-4 flex-shrink-0"
+      className="w-8 h-8 flex-shrink-0"
       aria-hidden="true"
     >
       <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -80,9 +80,8 @@ const Footer = () => {
             </h3>
 
             <div className="flex flex-col gap-4 text-neutral-800 md:items-end">
-              <a href="https://www.instagram.com/bachitter_singh_associates?igsh=bGk0Z3Z0ZjRrdW9j" className="hover-link flex items-center gap-2">
+              <a href="https://www.instagram.com/bachitter_singh_associates?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="hover-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                 <InstagramIcon />
-                Instagram
               </a>
             </div>
           </div>

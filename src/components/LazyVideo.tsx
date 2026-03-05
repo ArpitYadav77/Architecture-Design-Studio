@@ -95,6 +95,7 @@ const LazyVideo = memo(
             const v = videoRef.current;
             if (!v) return Promise.resolve();
             v.muted = true;
+            v.currentTime = 0;   // always restart from the beginning
             return v.play().catch(() => {});
           },
 

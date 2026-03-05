@@ -13,25 +13,32 @@ const FADE_DURATION = 1_200;  // crossfade transition in ms
    ═══════════════════════════════════════════════════════════════════ */
 const slides = [
   {
-    video: "/architecture/reception.mp4",
+    video: "/architecture/lord.mp4",
     poster: undefined,
-    label: "Architecture & Civic Design",
+    label: "Civic & Legislative",
     heading: "Bachitter Singh\nAssociates",
     sub: "Over four decades of shaping India's most enduring civic, institutional, and architectural landmarks.",
   },
   {
-    video: "/architecture/colony.mp4",
+    video: "/architecture/farm%20house%20.mp4",
     poster: undefined,
-    label: "Commercial & Institutional",
+    label: "Residential Design",
+    heading: "Living\nWith Grace",
+    sub: "Private residences and farmhouses where architecture frames landscape, light, and everyday life.",
+  },
+  {
+    video: "/architecture/reception.mp4",
+    poster: undefined,
+    label: "Architecture & Civic Design",
     heading: "Where Form\nMeets Purpose",
     sub: "From high courts to legislative assemblies — spaces built for permanence, authority, and the public good.",
   },
   {
-    video: "/architecture/lawn.mp4",
+    video: "/architecture/school.mp4",
     poster: undefined,
-    label: "Cultural & Urban Works",
-    heading: "Legacy\nIn Every Line",
-    sub: "200+ delivered projects across India, master-planning 420+ acres of civic and cultural landscape.",
+    label: "Education & Institutional",
+    heading: "Shaping\nFutures",
+    sub: "State-of-the-art academic campuses and institutional buildings that inspire learning and lasting community.",
   },
   {
     video: "/architecture/building.mp4",
@@ -41,13 +48,20 @@ const slides = [
     sub: "Bold silhouettes that reshape cityscapes — towers, complexes, and mixed-use developments designed at metropolitan scale.",
   },
   {
-    video: "/architecture/school.mp4",
+    video: "/architecture/colony.mp4",
     poster: undefined,
-    label: "Healthcare & Wellness",
-    heading: "Healing\nBy Design",
-    sub: "State-of-the-art hospitals and wellness centres where architecture supports care, recovery, and human dignity.",
+    label: "Urban & Community",
+    heading: "Legacy\nIn Every Line",
+    sub: "200+ delivered projects across India, master-planning 420+ acres of civic and cultural landscape.",
   },
-] as const;
+  {
+    video: "/architecture/traim_tower.mp4",
+    poster: undefined,
+    label: "Corporate Architecture",
+    heading: "Towers of\nAmbition",
+    sub: "Corporate towers and mixed-use developments that redefine the contemporary workplace and urban horizon.",
+  },
+];
 
 /* ═══════════════════════════════════════════════════════════════════
    Hero component
