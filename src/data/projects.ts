@@ -972,7 +972,16 @@ export const getProjectBySlug = (slug: string): ProjectData | undefined =>
   _allCombined.find((p) => p.slug === slug);
 
 // ── landmark subset (for ProjectsPage landmark band) ────────────────────────
-export const landmarkProjects = _allCombined.filter((p) => p.isLandmark);
+export const landmarkProjects = _allCombined
+  .filter((p) => p.isLandmark)
+  .sort((a, b) => a.title.localeCompare(b.title));
 
 // ── portfolio subset (non-landmark — includes all CMS projects) ─────────────
-export const portfolioProjects = _allCombined.filter((p) => !p.isLandmark);
+export const portfolioProjects = _allCombined
+  .filter((p) => !p.isLandmark)
+  .sort((a, b) => a.title.localeCompare(b.title));
+
+// ── allProjects sorted alphabetically (used for category filtering) ──────────
+export const allProjectsSorted = _allCombined
+  .slice()
+  .sort((a, b) => a.title.localeCompare(b.title));
