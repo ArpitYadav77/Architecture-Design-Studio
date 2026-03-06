@@ -331,6 +331,12 @@ import mandir2Img from "@/assets/Mandir2.png";
 import sbfiImg from "@/assets/SBFI.png";
 import sbfi2Img from "@/assets/SBFI2.png";
 
+// Pt. Sundarlal Sharma Open University
+import sunderlalImg1 from "@/assets/image copy.png";
+import sunderlalImg2 from "@/assets/image copy 2.png";
+import sunderlalImg3 from "@/assets/image copy 3.png";
+import sunderlalImg4 from "@/assets/image copy 4.png";
+
 // Wentworth
 import wentworthImg from "@/assets/wentWorth.png";
 import wentworth2Img from "@/assets/wentworth2.png";
@@ -718,8 +724,8 @@ export const allProjects: ProjectData[] = [
     category: "Education",
     location: "Chhattisgarh, India",
     year: "2010s",
-    image: kurkushetraInterior,
-    gallery: [],
+    image: sunderlalImg1,
+    gallery: [sunderlalImg2, sunderlalImg3, sunderlalImg4],
     tagline: "An open university campus designed for accessible higher education.",
     description:
       "Pt. Sundarlal Sharma (Open) University in Chhattisgarh is an educational campus designed to deliver flexible, accessible higher education to students across the state.\n\nThe masterplan organises academic, examination, and administrative functions around a central courtyard that provides both a gathering space and a climatic buffer against the region's hot summers. Buildings are designed with deep overhangs, shaded verandahs, and cross-ventilated corridors that reduce dependence on mechanical cooling.\n\nThe architecture expresses the university's public mission through generous entrance lobbies, clear wayfinding, and a material language of fair-faced brick and concrete that communicates institutional permanence without unnecessary embellishment.",
