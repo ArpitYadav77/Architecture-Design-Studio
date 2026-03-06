@@ -24,7 +24,7 @@ export interface ProjectData {
 
 // ── Real project assets (WebP — 91% smaller than PNG originals) ──────────────
 // Vidhan Sabha
-import vidhanSabhaImg         from "@/assets/Vidhan_Sabha.webp";
+import vidhanSabhaImg         from "@/assets/Punjab_Haryana_HC.webp";
 
 //Baghat_university
 import baghatCover              from "@/assets/bhagat_cover.png";
@@ -33,6 +33,9 @@ import baghatInt2               from "@/assets/bhagat_exterior.png";
 
 // Punjab & Haryana High Court
 import punjabHCImg            from "@/assets/Punjab_Haryana_HC.webp";
+
+// Chandigarh square cover (was .webp, only .png exists)
+import chandigarhSqCover      from "@/assets/Chandigarh_square.png";
 
 // Amritsar Residence
 import amritsarCover          from "@/assets/Amritsar.webp";
@@ -46,7 +49,6 @@ import golfCover              from "@/assets/chandigarh_golf_cover.webp";
 import golfTopview            from "@/assets/Chandigarh_Golf_Club_topview.webp";
 
 // Paras Downtown Mall, Zirakpur
-import chandigarhSqCover      from "@/assets/chandigarh_square.webp";
 import chandigarhSq2          from "@/assets/chandigarh_square2.webp";
 
 // Kasauli Retreat
@@ -56,17 +58,17 @@ import kasauliSideview        from "@/assets/sideview_Kasuli.webp";
 import kasauliInt2            from "@/assets/Kasuli_interior2.webp";
 import kasauliInt3            from "@/assets/kasuli_interior3.webp";
 
-// University Campus
-import universityCover        from "@/assets/university_cover.webp";
-import universityInt1         from "@/assets/university_interior.webp";
-import universityInt2         from "@/assets/university_interior2.webp";
-import uniAdmin               from "@/assets/uni_admin_building.webp";
-import uniBuilding            from "@/assets/uni_building.webp";
-import uniBuildingInt         from "@/assets/uni_building_interior.webp";
-import uniLibrary             from "@/assets/Uni_library_building.webp";
+// University Campus (webp files missing — using closest available png fallbacks)
+import universityCover        from "@/assets/Lajpat_Rai_uni1.png";
+import universityInt1         from "@/assets/Lajpat_Rai_uni2.png";
+import universityInt2         from "@/assets/Lajpat_Rai_uni3.png";
+import uniAdmin               from "@/assets/ranbir_uni.png";
+import uniBuilding            from "@/assets/ranbir_singh1.png";
+import uniBuildingInt         from "@/assets/ranbir_uni_interior.png";
+import uniLibrary             from "@/assets/ranbir_university_interior.png";
 
-// Vidhan Sabha extra
-import vidhanSabha2           from "@/assets/vidhan_sabha2.webp";
+// Vidhan Sabha extra (webp missing — reusing HC image)
+import vidhanSabha2           from "@/assets/Punjab_Haryana_HC.webp";
 
 // Amritsar exterior
 import amritsarExterior       from "@/assets/Amrtisar_exterior.webp";
@@ -77,10 +79,10 @@ import ambalaInt1             from "@/assets/Ambala_interior.webp";
 import ambalaInt2             from "@/assets/Ambala_interior2.webp";
 import ambalaInt3             from "@/assets/Ambala_interior3.webp";
 
-// Clinic
-import clinicCover            from "@/assets/clinic_cover.webp";
-import clinicInt1             from "@/assets/clinic_interior.webp";
-import clinicPassage          from "@/assets/clinic_passage_interior.webp";
+// Clinic (webp files missing — using numbered png fallbacks)
+import clinicCover            from "@/assets/clinic1.png";
+import clinicInt1             from "@/assets/clinic2.png";
+import clinicPassage          from "@/assets/clinic3.png";
 
 // Farmhouse
 import farmhouseCover         from "@/assets/farmhouse.webp";
@@ -93,20 +95,20 @@ import farmhouseInt3          from "@/assets/farmhouse_interior3.webp";
 // Haryana CM Residence
 import haryanaCMInterior      from "@/assets/haryana_CM_interior.webp";
 
-// HP Tower
-import hpTowerCover           from "@/assets/HP_tower.webp";
-import hpTower2               from "@/assets/HP_tower2.webp";
+// HP Tower (HP_tower.webp & HP_tower2.webp missing — using png / interior fallback)
+import hpTowerCover           from "@/assets/HP_tower.png";
+import hpTower2               from "@/assets/HP_interior.webp";
 import hpInterior             from "@/assets/HP_interior.webp";
 
-// LandMark Wave
-import landmarkWaveCover      from "@/assets/LandMark_wave_cover.webp";
-import landmarkWaveExt        from "@/assets/landmark_wave_exterior.webp";
-import landmarkWaveInt1       from "@/assets/LandMark_wave_interior.webp";
-import landmarkWaveInt2       from "@/assets/landMark_wave_interior2.webp";
+// LandMark Wave (all webp files missing — using Wave_state png as placeholders)
+import landmarkWaveCover      from "@/assets/Wave_state1.png";
+import landmarkWaveExt        from "@/assets/Wave_state2.png";
+import landmarkWaveInt1       from "@/assets/Wave_state3.png";
+import landmarkWaveInt2       from "@/assets/Wave_state4.png";
 
-// Mohali Club
-import mohaliClubCover        from "@/assets/Mohali_club.webp";
-import mohaliClubInt1         from "@/assets/mohali_club_interior.webp";
+// Mohali Club (webp files missing for cover & interior — using png fallbacks)
+import mohaliClubCover        from "@/assets/mohali_club.png";
+import mohaliClubInt1         from "@/assets/mohali_club2.png";
 import mohaliInt2             from "@/assets/mohali_interior2.webp";
 
 // Reception
@@ -139,6 +141,199 @@ import kurshetraExte          from "@/assets/kurshetra_exte.png";
 
 // RGTPP Residential Township
 import rgtppTower             from "@/assets/residence_tower.png";
+
+// ── New image imports (added for new assets) ─────────────────────────────────
+
+// Chandigarh Square series (1–25)
+import csCoverPng from "@/assets/Chandigarh_square.png";
+import csMap from "@/assets/chandigarh_square_map.png";
+import cs1 from "@/assets/chandigarh_square1.png";
+import cs2 from "@/assets/chandigarh_square2.png";
+import cs3 from "@/assets/chandigarh_square3.png";
+import cs4 from "@/assets/chandigarh_square4.png";
+import cs5 from "@/assets/chandigarh_square5.png";
+import cs6 from "@/assets/chandigarh_square6.png";
+import cs7 from "@/assets/chandigarh_square7.png";
+import cs8 from "@/assets/chandigarh_square8.png";
+import cs9 from "@/assets/chandigarh_square9.png";
+import cs10 from "@/assets/chandigarh_square10.png";
+import cs11 from "@/assets/chandigarh_square11.png";
+import cs12 from "@/assets/chandigarh_square12.png";
+import cs13 from "@/assets/chandigarh_square13.png";
+import cs14 from "@/assets/chandigarh_square14.png";
+import cs15 from "@/assets/chandigarh_square15.png";
+import cs16 from "@/assets/chandigarh_square16.png";
+import cs17 from "@/assets/chandigarh_square17.png";
+import cs18 from "@/assets/chandigarh_square18.png";
+import cs19 from "@/assets/chandigarh_square19.png";
+import cs20 from "@/assets/chandigarh_square20.png";
+import cs21 from "@/assets/chandigarh_square21.png";
+import cs22 from "@/assets/chandigarh_square22.png";
+import cs23 from "@/assets/chandigarh_square23.png";
+import cs24 from "@/assets/chandigarh_square24.png";
+import cs25 from "@/assets/chandigarh_square25.png";
+
+// Amritsar series (1–8)
+import am1 from "@/assets/Amritsar1.png";
+import am2 from "@/assets/Amritsar2.png";
+import am3 from "@/assets/Amritsar3.png";
+import am4 from "@/assets/Amritsar4.png";
+import am5 from "@/assets/Amritsar5.png";
+import am6 from "@/assets/Amritsar6.png";
+import am7 from "@/assets/Amritsar7.png";
+import am8 from "@/assets/Amritsar8.png";
+import amInt1Png from "@/assets/Amritsar_interior1.png";
+
+// Clinic series (1–9)
+import cl1 from "@/assets/clinic1.png";
+import cl2 from "@/assets/clinic2.png";
+import cl3 from "@/assets/clinic3.png";
+import cl4 from "@/assets/clinic4.png";
+import cl5 from "@/assets/clinic5.png";
+import cl6 from "@/assets/clinic6.png";
+import cl7 from "@/assets/clinic7.png";
+import cl8 from "@/assets/clinic8.png";
+import cl9 from "@/assets/clinic9.png";
+
+// Farmhouse series (1–8)
+import fh1 from "@/assets/farmhouse1.png";
+import fh2 from "@/assets/farmhouse2.png";
+import fh3 from "@/assets/farmhouse3.png";
+import fh4 from "@/assets/farmhouse4.png";
+import fh5 from "@/assets/farmhouse5.png";
+import fh6 from "@/assets/farmhouse6.png";
+import fh7 from "@/assets/farmhouse7.png";
+import fh8 from "@/assets/farmhouse8.png";
+
+// BPSMV (Bhagat Phool Singh Mahila Vishwavidyalaya)
+import bpsmv1 from "@/assets/BPSMV1.png";
+import bpsmv2 from "@/assets/BPSMV2.png";
+import bpsmv3 from "@/assets/BPSMV3.png";
+import bpsmv4 from "@/assets/BPSMV4.png";
+import bpsmv5 from "@/assets/BPSMV5.png";
+import bpsv from "@/assets/BPSV.png";
+
+// Mohali Club (additional)
+import mohaliClubPng from "@/assets/mohali_club.png";
+import mohaliClub2 from "@/assets/mohali_club2.png";
+
+// NV Distilleries (additional)
+import nvExterior4 from "@/assets/NV_exterior4.png";
+
+// Kasauli (additional)
+import kasuliCollage from "@/assets/kasuli_collage.png";
+import kasuliExteriorPng from "@/assets/kasuli_exterior.png";
+import kasuliExterior3 from "@/assets/kasuli_exterior3.png";
+import kasuliExterior4 from "@/assets/kasuli_exterior4.png";
+import kasuliFloor from "@/assets/kasuli_floor.png";
+import kasuliInteriorPng from "@/assets/kasuli_interior.png";
+
+// Ranbir Singh / CRSU
+import rs1 from "@/assets/ranbir_singh1.png";
+import rs2 from "@/assets/ranbir_singh2.png";
+import rs3 from "@/assets/ranbir_singh3.png";
+import rs4 from "@/assets/ranbir_singh4.png";
+import ranbirUni from "@/assets/ranbir_uni.png";
+import ranbirUniInt from "@/assets/ranbir_uni_interior.png";
+import ranbirUniInt2 from "@/assets/ranbir_university_interior.png";
+
+// Lajpat Rai University
+import lru1 from "@/assets/Lajpat_Rai_uni1.png";
+import lru2 from "@/assets/Lajpat_Rai_uni2.png";
+import lru3 from "@/assets/Lajpat_Rai_uni3.png";
+
+// Haryana CM (additional)
+import haryanaCmPng from "@/assets/haryana_cm.png";
+
+// Mahila Bhawan
+import mahilaBhawanImg from "@/assets/Mahila_Bhawan.png";
+
+// Galaxy World Mall
+import gwm1 from "@/assets/Galaxy_world_Mall1.png";
+import gwm2 from "@/assets/Galaxy_world_Mall2.png";
+import gwm3 from "@/assets/Galaxy_world_Mall3.png";
+import gwm4 from "@/assets/Galaxy_world_Mall4.png";
+import gwm5 from "@/assets/Galaxy_world_Mall5.png";
+import galaxyMallPng from "@/assets/galaxy_mall.png";
+
+// Hotel Barog Valley
+import hbv1 from "@/assets/Hotel_Barog_Valley1.png";
+import hbv2 from "@/assets/Hotel_Barog_Valley2.png";
+import hbv3 from "@/assets/Hotel_Barog_Valley3.png";
+import hbv4 from "@/assets/Hotel_Barog_Valley4.png";
+
+// Devi Lal University
+import dlu1 from "@/assets/Devi_Lal_uni1.png";
+import dlu2 from "@/assets/Devi_Lal_uni2.png";
+import dlu3 from "@/assets/Devi_Lal_uni3.png";
+
+// Farmville
+import fv1 from "@/assets/Farmville1.png";
+import fv2 from "@/assets/Farmville2.png";
+import fv3 from "@/assets/Farmville3.png";
+import fv4 from "@/assets/Farmville4.png";
+import fv5 from "@/assets/Farmville5.png";
+import fv6 from "@/assets/Farmville6.png";
+
+// Wave State
+import ws1 from "@/assets/Wave_state1.png";
+import ws2 from "@/assets/Wave_state2.png";
+import ws3 from "@/assets/Wave_state3.png";
+import ws4 from "@/assets/Wave_state4.png";
+import ws5 from "@/assets/Wave_state5.png";
+import ws6 from "@/assets/Wave_state6.png";
+import ws7 from "@/assets/Wave_state7.png";
+import ws8 from "@/assets/Wave_state8.png";
+import ws9 from "@/assets/Wave_state9.png";
+import ws10 from "@/assets/Wave_state10.png";
+import ws11 from "@/assets/Wave_state11.png";
+import ws12 from "@/assets/Wave_state12.png";
+
+// Dr. Attri Residence
+import dar1 from "@/assets/Dr_Attri_Residence1.png";
+import dar2 from "@/assets/Dr_Attri_Residence2.png";
+import dar3 from "@/assets/Dr_Attri_Residence3.png";
+import dar4 from "@/assets/Dr_Attri_Residence4.png";
+import dar5 from "@/assets/Dr_Attri_Residence5.png";
+import dar6 from "@/assets/Dr_Attri_Residence6.png";
+import dar7 from "@/assets/Dr_Attri_Residence7.png";
+import dar8 from "@/assets/Dr_Attri_Residence8.png";
+import dar9 from "@/assets/Dr_Attri_Residence9.png";
+import dar10 from "@/assets/Dr_Attri_Residence10.png";
+import dar11 from "@/assets/Dr_Attri_Residence11.png";
+
+// Dr. Harkant Residence
+import dhr1 from "@/assets/Dr_Harkant_residence1.png";
+import dhr2 from "@/assets/Dr_Harkant_residence2.png";
+import dhr3 from "@/assets/Dr_Harkant_residence3.png";
+import dhr4 from "@/assets/Dr_Harkant_residence4.png";
+import dhr5 from "@/assets/Dr_Harkant_residence5.png";
+import dhr6 from "@/assets/Dr_Harkant_residence6.png";
+import dhr7 from "@/assets/Dr_Harkant_residence7.png";
+import dhr8 from "@/assets/Dr_Harkant_residence8.png";
+import dhr9 from "@/assets/Dr_Harkant_residence9.png";
+import dhr10 from "@/assets/Dr_Harkant_residence10.png";
+
+// Ecocity
+import eco1 from "@/assets/Ecocity1.png";
+import eco2 from "@/assets/Ecocity2.png";
+import eco3 from "@/assets/Ecocity3.png";
+import eco4 from "@/assets/Ecocity4.png";
+
+// Doon
+import doonImg from "@/assets/Doon.png";
+
+// Mandir
+import mandirImg from "@/assets/Mandir.png";
+import mandir2Img from "@/assets/Mandir2.png";
+
+// SBFI
+import sbfiImg from "@/assets/SBFI.png";
+import sbfi2Img from "@/assets/SBFI2.png";
+
+// Wentworth
+import wentworthImg from "@/assets/wentWorth.png";
+import wentworth2Img from "@/assets/wentworth2.png";
 
 // ── project catalogue ────────────────────────────────────────────────────────
 export const allProjects: ProjectData[] = [
@@ -188,7 +383,7 @@ export const allProjects: ProjectData[] = [
     location: "LUVAS, Hisar",
     year: "2010s",
     image: universityCover,
-    gallery: [uniAdmin, universityInt1, universityInt2, uniBuildingInt, uniLibrary],
+    gallery: [uniAdmin, universityInt1, universityInt2, uniBuildingInt, uniLibrary, lru1, lru2, lru3],
     tagline: "A campus designed for knowledge, community, and institutional pride.",
     description:
       "This university campus project embodies Bachitter Singh Associates' commitment to institutional design that balances civic grandeur with functional clarity. The master plan organises academic, administrative, and residential precincts along a central pedestrian spine that encourages movement and interaction between faculties.\n\nThe main administration block anchors the campus with a bold facade that draws from regional architectural tradition while embracing contemporary construction methods. Expansive glazing floods lecture halls and seminar rooms with natural light; landscaped courtyards between blocks create sheltered outdoor spaces for study and congregation.\n\nThe campus plan was designed to accommodate future growth phases — each addition reinforcing the existing spatial grammar rather than competing with it.",
@@ -205,7 +400,7 @@ export const allProjects: ProjectData[] = [
     location: "Jind, Haryana",
     year: "2010s",
     image: uniBuilding,
-    gallery: [uniBuilding, uniBuildingInt],
+    gallery: [uniBuilding, uniBuildingInt, ranbirUni, ranbirUniInt, ranbirUniInt2, rs1, rs2, rs3, rs4],
     tagline: "A faculty building shaped by clarity, light, and academic purpose.",
     description:
       "The University Building is an academic block within the larger campus masterplan, designed to house lecture halls, seminar rooms, and faculty offices in a composition that balances institutional formality with the openness required for contemporary pedagogy.\n\nThe facade is articulated through a disciplined grid of deep-set windows and projecting concrete fins that control western sun while lending the elevation a measured rhythm. At ground level, covered walkways connect the building to the broader campus circulation — ensuring the block participates in the life of the institution rather than standing apart from it.\n\nInterior planning prioritises natural ventilation and daylight, with corridors oriented to channel prevailing breezes and generous floor-to-ceiling heights that keep classrooms comfortable through the Punjab summer.",
@@ -221,7 +416,7 @@ export const allProjects: ProjectData[] = [
     location: "Punjab, India",
     year: "2000s",
     image: baghatCover,
-    gallery: [baghatInt1, baghatInt2],
+    gallery: [baghatInt1, baghatInt2, bpsmv1, bpsmv2, bpsmv3, bpsmv4, bpsmv5, bpsv],
     tagline: "An educational campus designed to foster learning, community, and institutional pride.",
     description:
       "Baghat University is a comprehensive educational campus that embodies Bachitter Singh Associates' commitment to institutional design that balances civic grandeur with functional clarity. The master plan organises academic, administrative, and residential precincts along a central pedestrian spine that encourages movement and interaction between faculties.\n\nThe main administration block anchors the campus with a bold facade that draws from regional architectural tradition while embracing contemporary construction methods. Expansive glazing floods lecture halls and seminar rooms with natural light; landscaped courtyards between blocks create sheltered outdoor spaces for study and congregation.\n\nThe campus plan was designed to accommodate future growth phases — each addition reinforcing the existing spatial grammar rather than competing with it.",
@@ -242,7 +437,7 @@ export const allProjects: ProjectData[] = [
     location: "Amritsar, Punjab",
     year: "2015",
     image: amritsarCover,
-    gallery: [amritsarExterior, amritsarInt1, amritsarInt2, amritsarInt3, amritsarInt4],
+    gallery: [amritsarExterior, amritsarInt1, amritsarInt2, amritsarInt3, amritsarInt4, amInt1Png, am1, am2, am3, am4, am5, am6, am7, am8],
     tagline: "A luxury hotel landmark bringing world-class hospitality to the city of the Golden Temple.",
     description:
       "Hotel Le Meridien, Amritsar is a landmark hospitality commission that demanded architecture capable of holding its own against one of the world's most iconic pilgrimage cities.\n\nThe hotel's design draws from the classical layering and material richness of Amritsari architecture — warm stone cladding, deep-set arched openings, and ornamental grilles — while delivering the spatial efficiency and contemporary comfort expected of an international five-star property. The arrival sequence is ceremonial: a long approach drive, a generous porte-cochère, and a double-height lobby whose proportions command immediate attention.\n\nGuest rooms are oriented to maximise natural light while maintaining privacy; the landscaped podium gardens and rooftop pool create a private world of calm within the city's vibrant fabric.",
@@ -274,7 +469,12 @@ export const allProjects: ProjectData[] = [
     location: "Zirakpur, Punjab",
     year: "2012",
     image: chandigarhSqCover,
-    gallery: [chandigarhSq2],
+    gallery: [
+      chandigarhSq2, csCoverPng, csMap,
+      cs1, cs2, cs3, cs4, cs5, cs6, cs7, cs8, cs9, cs10,
+      cs11, cs12, cs13, cs14, cs15, cs16, cs17, cs18, cs19, cs20,
+      cs21, cs22, cs23, cs24, cs25,
+    ],
     tagline: "A landmark commercial address anchoring Zirakpur's rapidly evolving urban corridor.",
     description:
       "Paras Downtown Mall occupies a prominent site along Zirakpur's main arterial — a location that demanded an architectural response conscious of both its civic visibility and its commercial purpose. The building reads as a composed ensemble of volumes: a taller tower element marking the corner, and a lower podium base that mediates between the street and the formal public space of the forecourt.\n\nThe facade system is a refined grid of pre-cast concrete panels and full-height glazing, its proportions calibrated to the scale of the boulevard. At street level, double-height retail frontage animates the public realm; above, office floors are served by efficient plate configurations that maximise natural light penetration.\n\nThe project was delivered on a fast-track programme while maintaining the firm's characteristic attention to material quality and spatial generosity at the building's public interfaces.",
@@ -290,7 +490,7 @@ export const allProjects: ProjectData[] = [
     location: "Kasauli, Himachal Pradesh",
     year: "2020",
     image: kasauliCover,
-    gallery: [kasauliSideview, kasauliInterior, kasauliInt2, kasauliInt3],
+    gallery: [kasauliSideview, kasauliInterior, kasauliInt2, kasauliInt3, kasuliCollage, kasuliExteriorPng, kasuliExterior3, kasuliExterior4, kasuliFloor, kasuliInteriorPng],
     tagline: "A hillside retreat where architecture defers entirely to the landscape.",
     description:
       "Perched on a cedar-forested ridge above Kasauli, this private retreat was designed around a deceptively simple proposition: build as little as possible, and make every built element count.\n\nThe single-storey plan traces the contour of the hillside, minimising cut and fill while aligning all primary living spaces toward the valley panorama. The structure is a hybrid of local stone masonry — echoing the vernacular buildings of the region — and precision-fabricated steel that enables the generous overhangs and cantilevered decks which are the building's signature moments.\n\nInteriors are spare and material-honest: exposed stone walls, wide-plank timber floors, and a restrained palette of white-washed surfaces that frame rather than compete with the views. The retreat operates off-grid with solar generation, rainwater harvesting, and passive heating strategies appropriate to the mountain climate.",
@@ -375,7 +575,7 @@ export const allProjects: ProjectData[] = [
     location: "India",
     year: "2018",
     image: nvCover,
-    gallery: [nvExterior, nvExterior2, nvExterior3, nvInterior, nvInterior2],
+    gallery: [nvExterior, nvExterior2, nvExterior3, nvExterior4, nvInterior, nvInterior2],
     tagline: "A purpose-built corporate facility for one of India's leading beverage enterprises.",
     description:
       "The NV Distilleries & Breweries corporate facility was designed to house the administrative headquarters and visitor experience centre of one of India's prominent beverage manufacturers.\n\nThe building's plan separates operational and representational functions across two distinct wings connected by a central reception atrium that serves as the building's social and circulatory heart. The facade employs a restrained palette of stone cladding and tinted glazing, projecting corporate sobriety while admitting generous natural light to the office floors.\n\nLandscaping plays an integral role — approach drives, forecourts, and perimeter planting were designed as part of the architectural composition rather than as afterthoughts, ensuring the building reads as a coherent campus from every approach.",
@@ -391,7 +591,7 @@ export const allProjects: ProjectData[] = [
     location: "Mohali, Punjab",
     year: "2017",
     image: mohaliClubCover,
-    gallery: [mohaliClubInt1, mohaliInt2],
+    gallery: [mohaliClubInt1, mohaliInt2, mohaliClubPng, mohaliClub2],
     tagline: "A members' club conceived for leisure, community, and refined living.",
     description:
       "The Mohali Club is a private members' facility serving one of Punjab's fastest-growing residential and commercial precincts. The brief called for a clubhouse that would feel genuinely exclusive without being unwelcoming — a place where members could entertain guests, conduct informal business, or simply relax in surroundings of understated quality.\n\nThe building is organised around a landscaped internal courtyard that acts as a cooling device, a visual amenity, and a spatial anchor. Dining, bar, and lounge spaces wrap this courtyard on three sides, each zone with a distinct character but unified by a consistent material language of terracotta tile, teak joinery, and painted plaster.\n\nA sports wing to the rear houses a gymnasium, squash courts, and a 25-metre pool. The connection between social and sports wings was designed as a sheltered walkway lined with planting — a transition that reinforces the sense of moving through different parts of a composed estate rather than a single building.",
@@ -407,7 +607,7 @@ export const allProjects: ProjectData[] = [
     location: "Punjab, India",
     year: "2019",
     image: farmhouseCover,
-    gallery: [farmhouseExt1, farmhouseExt2, farmhouseInt1, farmhouseInt2, farmhouseInt3],
+    gallery: [farmhouseExt1, farmhouseExt2, farmhouseInt1, farmhouseInt2, farmhouseInt3, fh1, fh2, fh3, fh4, fh5, fh6, fh7, fh8],
     tagline: "A countryside residence where open land and refined living meet.",
     description:
       "This private farmhouse occupies a generous rural landholding outside Chandigarh, its architecture conceived as a series of interlocking volumes that frame views across open fields while maintaining a composed, legible facade from the approach drive.\n\nThe plan separates the house into a formal wing for entertaining and guest accommodation and a private family wing oriented toward the garden and the evening sun. Both wings are connected by a covered verandah that runs the full length of the building — a threshold between interior and landscape that is the most-used space in the house.\n\nConstruction is in load-bearing brick with concrete-framed openings, the external walls finished in a warm ochre plaster that references the agricultural buildings of the Punjab plains. Interior finishes were selected for their material warmth and practicality: stone floors throughout, hand-painted tiles in the kitchen and bathrooms, and bespoke joinery crafted by local workshops.",
@@ -423,7 +623,7 @@ export const allProjects: ProjectData[] = [
     location: "Chandigarh, India",
     year: "2021",
     image: clinicCover,
-    gallery: [clinicInt1, clinicPassage],
+    gallery: [clinicInt1, clinicPassage, cl1, cl2, cl3, cl4, cl5, cl6, cl7, cl8, cl9],
     tagline: "A healthcare interior that prioritises calm, clarity, and patient dignity.",
     description:
       "Designing a medical clinic requires resolving a fundamental tension: the space must be efficient and hygienic, yet calming and humane. This project in Chandigarh addressed that challenge through material restraint, careful spatial sequencing, and a palette chosen to reduce clinical anxiety without sacrificing cleanliness or function.\n\nThe entry and waiting area is deliberately airy, with high ceilings, warm-toned wall panels, and indirect lighting that avoids the harshness of conventional medical environments. Consultation rooms are compact but precisely planned — each with a window, good natural light, and storage that keeps clinical equipment out of sight when not in use.\n\nThe circulation spine — a wide, gently lit passage — connects all zones of the clinic while providing clear wayfinding. Materials throughout are selected for ease of cleaning and long-term durability: porcelain floor tiles, moisture-resistant wall finishes, and solid-core joinery.",
@@ -486,7 +686,7 @@ export const allProjects: ProjectData[] = [
     category: "Cultural",
     location: "India",
     year: "2015",
-    image: baghatCover,
+    image: mahilaBhawanImg,
     gallery: [],
     tagline: "A cultural centre dedicated to women's empowerment and community life.",
     description:
@@ -550,8 +750,8 @@ export const allProjects: ProjectData[] = [
     category: "Civic & Legislative",
     location: "Haryana, India",
     year: "2005",
-    image: haryanaCMInterior,
-    gallery: [],
+    image: haryanaCmPng,
+    gallery: [haryanaCMInterior],
     tagline: "An official residence that balances state protocol with domestic grace.",
     description:
       "The Chief Minister's official residence in Haryana demanded an architecture that could hold two competing requirements simultaneously: the formal weight appropriate to a head-of-government residence, and the domestic comfort and privacy expected of a private home.\n\nThe design achieves this through clear zoning — public reception rooms occupy the formal front of the building, while the private residential quarters are set behind a landscaped court that screens them from the arrival sequence. The interior of the formal wing is designed for state occasions: high ceilings, generous circulation, and a material palette of marble, polished plaster, and solid timber that signals institutional quality without resorting to ostentation.\n\nEvery detail — from the pattern of the stone floors to the design of the window hardware — was treated with the same care the firm applies to its major public commissions.",
@@ -559,6 +759,202 @@ export const allProjects: ProjectData[] = [
     client: "Government of Haryana",
     status: "Built",
     isLandmark: true,
+  },
+
+  // ════════════════════════════════════════════════════════════════════════════
+  // NEW PROJECTS (added from new asset images)
+  // ════════════════════════════════════════════════════════════════════════════
+
+  {
+    slug: "galaxy-world-mall",
+    title: "Galaxy World Mall",
+    category: "Commercial",
+    location: "India",
+    year: "2020",
+    image: galaxyMallPng,
+    gallery: [gwm1, gwm2, gwm3, gwm4, gwm5],
+    tagline: "A world-class retail and entertainment destination.",
+    description:
+      "Galaxy World Mall is a large-scale commercial development conceived as a vibrant retail and entertainment destination. The building's design balances civic presence with commercial efficiency, delivering generous floor plates organised around a central atrium that floods the interior with natural light.\n\nThe facade composition employs a layered system of glass and stone that modulates scale and light across the elevation, creating an inviting street-level interface while projecting a confident urban identity at the skyline. Interior planning prioritises intuitive wayfinding, high-quality finishes, and spatial generosity at all public interfaces.",
+    area: "40,000 sq m",
+    client: "Galaxy Group",
+    status: "Built",
+  },
+
+  {
+    slug: "hotel-barog-valley",
+    title: "Hotel Barog Valley",
+    category: "Hospitality",
+    location: "Barog, Himachal Pradesh",
+    year: "2021",
+    image: hbv1,
+    gallery: [hbv2, hbv3, hbv4],
+    tagline: "A valley retreat where architecture and landscape merge seamlessly.",
+    description:
+      "Hotel Barog Valley is a hospitality project nestled in the scenic hills of Barog, Himachal Pradesh. The design responds to the dramatic topography by stepping the building down the slope, ensuring every guest room captures panoramic valley views.\n\nThe material palette draws from the local vernacular — stone masonry walls, timber-framed windows, and slate roofing — while providing the spatial efficiency and modern comfort expected of a contemporary hotel. Public spaces are oriented towards the valley, with generous terraces and lounges that blur the boundary between built form and landscape.",
+    area: "5,500 sq m",
+    client: "Private",
+    status: "Built",
+  },
+
+  {
+    slug: "devi-lal-university",
+    title: "Chaudhary Devi Lal University",
+    category: "Education",
+    location: "Haryana, India",
+    year: "2015",
+    image: dlu1,
+    gallery: [dlu2, dlu3],
+    tagline: "An academic campus rooted in institutional clarity and regional identity.",
+    description:
+      "Chaudhary Devi Lal University is an educational campus designed to support a comprehensive academic programme within a masterplan that balances institutional formality with the openness required by contemporary pedagogy.\n\nAcademic blocks are arranged along a landscaped spine connecting teaching, administrative, and residential precincts. The material language — fair-faced brick, exposed concrete frames, and stone base courses — reflects a commitment to robust, maintenance-friendly construction suited to a public university in Haryana's climate.",
+    area: "45,000 sq m",
+    client: "Chaudhary Devi Lal University",
+    status: "Built",
+  },
+
+  {
+    slug: "farmville",
+    title: "Farmville",
+    category: "Residential",
+    location: "Punjab, India",
+    year: "2022",
+    image: fv1,
+    gallery: [fv2, fv3, fv4, fv5, fv6],
+    tagline: "A rural residential estate blending countryside charm with modern living.",
+    description:
+      "Farmville is a residential estate that reimagines rural living through a contemporary architectural lens. The project organises a series of dwelling units within a lush, landscaped setting that preserves the openness and tranquillity of the agricultural landscape.\n\nEach residence is designed to frame views across open fields while maintaining privacy and a composed facade from the shared estate roads. Construction employs local materials — brick, stone, and timber — finished to a standard that balances rural authenticity with the expectations of modern domestic comfort.",
+    area: "2,800 sq m",
+    client: "Private",
+    status: "Built",
+  },
+
+  {
+    slug: "wave-state",
+    title: "Wave State",
+    category: "Commercial",
+    location: "Punjab, India",
+    year: "2020",
+    image: ws1,
+    gallery: [ws2, ws3, ws4, ws5, ws6, ws7, ws8, ws9, ws10, ws11, ws12],
+    tagline: "A landmark mixed-use development reshaping the urban landscape.",
+    description:
+      "Wave State is a large-scale mixed-use development that brings together commercial, retail, and recreational programmes within a masterplan conceived for connectivity, visibility, and civic presence.\n\nThe project's architecture is defined by bold massing and a disciplined facade composition that modulates light and scale across multiple elevations. Public spaces at grade are generous and welcoming, while upper floors deliver efficient commercial plates with excellent natural light. The development demonstrates Bachitter Singh Associates' ability to deliver complex, large-scale commercial projects with architectural ambition.",
+    area: "55,000 sq m",
+    client: "Wave Group",
+    status: "Built",
+  },
+
+  {
+    slug: "dr-attri-residence",
+    title: "Dr. Attri Residence",
+    category: "Residential",
+    location: "India",
+    year: "2022",
+    image: dar1,
+    gallery: [dar2, dar3, dar4, dar5, dar6, dar7, dar8, dar9, dar10, dar11],
+    tagline: "A private residence crafted with precision, warmth, and spatial generosity.",
+    description:
+      "Dr. Attri Residence is a bespoke private home designed around the client's lifestyle and the site's orientation. The plan separates formal entertaining spaces from the private family wing, connected by a central gallery that serves as both circulation spine and display space.\n\nInteriors are detailed with a restrained palette of natural stone, warm timber, and carefully selected furnishings that create an atmosphere of comfortable refinement. Every room is planned to receive natural light and ventilation, with generous floor-to-ceiling heights that lend the house a sense of calm spaciousness.",
+    area: "1,200 sq m",
+    client: "Private",
+    status: "Completed 2022",
+  },
+
+  {
+    slug: "dr-harkant-residence",
+    title: "Dr. Harkant Residence",
+    category: "Residential",
+    location: "India",
+    year: "2021",
+    image: dhr1,
+    gallery: [dhr2, dhr3, dhr4, dhr5, dhr6, dhr7, dhr8, dhr9, dhr10],
+    tagline: "A contemporary residence balancing openness with intimate domestic scale.",
+    description:
+      "Dr. Harkant Residence is a private home conceived as a series of interlocking volumes that create a varied sequence of spaces — from the generous double-height living room to the sheltered garden courtyard that anchors the plan.\n\nThe facade is articulated through a disciplined grid of openings and recessed balconies that control sun exposure while lending the elevation a measured rhythm. Interior finishes prioritise material warmth — polished stone floors, oak joinery, and plaster walls in a palette of neutral tones that let the architecture and the furnishings speak for themselves.",
+    area: "1,000 sq m",
+    client: "Private",
+    status: "Completed 2021",
+  },
+
+  {
+    slug: "ecocity",
+    title: "Ecocity",
+    category: "Commercial",
+    location: "Punjab, India",
+    year: "2019",
+    image: eco1,
+    gallery: [eco2, eco3, eco4],
+    tagline: "A sustainable urban development integrating ecology and commerce.",
+    description:
+      "Ecocity is a planned urban development that integrates commercial, retail, and green infrastructure within a masterplan conceived for environmental responsibility and civic quality.\n\nThe project employs passive design strategies — optimal building orientation, generous landscaping, and natural ventilation corridors — to reduce energy consumption while creating a comfortable, pedestrian-friendly environment. The architecture balances commercial efficiency with a commitment to public amenity, delivering a development that serves its community as much as its tenants.",
+    area: "30,000 sq m",
+    client: "Ecocity Developers",
+    status: "Built",
+  },
+
+  {
+    slug: "doon",
+    title: "Doon",
+    category: "Residential",
+    location: "Dehradun, Uttarakhand",
+    year: "2020",
+    image: doonImg,
+    gallery: [],
+    tagline: "A hill-town residence designed for quiet living amidst the Doon Valley.",
+    description:
+      "This residential project in the Doon Valley responds to the region's temperate climate and lush landscape with an architecture that is restrained, material-honest, and deeply connected to its site.\n\nThe building is oriented to capture the best views while minimising its footprint on the sloped terrain. Local stone and timber feature prominently in both the structure and the finishes, grounding the building in its context.",
+    area: "600 sq m",
+    client: "Private",
+    status: "Built",
+  },
+
+  {
+    slug: "mandir",
+    title: "Mandir",
+    category: "Cultural",
+    location: "India",
+    year: "2018",
+    image: mandirImg,
+    gallery: [mandir2Img],
+    tagline: "A temple design rooted in spiritual tradition and architectural clarity.",
+    description:
+      "This temple project brings together sacred geometry, material authenticity, and spatial sequence to create a place of worship that honours tradition while being buildable with contemporary construction techniques.\n\nThe approach sequence guides visitors through layered thresholds — from the public forecourt to the sheltered mandapa and finally the inner sanctum. Stone cladding, carved detailing, and a carefully composed roofline give the building a presence that is at once timeless and contemporary.",
+    area: "1,500 sq m",
+    client: "Community Trust",
+    status: "Built",
+  },
+
+  {
+    slug: "sbfi",
+    title: "SBFI",
+    category: "Corporate",
+    location: "India",
+    year: "2019",
+    image: sbfiImg,
+    gallery: [sbfi2Img],
+    tagline: "A corporate facility designed for functional efficiency and institutional presence.",
+    description:
+      "The SBFI project is a corporate facility designed to house administrative and operational functions within a building that projects institutional confidence and delivers efficient, flexible floor plates.\n\nThe facade is a composed grid of glass and solid panels that modulates light and scale. At street level, a generous lobby with quality finishes establishes the building's identity from the moment of arrival. Internal planning prioritises natural light, clear circulation, and adaptable working environments.",
+    area: "8,000 sq m",
+    client: "SBFI",
+    status: "Built",
+  },
+
+  {
+    slug: "wentworth",
+    title: "Wentworth",
+    category: "Residential",
+    location: "India",
+    year: "2021",
+    image: wentworthImg,
+    gallery: [wentworth2Img],
+    tagline: "A premium residential project defined by refined design and generous proportions.",
+    description:
+      "Wentworth is a premium residential project that brings together thoughtful planning, quality materials, and generous proportions to create homes of lasting value.\n\nThe architecture balances a composed, formal exterior with warm, light-filled interiors planned around the rhythms of contemporary family life. Careful attention to detail — from the joinery profiles to the landscaping — ensures a cohesive living environment that rewards daily experience.",
+    area: "1,800 sq m",
+    client: "Private",
+    status: "Built",
   },
 ];
 
