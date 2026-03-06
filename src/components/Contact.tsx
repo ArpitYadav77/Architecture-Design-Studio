@@ -1,19 +1,31 @@
 import { useState } from "react";
 import ScrollReveal from "./ScrollReveal";
 import { MapPin, Phone, Mail, Globe, Instagram } from "lucide-react";
-import { toast } from "sonner";
+
+const FORMSPREE_URL = "https://formspree.io/f/mojkadan";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      toast.error("Please fill in all required fields.");
-      return;
+    setStatus("submitting");
+    try {
+      const res = await fetch(FORMSPREE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ name: form.name, email: form.email, phone: form.phone, message: form.message }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setForm({ name: "", email: "", phone: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
     }
-    toast.success("Your query has been submitted. We will be in touch shortly.");
-    setForm({ name: "", email: "", phone: "", message: "" });
   };
 
   return (
@@ -179,11 +191,23 @@ const Contact = () => {
                   />
                 </div>
 
+                {status === "success" && (
+                  <p className="text-sm text-green-700 bg-green-50 border border-green-200 px-4 py-3">
+                    Thank you — your query has been submitted. We will be in touch shortly.
+                  </p>
+                )}
+                {status === "error" && (
+                  <p className="text-sm text-red-700 bg-red-50 border border-red-200 px-4 py-3">
+                    Something went wrong. Please try again or email us directly.
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="mt-4 w-full bg-[#2A221D] hover:bg-amber-800 text-white text-xs uppercase tracking-[0.2em] py-4 transition-colors duration-300"
+                  disabled={status === "submitting"}
+                  className="mt-4 w-full bg-[#2A221D] hover:bg-amber-800 disabled:opacity-60 text-white text-xs uppercase tracking-[0.2em] py-4 transition-colors duration-300"
                 >
-                  Submit Query
+                  {status === "submitting" ? "Sending…" : "Submit Query"}
                 </button>
               </form>
             </div>
