@@ -332,10 +332,10 @@ import sbfiImg from "@/assets/SBFI.png";
 import sbfi2Img from "@/assets/SBFI2.png";
 
 // Pt. Sundarlal Sharma Open University
-import sunderlalImg1 from "@/assets/image copy.png";
-import sunderlalImg2 from "@/assets/image copy 2.png";
-import sunderlalImg3 from "@/assets/image copy 3.png";
-import sunderlalImg4 from "@/assets/image copy 4.png";
+import sunderlalImg1 from "@/assets/SUNDERLAL_UNIVERSITY_1.png";
+import sunderlalImg2 from "@/assets/SUNDERLAL_UNIVERSITY_2.png";
+import sunderlalImg3 from "@/assets/SUNDERLAL_UNIVERSITY_3.png";
+import sunderlalImg4 from "@/assets/SUNDERLAL_UNIVERSITY_4.png";
 
 // Wentworth
 import wentworthImg from "@/assets/wentWorth.png";
