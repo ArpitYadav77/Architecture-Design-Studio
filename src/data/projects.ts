@@ -621,22 +621,6 @@ export const allProjects: ProjectData[] = [
   },
 
   {
-    slug: "haryana-vidhan-sabha-interior",
-    title: "Haryana Vidhan Sabha",
-    category: "Interior",
-    location: "Haryana, India",
-    year: "2000s",
-    image: vidhanSabhaImg,
-    gallery: [vidhanSabha2],
-    tagline: "Interior design that honours the dignity and gravitas of legislative architecture.",
-    description:
-      "The interior design of the Haryana Vidhan Sabha required a response equal to the building's civic significance — spaces that convey democratic authority, institutional permanence, and public trust.\n\nThe principal chamber, lobbies, and committee rooms were detailed with a material palette of polished stone, carved timber panelling, and brass hardware selected for their durability and visual weight. Lighting was carefully layered to support both televised proceedings and the more intimate scale of committee deliberation.\n\nEvery interior element — from the pattern of the floor to the design of the furniture — was treated as an expression of the state's identity and the seriousness of legislative purpose.",
-    area: "42,000 sq m",
-    client: "Government of Haryana",
-    status: "Built",
-  },
-
-  {
     slug: "haryana-cm-secretariat-interior",
     title: "Haryana Chief Minister Secretariat Building",
     category: "Interior",
