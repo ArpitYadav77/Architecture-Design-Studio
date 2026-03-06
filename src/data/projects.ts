@@ -349,40 +349,6 @@ export const allProjects: ProjectData[] = [
   // ════════════════════════════════════════════════════════════════════════════
 
   {
-    slug: "vidhan-sabha",
-    title: "Vidhan Sabha",
-    category: "Civic & Legislative",
-    location: "Punjab, India",
-    year: "2000s",
-    image: vidhanSabhaImg,
-    gallery: [vidhanSabha2],
-    tagline: "A civic landmark of public trust and architectural permanence.",
-    description:
-      "The Vidhan Sabha commission represents the pinnacle of Bachitter Singh Associates' civic practice — a legislative assembly campus conceived to reflect democratic authority, public transparency, and enduring architectural permanence.\n\nThe complex is arranged around a central ceremonial axis that draws visitors through a procession of arrival courts, colonnaded galleries, and a principal chamber whose proportions echo the gravitas of institutional purpose. Stone surfaces are detailed to age with dignity, while the plan hierarchy ensures clear separation of public, representative, and administrative precincts.\n\nDelivered over a decade of coordinated design and construction management, the project remains among the most significant legislative commissions in the region — a building that citizens recognise as belonging to them.",
-    area: "42,000 sq m",
-    client: "Government of Punjab",
-    status: "Built",
-    isLandmark: true,
-  },
-
-  {
-    slug: "punjab-haryana-high-court",
-    title: "Punjab & Haryana High Court",
-    category: "Judiciary",
-    location: "Chandigarh, India",
-    year: "1990s",
-    image: punjabHCImg,
-    gallery: [punjabHCImg],
-    tagline: "Institutional gravity expressed in restrained, authoritative form.",
-    description:
-      "The Punjab & Haryana High Court extension and renovation project demanded a response that was simultaneously deferential to Le Corbusier's Chandigarh master plan and confident in its own contemporary voice.\n\nOur approach centred on three principles: civic dignity, material continuity with the existing fabric, and spatial clarity that supports the complex choreography of judicial proceedings. Courtrooms are precisely oriented for natural light while maintaining acoustic integrity; public circulation is separated from the judiciary's internal routes by a layered sequence of lobbies and transitional courts.\n\nThe muscular concrete detailing, brise-soleil screens, and load-bearing masonry walls create a building that reads as permanent — resistant to trend and rooted in place.",
-    area: "28,500 sq m",
-    client: "High Court of Punjab & Haryana",
-    status: "Built",
-    isLandmark: true,
-  },
-
-  {
     slug: "luvas-hisar",
     title: "Lala Lajpat Rai University of Veterinary & Animal Sciences",
     category: "Education",
@@ -470,7 +436,7 @@ export const allProjects: ProjectData[] = [
 
   {
     slug: "paras-downtown-mall-zirakpur",
-    title: "Paras Downtown Mall, Zirakpur",
+    title: "Chandigarh Square",
     category: "Commercial",
     location: "Zirakpur, Punjab",
     year: "2012",
@@ -515,8 +481,8 @@ export const allProjects: ProjectData[] = [
     category: "Residential",
     location: "Chandigarh, India",
     year: "2022",
-    image: landmarkWaveCover,
-    gallery: [landmarkWaveExt, landmarkWaveInt1, landmarkWaveInt2],
+    image: ws1,
+    gallery: [ws2, ws3, ws4, ws5, ws6, ws7, ws8, ws9, ws10, ws11, ws12],
     tagline: "A wave-form commercial landmark reshaping Chandigarh's skyline.",
     description:
       "LandMark Wave is a mixed-use commercial development whose undulating facade gives the project its identity — a continuous surface that rises and dips along the street edge, offering shaded retail frontage at grade and a distinctive silhouette against the city sky.\n\nThe building programme stacks retail at the base, flexible commercial floors above, and a public sky terrace at the crown that frames views across Chandigarh's sector grid. The facade's wave geometry is not merely formal — each curve is oriented to deflect the prevailing west sun while channelling cross-ventilation through the common areas.\n\nMaterial choices reinforce the building's civic ambition: polished stone cladding, fritted glass panels, and warm-toned metal fins that shift in colour through the day as light conditions change.",
