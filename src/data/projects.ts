@@ -35,7 +35,7 @@ import baghatInt2               from "@/assets/bhagat_exterior.png";
 import punjabHCImg            from "@/assets/Punjab_Haryana_HC.webp";
 
 // Chandigarh square cover (was .webp, only .png exists)
-import chandigarhSqCover      from "@/assets/Chandigarh_square.png";
+import chandigarhSqCover      from "@/assets/chandigarh_square.png";
 
 // Amritsar Residence
 import amritsarCover          from "@/assets/Amritsar.webp";
@@ -107,7 +107,7 @@ import landmarkWaveInt1       from "@/assets/Wave_state3.png";
 import landmarkWaveInt2       from "@/assets/Wave_state4.png";
 
 // Mohali Club (webp files missing for cover & interior — using png fallbacks)
-import mohaliClubCover        from "@/assets/mohali_club.png";
+import mohaliClubCover        from "@/assets/Mohali_club.png";
 import mohaliClubInt1         from "@/assets/mohali_club2.png";
 import mohaliInt2             from "@/assets/mohali_interior2.webp";
 
@@ -145,7 +145,7 @@ import rgtppTower             from "@/assets/residence_tower.png";
 // ── New image imports (added for new assets) ─────────────────────────────────
 
 // Chandigarh Square series (1–25)
-import csCoverPng from "@/assets/Chandigarh_square.png";
+import csCoverPng from "@/assets/chandigarh_square.png";
 import csMap from "@/assets/chandigarh_square_map.png";
 import cs1 from "@/assets/chandigarh_square1.png";
 import cs2 from "@/assets/chandigarh_square2.png";
@@ -214,7 +214,7 @@ import bpsmv5 from "@/assets/BPSMV5.png";
 import bpsv from "@/assets/BPSV.png";
 
 // Mohali Club (additional)
-import mohaliClubPng from "@/assets/mohali_club.png";
+import mohaliClubPng from "@/assets/Mohali_club.png";
 import mohaliClub2 from "@/assets/mohali_club2.png";
 
 // NV Distilleries (additional)
