@@ -268,12 +268,12 @@ import dlu2 from "@/assets/Devi_Lal_uni2.png";
 import dlu3 from "@/assets/Devi_Lal_uni3.png";
 
 // Farmville
-import fv1 from "@/assets/Farmville1.png";
+import fv1 from "@/assets/Farmville6.png";
 import fv2 from "@/assets/Farmville2.png";
 import fv3 from "@/assets/Farmville3.png";
 import fv4 from "@/assets/Farmville4.png";
 import fv5 from "@/assets/Farmville5.png";
-import fv6 from "@/assets/Farmville6.png";
+import fv6 from "@/assets/Farmville1.png";
 
 // Wave State
 import ws1 from "@/assets/Wave_state1.png";
@@ -290,9 +290,9 @@ import ws11 from "@/assets/Wave_state11.png";
 import ws12 from "@/assets/Wave_state12.png";
 
 // Dr. Attri Residence
-import dar1 from "@/assets/Dr_Attri_Residence1.png";
+import dar1 from "@/assets/Dr_Attri_Residence3.png";
 import dar2 from "@/assets/Dr_Attri_Residence2.png";
-import dar3 from "@/assets/Dr_Attri_Residence3.png";
+import dar3 from "@/assets/Dr_Attri_Residence1.png";
 import dar4 from "@/assets/Dr_Attri_Residence4.png";
 import dar5 from "@/assets/Dr_Attri_Residence5.png";
 import dar6 from "@/assets/Dr_Attri_Residence6.png";
@@ -315,9 +315,9 @@ import dhr9 from "@/assets/Dr_Harkant_residence9.png";
 import dhr10 from "@/assets/Dr_Harkant_residence10.png";
 
 // Ecocity
-import eco1 from "@/assets/Ecocity1.png";
+import eco1 from "@/assets/Ecocity3.png";
 import eco2 from "@/assets/Ecocity2.png";
-import eco3 from "@/assets/Ecocity3.png";
+import eco3 from "@/assets/Ecocity1.png";
 import eco4 from "@/assets/Ecocity4.png";
 
 // Doon
@@ -354,8 +354,8 @@ export const allProjects: ProjectData[] = [
     category: "Education",
     location: "LUVAS, Hisar",
     year: "2010s",
-    image: universityCover,
-    gallery: [uniAdmin, universityInt1, universityInt2, uniBuildingInt, uniLibrary, lru1, lru2, lru3],
+    image: lru3,
+    gallery: [universityCover, universityInt1, universityInt2, uniAdmin, uniLibrary, lru1, lru2, lru3],
     tagline: "A campus designed for knowledge, community, and institutional pride.",
     description:
       "This university campus project embodies Bachitter Singh Associates' commitment to institutional design that balances civic grandeur with functional clarity. The master plan organises academic, administrative, and residential precincts along a central pedestrian spine that encourages movement and interaction between faculties.\n\nThe main administration block anchors the campus with a bold facade that draws from regional architectural tradition while embracing contemporary construction methods. Expansive glazing floods lecture halls and seminar rooms with natural light; landscaped courtyards between blocks create sheltered outdoor spaces for study and congregation.\n\nThe campus plan was designed to accommodate future growth phases — each addition reinforcing the existing spatial grammar rather than competing with it.",
@@ -371,8 +371,8 @@ export const allProjects: ProjectData[] = [
     category: "Education",
     location: "Jind, Haryana",
     year: "2010s",
-    image: uniBuilding,
-    gallery: [uniBuilding, uniBuildingInt, ranbirUni, ranbirUniInt, ranbirUniInt2, rs1, rs2, rs3, rs4],
+    image: rs4,
+    gallery: [uniBuildingInt, uniBuilding, ranbirUni, ranbirUniInt, ranbirUniInt2, rs1, rs2, rs3],
     tagline: "A faculty building shaped by clarity, light, and academic purpose.",
     description:
       "The University Building is an academic block within the larger campus masterplan, designed to house lecture halls, seminar rooms, and faculty offices in a composition that balances institutional formality with the openness required for contemporary pedagogy.\n\nThe facade is articulated through a disciplined grid of deep-set windows and projecting concrete fins that control western sun while lending the elevation a measured rhythm. At ground level, covered walkways connect the building to the broader campus circulation — ensuring the block participates in the life of the institution rather than standing apart from it.\n\nInterior planning prioritises natural ventilation and daylight, with corridors oriented to channel prevailing breezes and generous floor-to-ceiling heights that keep classrooms comfortable through the Punjab summer.",
@@ -495,7 +495,7 @@ export const allProjects: ProjectData[] = [
 
   {
     slug: "hp-tower",
-    title: "HP Tower",
+    title: "Hewlett-Packard Tower, HP Town",
     category: "Corporate",
     location: "Chandigarh, India",
     year: "2014",
@@ -532,7 +532,7 @@ export const allProjects: ProjectData[] = [
     location: "India",
     year: "2018",
     image: nvCover,
-    gallery: [nvExterior, nvExterior2, nvExterior3, nvExterior4, nvInterior, nvInterior2],
+    gallery: [nvExterior, nvExterior2, nvExterior3, nvExterior4, nvInterior, nvInterior2, mandirImg, mandir2Img],
     tagline: "A purpose-built corporate facility for one of India's leading beverage enterprises.",
     description:
       "The NV Distilleries & Breweries corporate facility was designed to house the administrative headquarters and visitor experience centre of one of India's prominent beverage manufacturers.\n\nThe building's plan separates operational and representational functions across two distinct wings connected by a central reception atrium that serves as the building's social and circulatory heart. The facade employs a restrained palette of stone cladding and tinted glazing, projecting corporate sobriety while admitting generous natural light to the office floors.\n\nLandscaping plays an integral role — approach drives, forecourts, and perimeter planting were designed as part of the architectural composition rather than as afterthoughts, ensuring the building reads as a coherent campus from every approach.",
@@ -713,8 +713,8 @@ export const allProjects: ProjectData[] = [
     category: "Hospitality",
     location: "Barog, Himachal Pradesh",
     year: "2021",
-    image: hbv1,
-    gallery: [hbv2, hbv3, hbv4],
+    image: hbv4,
+    gallery: [hbv1, hbv2, hbv3],
     tagline: "A valley retreat where architecture and landscape merge seamlessly.",
     description:
       "Hotel Barog Valley is a hospitality project nestled in the scenic hills of Barog, Himachal Pradesh. The design responds to the dramatic topography by stepping the building down the slope, ensuring every guest room captures panoramic valley views.\n\nThe material palette draws from the local vernacular — stone masonry walls, timber-framed windows, and slate roofing — while providing the spatial efficiency and modern comfort expected of a contemporary hotel. Public spaces are oriented towards the valley, with generous terraces and lounges that blur the boundary between built form and landscape.",
@@ -730,8 +730,8 @@ export const allProjects: ProjectData[] = [
     category: "Residential",
     location: "Punjab, India",
     year: "2022",
-    image: fv1,
-    gallery: [fv2, fv3, fv4, fv5, fv6],
+    image: fv5,
+    gallery: [fv1, fv3, fv4, fv2, fv6],
     tagline: "A rural residential estate blending countryside charm with modern living.",
     description:
       "Farmville is a residential estate that reimagines rural living through a contemporary architectural lens. The project organises a series of dwelling units within a lush, landscaped setting that preserves the openness and tranquillity of the agricultural landscape.\n\nEach residence is designed to frame views across open fields while maintaining privacy and a composed facade from the shared estate roads. Construction employs local materials — brick, stone, and timber — finished to a standard that balances rural authenticity with the expectations of modern domestic comfort.",
@@ -747,8 +747,8 @@ export const allProjects: ProjectData[] = [
     category: "Residential",
     location: "India",
     year: "2022",
-    image: dar1,
-    gallery: [dar2, dar3, dar4, dar5, dar6, dar7, dar8, dar9, dar10, dar11],
+    image: dar3,
+    gallery: [dar1, dar2, dar4, dar5, dar6, dar7, dar8, dar9, dar10, dar11],
     tagline: "A private residence crafted with precision, warmth, and spatial generosity.",
     description:
       "Dr. Attri Residence is a bespoke private home designed around the client's lifestyle and the site's orientation. The plan separates formal entertaining spaces from the private family wing, connected by a central gallery that serves as both circulation spine and display space.\n\nInteriors are detailed with a restrained palette of natural stone, warm timber, and carefully selected furnishings that create an atmosphere of comfortable refinement. Every room is planned to receive natural light and ventilation, with generous floor-to-ceiling heights that lend the house a sense of calm spaciousness.",
@@ -763,8 +763,8 @@ export const allProjects: ProjectData[] = [
     category: "Residential",
     location: "India",
     year: "2021",
-    image: dhr1,
-    gallery: [dhr2, dhr3, dhr4, dhr5, dhr6, dhr7, dhr8, dhr9, dhr10],
+    image: dhr2,
+    gallery: [dhr1, dhr3, dhr4, dhr5, dhr6, dhr7, dhr8, dhr9, dhr10],
     tagline: "A contemporary residence balancing openness with intimate domestic scale.",
     description:
       "Dr. Harkant Residence is a private home conceived as a series of interlocking volumes that create a varied sequence of spaces — from the generous double-height living room to the sheltered garden courtyard that anchors the plan.\n\nThe facade is articulated through a disciplined grid of openings and recessed balconies that control sun exposure while lending the elevation a measured rhythm. Interior finishes prioritise material warmth — polished stone floors, oak joinery, and plaster walls in a palette of neutral tones that let the architecture and the furnishings speak for themselves.",
@@ -776,11 +776,11 @@ export const allProjects: ProjectData[] = [
   {
     slug: "ecocity",
     title: "Ecocity",
-    category: "Commercial",
+    category: "Residential",
     location: "Punjab, India",
     year: "2019",
-    image: eco1,
-    gallery: [eco2, eco3, eco4],
+    image: eco3,
+    gallery: [eco1, eco2, eco4],
     tagline: "A sustainable urban development integrating ecology and commerce.",
     description:
       "Ecocity is a planned urban development that integrates commercial, retail, and green infrastructure within a masterplan conceived for environmental responsibility and civic quality.\n\nThe project employs passive design strategies — optimal building orientation, generous landscaping, and natural ventilation corridors — to reduce energy consumption while creating a comfortable, pedestrian-friendly environment. The architecture balances commercial efficiency with a commitment to public amenity, delivering a development that serves its community as much as its tenants.",
@@ -805,21 +805,7 @@ export const allProjects: ProjectData[] = [
     status: "Built",
   },
 
-  {
-    slug: "mandir",
-    title: "Mandir",
-    category: "Cultural",
-    location: "India",
-    year: "2018",
-    image: mandirImg,
-    gallery: [mandir2Img],
-    tagline: "A temple design rooted in spiritual tradition and architectural clarity.",
-    description:
-      "This temple project brings together sacred geometry, material authenticity, and spatial sequence to create a place of worship that honours tradition while being buildable with contemporary construction techniques.\n\nThe approach sequence guides visitors through layered thresholds — from the public forecourt to the sheltered mandapa and finally the inner sanctum. Stone cladding, carved detailing, and a carefully composed roofline give the building a presence that is at once timeless and contemporary.",
-    area: "1,500 sq m",
-    client: "Community Trust",
-    status: "Built",
-  },
+
 
   {
     slug: "sbfi",
