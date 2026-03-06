@@ -492,21 +492,6 @@ export const allProjects: ProjectData[] = [
     isLandmark: true,
   },
 
-  {
-    slug: "galaxy-mall",
-    title: "Galaxy Mall",
-    category: "Commercial",
-    location: "Ambala, Haryana",
-    year: "2016",
-    image: ambalaMallCover,
-    gallery: [ambalaInt1, ambalaInt2, ambalaInt3],
-    tagline: "A retail destination designed for movement, light, and civic life.",
-    description:
-      "Galaxy Mall is a full-scale retail and entertainment destination anchored by a clear organisational logic: a central atrium that floods the interior with natural light and acts as the social spine around which all retail, dining, and entertainment units are arranged.\n\nThe exterior composition is confident and welcoming — a layered facade of glass and stone that signals the building's scale while maintaining a human-scaled street interface at ground level. Entry sequences are ceremonial without being theatrical, guiding visitors naturally into the atrium and the retail floors beyond.\n\nInterior detailing prioritises durability and ease of maintenance while maintaining a quality of finish appropriate to the building's civic role as a major gathering place for the city.",
-    area: "45,000 sq m",
-    client: "Galaxy Mall Developers",
-    status: "Built",
-  },
 
   {
     slug: "hp-tower",
@@ -636,21 +621,6 @@ export const allProjects: ProjectData[] = [
     status: "Built",
   },
 
-  {
-    slug: "mahila-bhawan",
-    title: "Mahila Bhawan",
-    category: "Cultural",
-    location: "India",
-    year: "2015",
-    image: mahilaBhawanImg,
-    gallery: [],
-    tagline: "A cultural centre dedicated to women's empowerment and community life.",
-    description:
-      "Mahila Bhawan is a cultural and community centre designed to serve as a gathering place for women's organisations, cultural events, and civic programmes.\n\nThe building is organised around a central multipurpose hall flanked by administrative offices, meeting rooms, and a small library. The entrance sequence leads visitors through a landscaped forecourt into a generous double-height foyer that establishes the building's public character from the moment of arrival.\n\nThe facade combines local stone cladding with contemporary glazing, creating a building that feels rooted in its context while signalling its progressive institutional purpose. Interior finishes prioritise durability and ease of maintenance appropriate to a high-traffic public facility.",
-    area: "3,500 sq m",
-    client: "State Government",
-    status: "Built",
-  },
 
   {
     slug: "kurukshetra-university",
@@ -753,21 +723,6 @@ export const allProjects: ProjectData[] = [
     status: "Built",
   },
 
-  {
-    slug: "devi-lal-university",
-    title: "Chaudhary Devi Lal University",
-    category: "Education",
-    location: "Haryana, India",
-    year: "2015",
-    image: dlu1,
-    gallery: [dlu2, dlu3],
-    tagline: "An academic campus rooted in institutional clarity and regional identity.",
-    description:
-      "Chaudhary Devi Lal University is an educational campus designed to support a comprehensive academic programme within a masterplan that balances institutional formality with the openness required by contemporary pedagogy.\n\nAcademic blocks are arranged along a landscaped spine connecting teaching, administrative, and residential precincts. The material language — fair-faced brick, exposed concrete frames, and stone base courses — reflects a commitment to robust, maintenance-friendly construction suited to a public university in Haryana's climate.",
-    area: "45,000 sq m",
-    client: "Chaudhary Devi Lal University",
-    status: "Built",
-  },
 
   {
     slug: "farmville",
@@ -785,21 +740,6 @@ export const allProjects: ProjectData[] = [
     status: "Built",
   },
 
-  {
-    slug: "wave-state",
-    title: "Wave State",
-    category: "Commercial",
-    location: "Punjab, India",
-    year: "2020",
-    image: ws1,
-    gallery: [ws2, ws3, ws4, ws5, ws6, ws7, ws8, ws9, ws10, ws11, ws12],
-    tagline: "A landmark mixed-use development reshaping the urban landscape.",
-    description:
-      "Wave State is a large-scale mixed-use development that brings together commercial, retail, and recreational programmes within a masterplan conceived for connectivity, visibility, and civic presence.\n\nThe project's architecture is defined by bold massing and a disciplined facade composition that modulates light and scale across multiple elevations. Public spaces at grade are generous and welcoming, while upper floors deliver efficient commercial plates with excellent natural light. The development demonstrates Bachitter Singh Associates' ability to deliver complex, large-scale commercial projects with architectural ambition.",
-    area: "55,000 sq m",
-    client: "Wave Group",
-    status: "Built",
-  },
 
   {
     slug: "dr-attri-residence",
