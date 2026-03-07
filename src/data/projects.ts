@@ -18,6 +18,7 @@ export interface ProjectData {
   client?: string;
   status?: string;
   isLandmark?: boolean;
+  order?: number;       // explicit sort position within same category
 }
 
 // ── resolved at module level so images are bundled by Vite ──────────────────
@@ -447,6 +448,7 @@ export const allProjects: ProjectData[] = [
       cs11, cs12, cs13, cs14, cs15, cs16, cs17, cs18, cs19, cs20,
       cs21, cs22, cs23, cs24, cs25,
     ],
+    order: 2,
     tagline: "A landmark commercial address anchoring Zirakpur's rapidly evolving urban corridor.",
     description:
       "Paras Downtown Mall occupies a prominent site along Zirakpur's main arterial — a location that demanded an architectural response conscious of both its civic visibility and its commercial purpose. The building reads as a composed ensemble of volumes: a taller tower element marking the corner, and a lower podium base that mediates between the street and the formal public space of the forecourt.\n\nThe facade system is a refined grid of pre-cast concrete panels and full-height glazing, its proportions calibrated to the scale of the boulevard. At street level, double-height retail frontage animates the public realm; above, office floors are served by efficient plate configurations that maximise natural light penetration.\n\nThe project was delivered on a fast-track programme while maintaining the firm's characteristic attention to material quality and spatial generosity at the building's public interfaces.",
@@ -501,6 +503,7 @@ export const allProjects: ProjectData[] = [
     year: "2014",
     image: hpTowerCover,
     gallery: [hpTower2, hpInterior],
+    order: 2,
     tagline: "Corporate presence and civic identity in one composed tower form.",
     description:
       "HP Tower was designed to serve as a flagship corporate address — a building that announces institutional permanence while offering the spatial flexibility demanded by a major technology and services organisation.\n\nThe tower's profile is defined by its expressed structural frame and the rhythm of its facade panels, which alternate solid and glazed bays to control solar gain on the east and west orientations. The base podium is carved to create a generous covered public plaza — a civic gesture that connects the building to the life of the surrounding precinct.\n\nInternally, floor plates are column-free over large spans, enabling efficient open-plan working arrangements. A shared conference centre and visitor reception occupy the most prominent position in the building — at the junction of the podium and the tower — where views and natural light are maximised.",
@@ -517,6 +520,7 @@ export const allProjects: ProjectData[] = [
     year: "2020",
     image: triamCover,
     gallery: [triamExterior, triamExterior2],
+    order: 1,
     tagline: "A bold corporate tower designed for presence and performance.",
     description:
       "TRIAM TOWER at I-42, Sector 83, Alpha is a corporate office development conceived to project institutional confidence while delivering efficient, flexible floor plates suited to modern commercial tenants.\n\nThe tower's facade is a disciplined composition of glass and pre-cast concrete panels that modulate light and scale across the elevation. At street level, a double-height lobby with stone finishes and curated lighting establishes the building's identity from the moment of arrival.\n\nThe project demonstrates Bachitter Singh Associates' ability to deliver corporate architecture that balances civic presence with the pragmatic demands of commercial real estate.",
@@ -533,6 +537,7 @@ export const allProjects: ProjectData[] = [
     year: "2018",
     image: nvCover,
     gallery: [nvExterior, nvExterior2, nvExterior3, nvExterior4, nvInterior, nvInterior2, mandirImg, mandir2Img],
+    order: 3,
     tagline: "A purpose-built corporate facility for one of India's leading beverage enterprises.",
     description:
       "The NV Distilleries & Breweries corporate facility was designed to house the administrative headquarters and visitor experience centre of one of India's prominent beverage manufacturers.\n\nThe building's plan separates operational and representational functions across two distinct wings connected by a central reception atrium that serves as the building's social and circulatory heart. The facade employs a restrained palette of stone cladding and tinted glazing, projecting corporate sobriety while admitting generous natural light to the office floors.\n\nLandscaping plays an integral role — approach drives, forecourts, and perimeter planting were designed as part of the architectural composition rather than as afterthoughts, ensuring the building reads as a coherent campus from every approach.",
@@ -699,6 +704,7 @@ export const allProjects: ProjectData[] = [
     year: "2020",
     image: galaxyMallPng,
     gallery: [gwm1, gwm2, gwm3, gwm4, gwm5],
+    order: 1,
     tagline: "A world-class retail and entertainment destination.",
     description:
       "Galaxy World Mall is a large-scale commercial development conceived as a vibrant retail and entertainment destination. The building's design balances civic presence with commercial efficiency, delivering generous floor plates organised around a central atrium that floods the interior with natural light.\n\nThe facade composition employs a layered system of glass and stone that modulates scale and light across the elevation, creating an inviting street-level interface while projecting a confident urban identity at the skyline. Interior planning prioritises intuitive wayfinding, high-quality finishes, and spatial generosity at all public interfaces.",
@@ -815,6 +821,7 @@ export const allProjects: ProjectData[] = [
     year: "2019",
     image: sbfiImg,
     gallery: [sbfi2Img],
+    order: 4,
     tagline: "A corporate facility designed for functional efficiency and institutional presence.",
     description:
       "The SBFI project is a corporate facility designed to house administrative and operational functions within a building that projects institutional confidence and delivers efficient, flexible floor plates.\n\nThe facade is a composed grid of glass and solid panels that modulates light and scale. At street level, a generous lobby with quality finishes establishes the building's identity from the moment of arrival. Internal planning prioritises natural light, clear circulation, and adaptable working environments.",
@@ -907,7 +914,7 @@ export const portfolioProjects = _allCombined
   .filter((p) => !p.isLandmark)
   .sort((a, b) => a.title.localeCompare(b.title));
 
-// ── allProjects sorted alphabetically (used for category filtering) ──────────
+// ── allProjects sorted alphabetically (category pages re-sort by order) ──────
 export const allProjectsSorted = _allCombined
   .slice()
   .sort((a, b) => a.title.localeCompare(b.title));

@@ -35,7 +35,14 @@ const ProjectsPage = () => {
   const filtered =
     activeCategory === "All"
       ? portfolioProjects
-      : allProjectsSorted.filter((p) => p.category.toLowerCase() === activeCategory.toLowerCase());
+      : allProjectsSorted
+          .filter((p) => p.category.toLowerCase() === activeCategory.toLowerCase())
+          .sort((a, b) => {
+            const ao = a.order ?? Infinity;
+            const bo = b.order ?? Infinity;
+            if (ao !== bo) return ao - bo;
+            return a.title.localeCompare(b.title);
+          });
 
   const showLandmarks = activeCategory === "All";
 
