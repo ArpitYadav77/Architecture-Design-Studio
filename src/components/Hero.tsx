@@ -144,9 +144,20 @@ const Hero = memo(() => {
     }
   }, []);
 
-  /* ── Video ended → advance to next slide automatically ────────── */
-  const handleVideoEnded = useCallback(() => {
+  /* ── Near-end → pre-trigger crossfade for seamless looping ──────── */
+  const handleVideoNearEnd = useCallback(() => {
     nextSlide();
+  }, [nextSlide]);
+
+  /* ── Video ended → fallback advance (only when that layer is active) */
+  // Passing per-layer callbacks prevents a double-advance when onNearEnd has
+  // already started the crossfade and onEnded fires ~0.8 s later on the old layer.
+  const handleLayerAEnded = useCallback(() => {
+    if (activeRef.current === 0) nextSlide();
+  }, [nextSlide]);
+
+  const handleLayerBEnded = useCallback(() => {
+    if (activeRef.current === 1) nextSlide();
   }, [nextSlide]);
 
   /* ── Render ───────────────────────────────────────────────────── */
@@ -162,13 +173,15 @@ const Hero = memo(() => {
           poster={slides[0].poster}
           isActive={activeLayer === 0}
           fadeDuration={FADE_DURATION}
-          onEnded={handleVideoEnded}
+          onEnded={handleLayerAEnded}
+          onNearEnd={handleVideoNearEnd}
         />
         <LazyVideo
           ref={layerB}
           isActive={activeLayer === 1}
           fadeDuration={FADE_DURATION}
-          onEnded={handleVideoEnded}
+          onEnded={handleLayerBEnded}
+          onNearEnd={handleVideoNearEnd}
         />
         {/* Dark gradient overlay — always above both video layers */}
         <div

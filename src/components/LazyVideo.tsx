@@ -8,6 +8,9 @@ import {
   memo,
 } from "react";
 
+/* Seconds before the video ends to fire onNearEnd (must be > FADE_DURATION/1000) */
+const NEAR_END_THRESHOLD = 2.0;
+
 /* ═══════════════════════════════════════════════════════════════════
    Public imperative API
    ═══════════════════════════════════════════════════════════════════ */
@@ -38,6 +41,8 @@ interface LazyVideoProps {
   fadeDuration?: number;
   /** Called when the video finishes playing (no loop). */
   onEnded?: () => void;
+  /** Called ~2 s before the video ends — use to pre-trigger the next crossfade. */
+  onNearEnd?: () => void;
   /** Extra Tailwind / CSS classes on the wrapper. */
   className?: string;
 }
@@ -65,12 +70,15 @@ const LazyVideo = memo(
         isActive,
         fadeDuration = 1200,
         onEnded,
+        onNearEnd,
         className = "",
       },
       ref,
     ) => {
       const videoRef = useRef<HTMLVideoElement>(null);
       const srcRef = useRef(initialSrc);
+      // Tracks whether onNearEnd has already fired for the current playback
+      const nearEndFiredRef = useRef(false);
       const [ready, setReady] = useState(false);
       const [posterSrc, setPosterSrc] = useState(initialPoster);
 
@@ -94,8 +102,11 @@ const LazyVideo = memo(
           play() {
             const v = videoRef.current;
             if (!v) return Promise.resolve();
+            // Reset near-end flag each time a new playback starts
+            nearEndFiredRef.current = false;
             v.muted = true;
-            v.currentTime = 0;   // always restart from the beginning
+            // Note: v.load() already resets currentTime to 0 per spec,
+            // so we do NOT seek here — avoids an unnecessary seek stall.
             return v.play().catch(() => {});
           },
 
@@ -114,21 +125,32 @@ const LazyVideo = memo(
         [ready],
       );
 
-      /* ── First mount: set initial source ──────────────────────── */
+      /* ── First mount: force muted IDL property for autoplay compat ──── */
       useEffect(() => {
         const v = videoRef.current;
         if (!v) return;
-        // React's `muted` JSX prop doesn't always propagate the DOM
-        // property on every browser — force it for autoplay compat.
+        // React's `muted` JSX prop doesn't always sync the DOM IDL property
+        // in every browser — set it explicitly to guarantee muted autoplay.
         v.muted = true;
-        if (initialSrc) {
-          v.src = initialSrc;
-          v.load();
-        }
+        // initialSrc is already set via the `src` JSX prop below, so the
+        // browser begins fetching it at DOM-creation time — no v.load() needed.
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
 
-      const handleCanPlayThrough = useCallback(() => setReady(true), []);
+      // Use canplay (fires sooner than canplaythrough) so the poster dissolves
+      // as early as the browser has enough data to start rendering frames.
+      const handleCanPlay = useCallback(() => setReady(true), []);
+
+      /* ── Near-end detection: fire onNearEnd once per playback ────────── */
+      const handleTimeUpdate = useCallback(() => {
+        if (!onNearEnd || nearEndFiredRef.current) return;
+        const v = videoRef.current;
+        if (!v || !v.duration || v.currentTime <= 0) return;
+        if (v.duration - v.currentTime <= NEAR_END_THRESHOLD) {
+          nearEndFiredRef.current = true;
+          onNearEnd();
+        }
+      }, [onNearEnd]);
 
       /* ── Render ───────────────────────────────────────────────── */
       return (
@@ -160,14 +182,18 @@ const LazyVideo = memo(
             />
           )}
 
-          {/* Video — this DOM node is NEVER destroyed */}
+          {/* Video — this DOM node is NEVER destroyed.
+              src is set as a JSX prop for layer A so the browser starts
+              fetching immediately at DOM-creation time (before any effect). */}
           <video
             ref={videoRef}
+            src={initialSrc || undefined}
             autoPlay
             muted
             playsInline
             preload="auto"
-            onCanPlayThrough={handleCanPlayThrough}
+            onCanPlay={handleCanPlay}
+            onTimeUpdate={handleTimeUpdate}
             onEnded={onEnded}
             className="absolute inset-0 w-full h-full object-cover"
             style={{ zIndex: 1 }}
