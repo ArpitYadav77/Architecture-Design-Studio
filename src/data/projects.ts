@@ -342,6 +342,10 @@ import sunderlalImg4 from "@/assets/SUNDERLAL_UNIVERSITY_4.png";
 import wentworthImg from "@/assets/wentWorth.png";
 import wentworth2Img from "@/assets/wentworth2.png";
 
+import kurukshetraHero from "@/assets/kurukshetra_hero.png";
+import sunderlalHero from "@/assets/sunderlal_hero.jpg";
+import crsuHero from "@/assets/crsu_hero.png";
+
 // ── project catalogue ────────────────────────────────────────────────────────
 export const allProjects: ProjectData[] = [
 
@@ -353,16 +357,16 @@ export const allProjects: ProjectData[] = [
     slug: "luvas-hisar",
     title: "Lala Lajpat Rai University of Veterinary & Animal Sciences",
     category: "Education",
-    location: "LUVAS, Hisar",
-    year: "2010s",
+    location: "Hisar, Haryana",
+    year: "2018",
     image: lru3,
     gallery: [universityCover, universityInt1, universityInt2, uniAdmin, uniLibrary, lru1, lru2, lru3],
     tagline: "A campus designed for knowledge, community, and institutional pride.",
     description:
-      "This university campus project embodies Bachitter Singh Associates' commitment to institutional design that balances civic grandeur with functional clarity. The master plan organises academic, administrative, and residential precincts along a central pedestrian spine that encourages movement and interaction between faculties.\n\nThe main administration block anchors the campus with a bold facade that draws from regional architectural tradition while embracing contemporary construction methods. Expansive glazing floods lecture halls and seminar rooms with natural light; landscaped courtyards between blocks create sheltered outdoor spaces for study and congregation.\n\nThe campus plan was designed to accommodate future growth phases — each addition reinforcing the existing spatial grammar rather than competing with it.",
-    area: "85,000 sq m",
-    client: "State University Trust",
-    status: "Built",
+      "Conceived within the vast 1,125-acre expanse of the Lala Lajpat Rai University of Veterinary & Animal Sciences in Hisar, Haryana, this master plan proposes a meticulously organized institutional environment tailored for advanced higher education and specialized research. The architectural strategy delineates a highly efficient spatial framework, systematically enhancing campus-wide connectivity while engaging in a calibrated dialogue between formal built environments and expansive natural landscapes. Anchored by rigorous functional planning and universal accessibility, the design deploys a cohesive architectural language that unifies the diverse programmatic elements. The resulting campus experience is one of profound institutional character, consciously engineered to foster academic excellence, facilitate cutting-edge research, and nurture a vibrant, interactive university community.",
+    area: "1125 acres",
+    client: "Lala Lajpat Rai University of Veterinary and Animal Science",
+    status: "Ongoing",
     isLandmark: true,
   },
 
@@ -371,31 +375,31 @@ export const allProjects: ProjectData[] = [
     title: "Chaudhary Ranbir Singh University",
     category: "Education",
     location: "Jind, Haryana",
-    year: "2010s",
-    image: rs4,
-    gallery: [uniBuildingInt, uniBuilding, ranbirUni, ranbirUniInt, ranbirUniInt2, rs1, rs2, rs3],
+    year: "2017",
+    image: crsuHero,
+    gallery: [crsuHero, uniBuildingInt, uniBuilding, ranbirUni, ranbirUniInt, ranbirUniInt2, rs1, rs2, rs3],
     tagline: "A faculty building shaped by clarity, light, and academic purpose.",
     description:
-      "The University Building is an academic block within the larger campus masterplan, designed to house lecture halls, seminar rooms, and faculty offices in a composition that balances institutional formality with the openness required for contemporary pedagogy.\n\nThe facade is articulated through a disciplined grid of deep-set windows and projecting concrete fins that control western sun while lending the elevation a measured rhythm. At ground level, covered walkways connect the building to the broader campus circulation — ensuring the block participates in the life of the institution rather than standing apart from it.\n\nInterior planning prioritises natural ventilation and daylight, with corridors oriented to channel prevailing breezes and generous floor-to-ceiling heights that keep classrooms comfortable through the Punjab summer.",
-    area: "12,000 sq m",
-    client: "State University Trust",
-    status: "Built",
+      "The master plan for Chaudhary Ranbir Singh University in Jind, Haryana, spans a 75-acre campus, conceived as an integrated academic and residential ecosystem. The spatial planning articulates a clear programmatic zoning, intuitively weaving together key institutional functions including teaching blocks, advanced laboratories, a central library, and an auditorium, alongside residential and recreational amenities such as the girls' hostel, guest house, sports complex, and an open-air theatre. Emphasizing functional efficiency and robust pedestrian connectivity, the architectural design fosters a vibrant institutional environment. Thoughtfully curated transitional spaces and landscaped areas harmonize the academic, residential, and recreational zones, cultivating a cohesive campus experience that supports collaborative learning, advanced research, and dynamic community interaction.",
+    area: "75 acres",
+    client: "CRSU",
+    status: "Ongoing",
   },
 
   {
     slug: "baghat-university",
     title: "Bhagat Phool Singh Mahila VishWavidyalaya",
     category: "Education",
-    location: "Punjab, India",
-    year: "2000s",
+    location: "Sonepat, Haryana",
+    year: "2016",
     image: baghatCover,
     gallery: [baghatInt1, baghatInt2, bpsmv1, bpsmv2, bpsmv3, bpsmv4, bpsmv5, bpsv],
     tagline: "An educational campus designed to foster learning, community, and institutional pride.",
     description:
-      "Baghat University is a comprehensive educational campus that embodies Bachitter Singh Associates' commitment to institutional design that balances civic grandeur with functional clarity. The master plan organises academic, administrative, and residential precincts along a central pedestrian spine that encourages movement and interaction between faculties.\n\nThe main administration block anchors the campus with a bold facade that draws from regional architectural tradition while embracing contemporary construction methods. Expansive glazing floods lecture halls and seminar rooms with natural light; landscaped courtyards between blocks create sheltered outdoor spaces for study and congregation.\n\nThe campus plan was designed to accommodate future growth phases — each addition reinforcing the existing spatial grammar rather than competing with it.",
-    area: "85,000 sq m",
-    client: "State University Trust",
-    status: "Built",
+      "Situated within the expansive 500-acre master plan of Bhagat Phool Singh Mahila Vishwavidyalaya in Sonipat, Haryana, the architectural vision articulates a highly orchestrated campus framework designed to fortify the institution’s academic and residential ecosystem. The design approach is anchored in rigorous spatial organization and intuitive circulation networks, establishing a symbiotic relationship between the built environment and natural landscaped areas. By prioritizing pedestrian scale and cohesive architectural vocabulary across the university grounds, the master plan cultivates a harmonious and engaging campus experience. The thoughtful integration of academic, research, and informal social spaces nurtures a supportive environment that enhances everyday student life and fosters institutional identity.",
+    area: "88 acres",
+    client: "Bhagat Phool Singh Mahila Vishwavidyalay",
+    status: "Ongoing",
     isLandmark: true,
   },
 
@@ -632,31 +636,31 @@ export const allProjects: ProjectData[] = [
     title: "KURUKSHETRA UNIVERSITY, KURUKSHETRA",
     category: "Education",
     location: "Kurukshetra, Haryana",
-    year: "2010s",
-    image: kurkushetraExterior,
-    gallery: [kurshetraExte, kurkushetraExterior3, kurkushetraExterior4, kurkushetraInterior, kurkushetraInterior1, kurkushetraInterior2],
+    year: "2023",
+    image: kurukshetraHero,
+    gallery: [kurukshetraHero, kurshetraExte, kurkushetraExterior3, kurkushetraExterior4, kurkushetraInterior, kurkushetraInterior1, kurkushetraInterior2],
     tagline: "A university campus rooted in academic tradition and contemporary design.",
     description:
-      "Kurukshetra University is a comprehensive academic campus that brings together teaching, research, and residential facilities within a masterplan conceived for clarity, connectivity, and growth.\n\nAcademic blocks are arranged along a landscaped central axis that serves as the campus's primary social and circulation spine. Each building is oriented to maximise natural light and cross-ventilation while presenting a composed, institutional facade to the public realm.\n\nThe material palette — exposed concrete frames, brick infill panels, and stone base courses — reflects the firm's commitment to robust, maintenance-friendly construction suited to the demands of a public university.",
-    area: "60,000 sq m",
-    client: "Kurukshetra University",
-    status: "Built",
+      "The proposed intervention for Kurukshetra University, set within an expansive 473-acre campus in Haryana, presents a master-planned institutional environment engineered to catalyze academic growth, rigorous research, and a dynamic campus life. The spatial strategy delineates a structured framework that seamlessly integrates academic, residential, and recreational precincts, interwoven with highly efficient circulation arteries and robust pedestrian networks. A hallmark of the development is the inclusion of an Olympic-level swimming pool, significantly elevating the university’s sports infrastructure to support high-performance training and student wellness. Grounded in functional planning and an equitable balance of built mass and open spaces, the design projects a unified architectural character that encourages synergistic collaboration and vibrant community engagement.",
+    area: "473 acres",
+    client: "Kurukshetra Uni",
+    status: "Ongoing",
   },
 
   {
     slug: "pt-sundarlal-sharma-university",
     title: "PT. SUNDARLAL SHARMA (OPEN) UNIVERSITY, CHHATTISGARH",
     category: "Education",
-    location: "Chhattisgarh, India",
-    year: "2010s",
-    image: sunderlalImg1,
-    gallery: [sunderlalImg2, sunderlalImg3, sunderlalImg4],
+    location: "Bilaspur, Chhattisgarh",
+    year: "2016",
+    image: sunderlalHero,
+    gallery: [sunderlalHero, sunderlalImg1, sunderlalImg2, sunderlalImg3, sunderlalImg4],
     tagline: "An open university campus designed for accessible higher education.",
     description:
-      "Pt. Sundarlal Sharma (Open) University in Chhattisgarh is an educational campus designed to deliver flexible, accessible higher education to students across the state.\n\nThe masterplan organises academic, examination, and administrative functions around a central courtyard that provides both a gathering space and a climatic buffer against the region's hot summers. Buildings are designed with deep overhangs, shaded verandahs, and cross-ventilated corridors that reduce dependence on mechanical cooling.\n\nThe architecture expresses the university's public mission through generous entrance lobbies, clear wayfinding, and a material language of fair-faced brick and concrete that communicates institutional permanence without unnecessary embellishment.",
-    area: "35,000 sq m",
-    client: "Pt. Sundarlal Sharma Open University",
-    status: "Built",
+      "Sited within the campus of Pt. Sundarlal Sharma (Open) University in Bilaspur, Chhattisgarh, the design intervention is conceptualized to deliver a highly structured institutional framework optimized for distance education, administrative efficiency, and rigorous academic pursuits. The architectural planning is driven by pragmatic spatial organization and highly legible circulation nodes, achieving a harmonious integration of formal structures and inviting public realms. By establishing a unified and accessible campus character, the design cultivates an environment that encourages intuitive interactions and supports the institution's progressive mandate for equitable learning, research innovation, and sustainable institutional growth.",
+    area: "70 acres",
+    client: "Pt. Sunderlal Sharma (Open) University",
+    status: "Ongoing",
   },
 
   {
