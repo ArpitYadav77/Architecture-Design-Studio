@@ -143,10 +143,15 @@ const LazyVideo = memo(
 
       /* ── Near-end detection: fire onNearEnd once per playback ────────── */
       const handleTimeUpdate = useCallback(() => {
-        if (!onNearEnd || nearEndFiredRef.current) return;
         const v = videoRef.current;
-        if (!v || !v.duration || v.currentTime <= 0) return;
-        if (v.duration - v.currentTime <= NEAR_END_THRESHOLD) {
+        if (!v || !v.duration) return;
+
+        // Reset the flag if the video just started or looped back
+        if (v.currentTime < v.duration - NEAR_END_THRESHOLD - 0.5) {
+          nearEndFiredRef.current = false;
+        }
+
+        if (onNearEnd && !nearEndFiredRef.current && v.duration - v.currentTime <= NEAR_END_THRESHOLD) {
           nearEndFiredRef.current = true;
           onNearEnd();
         }
@@ -189,6 +194,7 @@ const LazyVideo = memo(
             ref={videoRef}
             src={initialSrc || undefined}
             autoPlay
+            loop
             muted
             playsInline
             preload="auto"

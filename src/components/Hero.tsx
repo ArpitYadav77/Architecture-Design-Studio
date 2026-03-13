@@ -102,7 +102,7 @@ const Hero = memo(() => {
 
       // After crossfade completes → housekeeping
       setTimeout(() => {
-        oldVideo?.pause();
+        // Do not pause the old video to allow continuous cinematic background looping
         busyRef.current = false;
         setIsTransitioning(false);
       }, FADE_DURATION);
@@ -120,9 +120,9 @@ const Hero = memo(() => {
     [goTo],
   );
 
-  /* ── Bootstrap: play first video ──────────────── */
+  /* ── Bootstrap: play all videos ──────────────── */
   useEffect(() => {
-    videoRefs.current[0]?.play();
+    videoRefs.current.forEach((v) => v?.play());
   }, []);
 
   /* ── Near-end → pre-trigger crossfade for seamless looping ──────── */
