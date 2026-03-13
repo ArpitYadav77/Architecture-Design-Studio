@@ -102,7 +102,14 @@ const Hero = memo(() => {
 
       // After crossfade completes → housekeeping
       setTimeout(() => {
-        // Do not pause the old video to allow continuous cinematic background looping
+        // Pause the old video to prevent playing multiple high-res videos simultaneously,
+        // which heavily consumes CPU/GPU resources and causes severe stutter.
+        if (oldVideo) {
+          oldVideo.pause();
+          if (oldVideo.el) {
+            oldVideo.el.currentTime = 0;
+          }
+        }
         busyRef.current = false;
         setIsTransitioning(false);
       }, FADE_DURATION);
@@ -120,9 +127,9 @@ const Hero = memo(() => {
     [goTo],
   );
 
-  /* ── Bootstrap: play all videos ──────────────── */
+  /* ── Bootstrap: play only the initial video ──────────────── */
   useEffect(() => {
-    videoRefs.current.forEach((v) => v?.play());
+    videoRefs.current[0]?.play();
   }, []);
 
   /* ── Near-end → pre-trigger crossfade for seamless looping ──────── */
@@ -142,18 +149,29 @@ const Hero = memo(() => {
     >
       {/* ─── Video layers (all mounted to force auto preload) ─── */}
       <div className="absolute inset-0">
-        {slides.map((slide, index) => (
-          <LazyVideo
-            key={slide.video}
-            ref={(el) => (videoRefs.current[index] = el)}
-            initialSrc={slide.video}
-            poster={slide.poster}
-            isActive={currentIndex === index}
-            fadeDuration={FADE_DURATION}
-            onEnded={() => handleVideoEnded(index)}
-            onNearEnd={() => handleVideoNearEnd(index)}
-          />
-        ))}
+        {slides.map((slide, index) => {
+          // Preload the current, previous, and next slides. Prevents
+          // loading 7 giant original-quality video files simultaneously.
+          const isAdjacent =
+            index === currentIndex ||
+            index === (currentIndex + 1) % slides.length ||
+            index === (currentIndex - 1 + slides.length) % slides.length;
+
+          return (
+            <LazyVideo
+              key={slide.video}
+              ref={(el) => (videoRefs.current[index] = el)}
+              initialSrc={slide.video}
+              poster={slide.poster}
+              isActive={currentIndex === index}
+              fadeDuration={FADE_DURATION}
+              onEnded={() => handleVideoEnded(index)}
+              onNearEnd={() => handleVideoNearEnd(index)}
+              autoPlay={currentIndex === index}
+              preload={isAdjacent ? "auto" : "none"}
+            />
+          );
+        })}
         {/* Dark gradient overlay — always above both video layers */}
         <div
           className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/70"

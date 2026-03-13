@@ -45,6 +45,10 @@ interface LazyVideoProps {
   onNearEnd?: () => void;
   /** Extra Tailwind / CSS classes on the wrapper. */
   className?: string;
+  /** Preload strategy for the video element. */
+  preload?: "auto" | "metadata" | "none";
+  /** Native autoPlay attribute for the video element. */
+  autoPlay?: boolean;
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -72,6 +76,8 @@ const LazyVideo = memo(
         onEnded,
         onNearEnd,
         className = "",
+        preload = "auto",
+        autoPlay = false,
       },
       ref,
     ) => {
@@ -193,11 +199,11 @@ const LazyVideo = memo(
           <video
             ref={videoRef}
             src={initialSrc || undefined}
-            autoPlay
+            autoPlay={autoPlay}
             loop
             muted
             playsInline
-            preload="auto"
+            preload={preload}
             onCanPlay={handleCanPlay}
             onTimeUpdate={handleTimeUpdate}
             onEnded={onEnded}
