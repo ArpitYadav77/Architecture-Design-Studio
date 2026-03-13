@@ -1,61 +1,54 @@
 import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 /**
  * Loader renders as a fixed overlay ON TOP of the already-mounted app.
- * Phases:
- *   0 ms  — visible, logo shown
- *   300ms — logo fades out, overlay starts zooming
- *   2200ms — overlay mostly gone, start full fade-out
- *   2600ms — fully transparent, onFinish unmounts it
+ * Incorporates a squeeze/pop entrance and then zooms massively into the center of the logo.
  */
 const Loader = ({ onFinish }: { onFinish: () => void }) => {
-  const [animate, setAnimate] = useState(false);  // zoom phase
-  const [leaving, setLeaving] = useState(false);  // final fade-out
+  const [isLeaving, setIsLeaving] = useState(false);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setAnimate(true), 300);
-    const t2 = setTimeout(() => setLeaving(true), 2200);
-    const t3 = setTimeout(() => onFinish(), 2700);
+    // Phase 1: Logo sequence (bounce + massive zoom) is ~2.4s
+    // Phase 2: Fade out the background completely at the end of zoom (~1.9s)
+    const leaveTimeout = setTimeout(() => setIsLeaving(true), 1900);
+    
+    // Phase 3: Unmount fully once animation completes
+    const finishTimeout = setTimeout(() => onFinish(), 2500);
 
     return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
+      clearTimeout(leaveTimeout);
+      clearTimeout(finishTimeout);
     };
   }, [onFinish]);
 
   return (
     <div
+      className={cn(
+        "fixed inset-0 z-[9999] flex items-center justify-center transition-opacity duration-500 ease-in-out",
+        isLeaving ? "opacity-0 pointer-events-none" : "opacity-100"
+      )}
       style={{
-        position: "fixed",
-        inset: 0,
-        backgroundColor: "#ffffff",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        zIndex: 9999,
-        transform: animate ? "scale(5)" : "scale(1)",
-        opacity: leaving ? 0 : 1,
-        transition: [
-          "transform 2.4s cubic-bezier(0.22, 1, 0.36, 1)",
-          "opacity 0.45s ease-out",
-        ].join(", "),
-        transformOrigin: "center center",
-        pointerEvents: leaving ? "none" : "all",
+        backgroundColor: "#fdfcfb", // Force light premium background
       }}
     >
-      <img
-        src="/logo1.png"
-        alt="Firm Logo"
-        style={{
-          width: "180px",
-          height: "auto",
-          opacity: animate ? 0 : 1,
-          transition: "opacity 1.8s ease-out",
-        }}
-      />
+      <div className="relative flex items-center justify-center">
+        <img
+          src="/logo1.png"
+          alt="Firm Logo"
+          className="w-[120px] md:w-[160px] h-auto animate-logo-sequence origin-center"
+          style={{
+            filter: "brightness(0.95)", // Subtle high-end feel
+          }}
+        />
+        {/* Subtle shadow/glow for depth */}
+        <div className={cn(
+          "absolute inset-0 bg-primary/5 blur-3xl rounded-full -z-10 transition-opacity duration-300",
+          isLeaving ? "opacity-0" : "opacity-100"
+        )} />
+      </div>
     </div>
   );
 };
 
-export default Loader;
+export default Loader;
