@@ -74,22 +74,14 @@ const slides = [
 const Hero = memo(() => {
   /* ── State ── */
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [activeLayer, setActiveLayer] = useState<0 | 1>(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   /* ── Refs ── */
-  const layerA = useRef<LazyVideoHandle>(null);
-  const layerB = useRef<LazyVideoHandle>(null);
+  const videoRefs = useRef<(LazyVideoHandle | null)[]>([]);
 
   // Mutable mirrors — prevent stale closures inside setTimeout
-  const activeRef = useRef<0 | 1>(0);
   const indexRef = useRef(0);
   const busyRef = useRef(false);
-
-  const layer = useCallback(
-    (l: 0 | 1) => (l === 0 ? layerA : layerB),
-    [],
-  );
 
   /* ── Core transition ──────────────────────────────────────────── */
   const goTo = useCallback(
@@ -98,32 +90,24 @@ const Hero = memo(() => {
       busyRef.current = true;
       setIsTransitioning(true);
 
-      const cur: 0 | 1 = activeRef.current;
-      const nxt: 0 | 1 = cur === 0 ? 1 : 0;
-      const standby = layer(nxt);
-      const old = layer(cur);
+      const oldIndex = indexRef.current;
+      const oldVideo = videoRefs.current[oldIndex];
+      const newVideo = videoRefs.current[target];
 
-      // Ensure standby has the target video, then play
-      standby.current?.load(slides[target].video, slides[target].poster);
-      standby.current?.play();
+      // Play the next video
+      newVideo?.play();
 
-      // Swap opacity
-      activeRef.current = nxt;
       indexRef.current = target;
-      setActiveLayer(nxt);
       setCurrentIndex(target);
 
       // After crossfade completes → housekeeping
       setTimeout(() => {
-        old.current?.pause();
-        // Preload the FOLLOWING video on the now-hidden layer
-        const preIdx = (target + 1) % slides.length;
-        old.current?.load(slides[preIdx].video, slides[preIdx].poster);
+        oldVideo?.pause();
         busyRef.current = false;
         setIsTransitioning(false);
       }, FADE_DURATION);
     },
-    [layer],
+    [],
   );
 
   const nextSlide = useCallback(
@@ -136,28 +120,19 @@ const Hero = memo(() => {
     [goTo],
   );
 
-  /* ── Bootstrap: play first video, preload second ──────────────── */
+  /* ── Bootstrap: play first video ──────────────── */
   useEffect(() => {
-    layerA.current?.play();
-    if (slides.length > 1) {
-      layerB.current?.load(slides[1].video, slides[1].poster);
-    }
+    videoRefs.current[0]?.play();
   }, []);
 
   /* ── Near-end → pre-trigger crossfade for seamless looping ──────── */
-  const handleVideoNearEnd = useCallback(() => {
-    nextSlide();
+  const handleVideoNearEnd = useCallback((index: number) => {
+    if (index === indexRef.current) nextSlide();
   }, [nextSlide]);
 
   /* ── Video ended → fallback advance (only when that layer is active) */
-  // Passing per-layer callbacks prevents a double-advance when onNearEnd has
-  // already started the crossfade and onEnded fires ~0.8 s later on the old layer.
-  const handleLayerAEnded = useCallback(() => {
-    if (activeRef.current === 0) nextSlide();
-  }, [nextSlide]);
-
-  const handleLayerBEnded = useCallback(() => {
-    if (activeRef.current === 1) nextSlide();
+  const handleVideoEnded = useCallback((index: number) => {
+    if (index === indexRef.current) nextSlide();
   }, [nextSlide]);
 
   /* ── Render ───────────────────────────────────────────────────── */
@@ -165,24 +140,20 @@ const Hero = memo(() => {
     <section
       className="relative h-[100svh] w-full overflow-hidden"
     >
-      {/* ─── Video layers (always mounted, crossfaded via opacity) ─── */}
+      {/* ─── Video layers (all mounted to force auto preload) ─── */}
       <div className="absolute inset-0">
-        <LazyVideo
-          ref={layerA}
-          initialSrc={slides[0].video}
-          poster={slides[0].poster}
-          isActive={activeLayer === 0}
-          fadeDuration={FADE_DURATION}
-          onEnded={handleLayerAEnded}
-          onNearEnd={handleVideoNearEnd}
-        />
-        <LazyVideo
-          ref={layerB}
-          isActive={activeLayer === 1}
-          fadeDuration={FADE_DURATION}
-          onEnded={handleLayerBEnded}
-          onNearEnd={handleVideoNearEnd}
-        />
+        {slides.map((slide, index) => (
+          <LazyVideo
+            key={slide.video}
+            ref={(el) => (videoRefs.current[index] = el)}
+            initialSrc={slide.video}
+            poster={slide.poster}
+            isActive={currentIndex === index}
+            fadeDuration={FADE_DURATION}
+            onEnded={() => handleVideoEnded(index)}
+            onNearEnd={() => handleVideoNearEnd(index)}
+          />
+        ))}
         {/* Dark gradient overlay — always above both video layers */}
         <div
           className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/70"
