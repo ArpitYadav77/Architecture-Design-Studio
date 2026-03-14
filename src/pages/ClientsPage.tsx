@@ -2,9 +2,46 @@ import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+// Dynamically import all logos to allow Vite to bundle them correctly
+const logoModules = import.meta.glob<{ default: string }>('../assets/*.{png,jpg,jpeg,svg,webp}', { eager: true });
+
+const normalize = (str: string) => str.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+const getLogoForClient = (client: { title: string; category: string }): string | null => {
+  const possibleNames = [
+    client.title,
+    client.category,
+    client.title.replace(/ VishWavidyalaya/i, ''),
+    client.title.replace(/ of Veterinary and Animal Science/i, '')
+  ]
+    .filter(Boolean)
+    .map(n => normalize(n!));
+
+  let bestMatch: string | null = null;
+
+  for (const path in logoModules) {
+    const filename = path.split('/').pop()?.replace(/\.[^/.]+$/, '') || '';
+    const normalizedFilename = normalize(filename);
+    const normalizedNoLogo = normalize(filename.replace(/_?logo$/i, ''));
+
+    // Check exact normalized match
+    if (
+      possibleNames.includes(normalizedFilename) || 
+      possibleNames.includes(normalizedNoLogo) || 
+      possibleNames.includes(normalize(filename.replace(/ l$/, '')))
+    ) {
+      if (filename.toLowerCase().includes('logo')) {
+        return logoModules[path].default;
+      }
+      bestMatch = logoModules[path].default;
+    }
+  }
+
+  return bestMatch;
+};
+
 const clientsData = [
   { title: "Lala Lajpat Rai University of Veterinary and Animal Science", category: "University" },
-  { title: "Chaudhary Ranbir Singh University", category: "University" },
   { title: "Bhagat Phool Singh Mahila VishWavidyalaya", category: "University" },
   { title: "Le Meridien Hotels & Resorts", category: "Hospitality" },
   { title: "Chandigarh Golf Club", category: "Golf Association" },
@@ -19,8 +56,6 @@ const clientsData = [
   { title: "Clinic", category: "Private Medical Practice" },
   { title: "Reception", category: "Private" },
   { title: "Haryana Chief Minister Secretariat Building", category: "Government of Haryana" },
-  { title: "Kurukshetra University, Kurukshetra", category: "University" },
-  { title: "Pt. Sundarlal Sharma (Open) University, Chhattisgarh", category: "University" },
   { title: "Residential Township for RGTPP, Hisar", category: "HPGCL / RGTPP" },
   { title: "Haryana CM Residence", category: "Government of Haryana" },
   { title: "Galaxy World Mall", category: "Galaxy Group" },
@@ -31,11 +66,11 @@ const clientsData = [
   { title: "Ecocity", category: "Ecocity Developers" },
   { title: "Doon", category: "Private" },
   { title: "SBFI", category: "SBFI" },
-  { title: "Wentworth", category: "Private" },
 ];
 
 const ClientCard = ({ client, index }: { client: { title: string; category: string }; index: number }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [imageError, setImageError] = useState(false);
   const domRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -56,6 +91,7 @@ const ClientCard = ({ client, index }: { client: { title: string; category: stri
   }, []);
 
   const delay = (index % 6) * 100;
+  const logoUrl = getLogoForClient(client);
 
   return (
     <div
@@ -69,12 +105,15 @@ const ClientCard = ({ client, index }: { client: { title: string; category: stri
       `}
       style={{ transitionDelay: isVisible ? `${delay}ms` : '0ms' }}
     >
-      <h3 className="font-serif text-[13px] sm:text-[15px] font-semibold text-stone-800 leading-snug mb-3 group-hover:text-accent transition-colors duration-300 px-1 uppercase">
-        {client.title}
-      </h3>
-      <p className="text-[9px] sm:text-[10px] text-stone-400 uppercase tracking-widest font-semibold mt-auto transition-colors duration-300 group-hover:text-stone-500">
-        {client.category}
-      </p>
+      {logoUrl && !imageError ? (
+        <img
+          src={logoUrl}
+          alt={client.title}
+          className="max-w-[140px] h-auto object-contain transition-transform duration-300"
+          onError={() => setImageError(true)}
+        />
+      ) : null}
+      <span className="sr-only">{client.title}</span>
     </div>
   );
 };
@@ -102,9 +141,11 @@ const ClientsPage: React.FC = () => {
 
           {/* Grid Layout of Client Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 md:gap-7">
-            {clientsData.map((client, index) => (
-              <ClientCard key={index} client={client} index={index} />
-            ))}
+            {clientsData
+              .filter(client => getLogoForClient(client) !== null)
+              .map((client, index) => (
+                <ClientCard key={index} client={client} index={index} />
+              ))}
           </div>
         </div>
       </div>
