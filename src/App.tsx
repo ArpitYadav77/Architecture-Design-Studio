@@ -9,6 +9,7 @@ import Loader from "@/components/ui/Loader";
 // ── Lazy-loaded pages — each page gets its own chunk ──────────────────────
 const Index = lazy(() => import("./pages/Index"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
+const ClientsPage = lazy(() => import("./pages/ClientsPage"));
 const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const ProjectsPage = lazy(() => import("./pages/ProjectsPage"));
@@ -33,6 +34,7 @@ const AnimatedRoutes = () => {
         <Routes location={location}>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/clients" element={<ClientsPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
