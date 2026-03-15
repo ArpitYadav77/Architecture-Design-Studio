@@ -71,29 +71,36 @@ const ClientsPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-[#f5f2ee] flex flex-col">
       <Navbar />
-      <div className="flex-1 pt-32 pb-24 bg-[#FAF9F6] min-h-[calc(100vh-200px)]">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Heading */}
-          <div className="text-center mb-16 sm:mb-20 animate-fade-up">
-            <h1 className="text-4xl md:text-5xl font-serif text-[#2A221D] mb-6">
-              Trusted By Leading Organizations
-            </h1>
-            <div className="w-24 h-1 bg-accent mx-auto mb-8 animate-line-grow"></div>
-            <p className="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
-              We take pride in our collaborations with esteemed institutions, government bodies, and leading enterprises across various sectors.
-            </p>
-          </div>
-
-          {/* Grid Layout of Client Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 md:gap-7">
-            {clientsData.map((client, index) => (
-              <ClientCard key={index} client={client} index={index} />
-            ))}
+      <main className="flex-1 pt-14 md:pt-16">
+        {/* Full-width Brown Background Header Strip */}
+        <div className="bg-[#2A221D] py-14 sm:py-20 px-4 sm:px-6 md:px-12 lg:px-24 w-full">
+          <div className="max-w-7xl mx-auto">
+            {/* Section Heading */}
+            <div className="text-left animate-fade-up">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-amber-400 mb-4">Our Network</p>
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif font-light text-white leading-tight">
+                Trusted By <em className="italic text-white">Leading Organizations</em>
+              </h1>
+              <p className="mt-4 sm:mt-6 text-white/60 text-sm sm:text-base max-w-xl leading-relaxed">
+                We take pride in our collaborations with esteemed institutions, government bodies, and leading enterprises across various sectors.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+
+        {/* Client Logos Grid Section - Light Background */}
+        <section className="bg-[#f5f2ee] py-14 sm:py-20 px-4 sm:px-6 md:px-12 lg:px-24">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 md:gap-7">
+              {clientsData.map((client, index) => (
+                <ClientCard key={index} client={client} index={index} />
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
       <Footer />
     </div>
   );
