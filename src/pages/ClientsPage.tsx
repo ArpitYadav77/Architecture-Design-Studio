@@ -2,73 +2,21 @@ import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// Dynamically import all logos to allow Vite to bundle them correctly
-const logoModules = import.meta.glob<{ default: string }>('../assets/*.{png,jpg,jpeg,svg,webp}', { eager: true });
+// Dynamically import all logos from the logo folder to allow Vite to bundle them correctly
+const logoModules = import.meta.glob<{ default: string }>('../assets/logo/*.{png,jpg,jpeg,svg,webp}', { eager: true });
 
-const normalize = (str: string) => str.toLowerCase().replace(/[^a-z0-9]/g, '');
-
-const getLogoForClient = (client: { title: string; category: string }): string | null => {
-  const possibleNames = [
-    client.title,
-    client.category,
-    client.title.replace(/ VishWavidyalaya/i, ''),
-    client.title.replace(/ of Veterinary and Animal Science/i, '')
-  ]
-    .filter(Boolean)
-    .map(n => normalize(n!));
-
-  let bestMatch: string | null = null;
-
-  for (const path in logoModules) {
-    const filename = path.split('/').pop()?.replace(/\.[^/.]+$/, '') || '';
-    const normalizedFilename = normalize(filename);
-    const normalizedNoLogo = normalize(filename.replace(/_?logo$/i, ''));
-
-    // Check exact normalized match
-    if (
-      possibleNames.includes(normalizedFilename) || 
-      possibleNames.includes(normalizedNoLogo) || 
-      possibleNames.includes(normalize(filename.replace(/ l$/, '')))
-    ) {
-      if (filename.toLowerCase().includes('logo')) {
-        return logoModules[path].default;
-      }
-      bestMatch = logoModules[path].default;
-    }
-  }
-
-  return bestMatch;
+const extractClientNameFromFilename = (path: string): string => {
+  let filename = path.split('/').pop()?.replace(/\.[^/.]+$/, '') || '';
+  filename = filename.replace(/_logo$/i, '').replace(/_/g, ' ').trim();
+  return filename;
 };
 
-const clientsData = [
-  { title: "Lala Lajpat Rai University of Veterinary and Animal Science", category: "University" },
-  { title: "Bhagat Phool Singh Mahila VishWavidyalaya", category: "University" },
-  { title: "Le Meridien Hotels & Resorts", category: "Hospitality" },
-  { title: "Chandigarh Golf Club", category: "Golf Association" },
-  { title: "Chandigarh Square", category: "Paras Buildtech" },
-  { title: "AMAYA, KASAULI", category: "Private" },
-  { title: "LandMark Wave", category: "LandMark Group" },
-  { title: "Hewlett-Packard Tower, HP Town", category: "HP India" },
-  { title: "TRIAM TOWER, I-42, SECTOR 83, ALPHA", category: "Private Developer" },
-  { title: "NV Distilleries & Breweries Pvt. Ltd", category: "Industrial" },
-  { title: "Clubhouse TDI Mohali", category: "Mohali Club Society" },
-  { title: "Farmhouse", category: "Private Family" },
-  { title: "Clinic", category: "Private Medical Practice" },
-  { title: "Reception", category: "Private" },
-  { title: "Haryana Chief Minister Secretariat Building", category: "Government of Haryana" },
-  { title: "Residential Township for RGTPP, Hisar", category: "HPGCL / RGTPP" },
-  { title: "Haryana CM Residence", category: "Government of Haryana" },
-  { title: "Galaxy World Mall", category: "Galaxy Group" },
-  { title: "Hotel Barog Valley", category: "Private" },
-  { title: "Farmville", category: "Private" },
-  { title: "Dr. Attri Residence", category: "Private" },
-  { title: "Dr. Harkant Residence", category: "Private" },
-  { title: "Ecocity", category: "Ecocity Developers" },
-  { title: "Doon", category: "Private" },
-  { title: "SBFI", category: "SBFI" },
-];
+const clientsData = Object.entries(logoModules).map(([path, module]) => ({
+  title: extractClientNameFromFilename(path),
+  logoUrl: module.default
+}));
 
-const ClientCard = ({ client, index }: { client: { title: string; category: string }; index: number }) => {
+const ClientCard = ({ client, index }: { client: { title: string; logoUrl: string }; index: number }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [imageError, setImageError] = useState(false);
   const domRef = useRef<HTMLDivElement>(null);
@@ -91,7 +39,6 @@ const ClientCard = ({ client, index }: { client: { title: string; category: stri
   }, []);
 
   const delay = (index % 6) * 100;
-  const logoUrl = getLogoForClient(client);
 
   return (
     <div
@@ -105,9 +52,9 @@ const ClientCard = ({ client, index }: { client: { title: string; category: stri
       `}
       style={{ transitionDelay: isVisible ? `${delay}ms` : '0ms' }}
     >
-      {logoUrl && !imageError ? (
+      {!imageError ? (
         <img
-          src={logoUrl}
+          src={client.logoUrl}
           alt={client.title}
           className="max-w-[140px] h-auto object-contain transition-transform duration-300"
           onError={() => setImageError(true)}
@@ -141,11 +88,9 @@ const ClientsPage: React.FC = () => {
 
           {/* Grid Layout of Client Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 md:gap-7">
-            {clientsData
-              .filter(client => getLogoForClient(client) !== null)
-              .map((client, index) => (
-                <ClientCard key={index} client={client} index={index} />
-              ))}
+            {clientsData.map((client, index) => (
+              <ClientCard key={index} client={client} index={index} />
+            ))}
           </div>
         </div>
       </div>
