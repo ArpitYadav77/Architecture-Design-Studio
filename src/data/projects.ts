@@ -346,6 +346,93 @@ import kurukshetraHero from "@/assets/kurukshetra_hero.png";
 import sunderlalHero from "@/assets/sunderlal_hero.jpg";
 import crsuHero from "@/assets/crsu_hero.png";
 
+// Galaxy Township Sample Residences series (1–63)
+import gt1 from "@/assets/galaxy townshipseries number 1.png";
+import gt2 from "@/assets/galaxy townshipseries number 2.png";
+import gt3 from "@/assets/galaxy townshipseries number 3.png";
+import gt4 from "@/assets/galaxy townshipseries number 4.png";
+import gt5 from "@/assets/galaxy townshipseries number 5.png";
+import gt6 from "@/assets/galaxy townshipseries number 6.png";
+import gt7 from "@/assets/galaxy townshipseries number 7.png";
+import gt8 from "@/assets/galaxy townshipseries number 8.png";
+import gt9 from "@/assets/galaxy townshipseries number 9.png";
+import gt10 from "@/assets/galaxy townshipseries number 10.png";
+import gt11 from "@/assets/galaxy townshipseries number 11.png";
+import gt12 from "@/assets/galaxy townshipseries number 12.png";
+import gt13 from "@/assets/galaxy townshipseries number 13.png";
+import gt14 from "@/assets/galaxy townshipseries number 14.png";
+import gt15 from "@/assets/galaxy townshipseries number 15.png";
+import gt16 from "@/assets/galaxy townshipseries number 16.png";
+import gt17 from "@/assets/galaxy townshipseries number 17.png";
+import gt18 from "@/assets/galaxy townshipseries number 18.png";
+import gt19 from "@/assets/galaxy townshipseries number 19.png";
+import gt20 from "@/assets/galaxy townshipseries number 20.png";
+import gt21 from "@/assets/galaxy townshipseries number 21.png";
+import gt22 from "@/assets/galaxy townshipseries number 22.png";
+import gt23 from "@/assets/galaxy townshipseries number 23.png";
+import gt24 from "@/assets/galaxy townshipseries number 24.png";
+import gt25 from "@/assets/galaxy townshipseries number 25.png";
+import gt26 from "@/assets/galaxy townshipseries number 26.png";
+import gt27 from "@/assets/galaxy townshipseries number 27.png";
+import gt28 from "@/assets/galaxy townshipseries number 28.png";
+import gt29 from "@/assets/galaxy townshipseries number 29.png";
+import gt30 from "@/assets/galaxy townshipseries number 30.png";
+import gt31 from "@/assets/galaxy townshipseries number 31.png";
+import gt32 from "@/assets/galaxy townshipseries number 32.png";
+import gt33 from "@/assets/galaxy townshipseries number 33.png";
+import gt34 from "@/assets/galaxy townshipseries number 34.png";
+import gt35 from "@/assets/galaxy townshipseries number 35.png";
+import gt36 from "@/assets/galaxy townshipseries number 36.png";
+import gt37 from "@/assets/galaxy townshipseries number 37.png";
+import gt38 from "@/assets/galaxy townshipseries number 38.png";
+import gt39 from "@/assets/galaxy townshipseries number 39.png";
+import gt40 from "@/assets/galaxy townshipseries number 40.png";
+import gt41 from "@/assets/galaxy townshipseries number 41.png";
+import gt42 from "@/assets/galaxy townshipseries number 42.png";
+import gt43 from "@/assets/galaxy townshipseries number 43.png";
+import gt44 from "@/assets/galaxy townshipseries number 44.png";
+import gt45 from "@/assets/galaxy townshipseries number 45.png";
+import gt46 from "@/assets/galaxy townshipseries number 46.png";
+import gt47 from "@/assets/galaxy townshipseries number 47.png";
+import gt48 from "@/assets/galaxy townshipseries number 48.png";
+import gt49 from "@/assets/galaxy townshipseries number 49.png";
+import gt50 from "@/assets/galaxy townshipseries number 50.png";
+import gt51 from "@/assets/galaxy townshipseries number 51.png";
+import gt52 from "@/assets/galaxy townshipseries number 52.png";
+import gt53 from "@/assets/galaxy townshipseries number 53.png";
+import gt54 from "@/assets/galaxy townshipseries number 54.png";
+import gt55 from "@/assets/galaxy townshipseries number 55.png";
+import gt56 from "@/assets/galaxy townshipseries number 56.png";
+import gt57 from "@/assets/galaxy townshipseries number 57.png";
+import gt58 from "@/assets/galaxy townshipseries number 58.png";
+import gt59 from "@/assets/galaxy townshipseries number 59.png";
+import gt60 from "@/assets/galaxy townshipseries number 60.png";
+import gt61 from "@/assets/galaxy townshipseries number 61.png";
+import gt62 from "@/assets/galaxy townshipseries number 62.png";
+import gt63 from "@/assets/galaxy townshipseries number 63.png";
+
+// Bansal Mixed Land Use series (1–20)
+import bmu1 from "@/assets/bansal mixed series number 1.png";
+import bmu2 from "@/assets/bansal mixed series number 2.png";
+import bmu3 from "@/assets/bansal mixed series number 3.png";
+import bmu4 from "@/assets/bansal mixed series number 4.png";
+import bmu5 from "@/assets/bansal mixed series number 5.png";
+import bmu6 from "@/assets/bansal mixed series number 6.png";
+import bmu7 from "@/assets/bansal mixed series number 7.png";
+import bmu8 from "@/assets/bansal mixed series number 8.png";
+import bmu9 from "@/assets/bansal mixed series number 9.png";
+import bmu10 from "@/assets/bansal mixed series number 10.png";
+import bmu11 from "@/assets/bansal mixed series number 11.png";
+import bmu12 from "@/assets/bansal mixed series number 12.png";
+import bmu13 from "@/assets/bansal mixed series number 13.png";
+import bmu14 from "@/assets/bansal mixed series number 14.png";
+import bmu15 from "@/assets/bansal mixed series number 15.png";
+import bmu16 from "@/assets/bansal mixed series number 16.png";
+import bmu17 from "@/assets/bansal mixed series number 17.png";
+import bmu18 from "@/assets/bansal mixed series number 18.png";
+import bmu19 from "@/assets/bansal mixed series number 19.png";
+import bmu20 from "@/assets/bansal mixed series number 20.png";
+
 // ── project catalogue ────────────────────────────────────────────────────────
 export const allProjects: ProjectData[] = [
 
@@ -846,7 +933,36 @@ export const allProjects: ProjectData[] = [
     description:
       "Wentworth is a premium residential project that brings together thoughtful planning, quality materials, and generous proportions to create homes of lasting value.\n\nThe architecture balances a composed, formal exterior with warm, light-filled interiors planned around the rhythms of contemporary family life. Careful attention to detail — from the joinery profiles to the landscaping — ensures a cohesive living environment that rewards daily experience.",
     area: "1,800 sq m",
-    client: "Private",
+    status: "Built",
+  },
+
+  {
+    slug: "galaxy-township-sample-residences",
+    title: "Galaxy Township (Sample Residences)",
+    category: "Urban",
+    location: "Mohali, Punjab",
+    year: "2023",
+    image: gt1,
+    gallery: [gt1, gt2, gt3, gt4, gt5, gt6, gt7, gt8, gt9, gt10, gt11, gt12, gt13, gt14, gt15, gt16, gt17, gt18, gt19, gt20, gt21, gt22, gt23, gt24, gt25, gt26, gt27, gt28, gt29, gt30, gt31, gt32, gt33, gt34, gt35, gt36, gt37, gt38, gt39, gt40, gt41, gt42, gt43, gt44, gt45, gt46, gt47, gt48, gt49, gt50, gt51, gt52, gt53, gt54, gt55, gt56, gt57, gt58, gt59, gt60, gt61, gt62, gt63],
+    tagline: "A master-planned residential township set within Mohali's evolving urban fabric.",
+    description: "Galaxy Township represents a significant milestone in master-planned residential development, offering a harmonious blend of modern living spaces and innovative township infrastructure. These sample residences showcase the architectural commitment to high-quality domestic environments, integrating natural light, efficient spatial layout, and contemporary material palettes. The broader township framework prioritizes community interaction, green connectivity, and sustainable urban growth, providing a comprehensive blueprint for long-term residential excellence.",
+    area: "110 acres",
+    client: "Galaxy Group",
+    status: "Ongoing",
+  },
+
+  {
+    slug: "bansal-mixed-land-use",
+    title: "Bansal Mixed Land Use",
+    category: "Urban",
+    location: "Ludhiana, Punjab",
+    year: "2022",
+    image: bmu1,
+    gallery: [bmu1, bmu2, bmu3, bmu4, bmu5, bmu6, bmu7, bmu8, bmu9, bmu10, bmu11, bmu12, bmu13, bmu14, bmu15, bmu16, bmu17, bmu18, bmu19, bmu20],
+    tagline: "A strategic mixed-use development balancing commercial vitality and residential quiet.",
+    description: "The Bansal Mixed Land Use project is an architectural response to the increasing density and diversification of urban centers. By integrating commercial retail and corporate zones with refined residential dwelling units, the project creates a self-sustaining vertical ecosystem. The design emphasizes clear zoning, efficient circulation for different user groups, and a unified architectural language that mediates between the public intensity of the street and the private serenity of the living spaces. Modern material selections and high-performance building systems ensure both commercial performance and residential comfort.",
+    area: "32,000 sq m",
+    client: "Bansal Enterprises",
     status: "Built",
   },
 ];
