@@ -433,6 +433,34 @@ import bmu18 from "@/assets/bansal mixed series number 18.png";
 import bmu19 from "@/assets/bansal mixed series number 19.png";
 import bmu20 from "@/assets/bansal mixed series number 20.png";
 
+// Mr. Gupta Room series (1–16)
+import dg1 from "@/assets/Dr. Gupta series number 1.png";
+import dg2 from "@/assets/Dr. Gupta series number 2.png";
+import dg3 from "@/assets/Dr. Gupta series number 3.png";
+import dg4 from "@/assets/Dr. Gupta series number 4.png";
+import dg5 from "@/assets/Dr. Gupta series number 5.png";
+import dg6 from "@/assets/Dr. Gupta series number 6.png";
+import dg7 from "@/assets/Dr. Gupta series number 7.png";
+import dg8 from "@/assets/Dr. Gupta series number 8.png";
+import dg9 from "@/assets/Dr. Gupta series number 9.png";
+import dg10 from "@/assets/Dr. Gupta series number 10.png";
+import dg11 from "@/assets/Dr. Gupta series number 11.png";
+import dg12 from "@/assets/Dr. Gupta series number 12.png";
+import dg13 from "@/assets/Dr. Gupta series number 13.png";
+import dg14 from "@/assets/Dr. Gupta series number 14.png";
+import dg15 from "@/assets/Dr. Gupta series number 15.png";
+import dg16 from "@/assets/Dr. Gupta series number 16.png";
+
+// RAJ KALA MANDIR series (1–8)
+import rkm1 from "@/assets/RAJ KALA MANDIR series number 1.png";
+import rkm2 from "@/assets/RAJ KALA MANDIR series number 2.png";
+import rkm3 from "@/assets/RAJ KALA MANDIR series number 3.png";
+import rkm4 from "@/assets/RAJ KALA MANDIR series number 4.png";
+import rkm5 from "@/assets/RAJ KALA MANDIR series number 5.png";
+import rkm6 from "@/assets/RAJ KALA MANDIR series number 6.png";
+import rkm7 from "@/assets/RAJ KALA MANDIR series number 7.png";
+import rkm8 from "@/assets/RAJ KALA MANDIR series number 8.png";
+
 // ── project catalogue ────────────────────────────────────────────────────────
 export const allProjects: ProjectData[] = [
 
@@ -964,6 +992,36 @@ export const allProjects: ProjectData[] = [
     area: "32,000 sq m",
     client: "Bansal Enterprises",
     status: "Built",
+  },
+
+  {
+    slug: "mr-gupta-room",
+    title: "Mr. Gupta Room",
+    category: "Interior",
+    location: "Punjab, India",
+    year: "2023",
+    image: dg1,
+    gallery: [dg1, dg2, dg3, dg4, dg5, dg6, dg7, dg8, dg9, dg10, dg11, dg12, dg13, dg14, dg15, dg16],
+    tagline: "A meticulously crafted interior space designed for personal comfort and modern elegance.",
+    description: "The Mr. Gupta Room project focuses on the transformation of a private living space into a refined sanctuary. The design emphasizes material honesty, high-quality finishes, and a sophisticated lighting scheme that enhances the room's spatial qualities. Modern furniture selections are integrated with bespoke cabinetry to ensure maximum functionality without sacrificing the clean, contemporary aesthetic. Every detail—from the textile choices to the wall treatments—has been curated to reflect the client's preference for understated luxury and a calm, domestic atmosphere.",
+    area: "45 sq m",
+    client: "Mr. Gupta",
+    status: "Completed",
+  },
+
+  {
+    slug: "raj-kala-mandir",
+    title: "Raj Kala Mandir",
+    category: "Interior",
+    location: "India",
+    year: "2023",
+    image: rkm1,
+    gallery: [rkm1, rkm2, rkm3, rkm4, rkm5, rkm6, rkm7, rkm8],
+    tagline: "A majestic interior design project celebrating traditional grandeur and modern functionality.",
+    description: "Raj Kala Mandir is a premium interior commission that required the integration of classical aesthetic elements with current functional requirements. The project showcases intricate craftsmanship, rich material textures, and a ceremonial spatial organization that honors the title's 'mandir' (temple) inspiration. The design utilizes a balanced interplay of warm lighting, custom joinery, and a curated selection of architectural finishes to create a space that feels both institutional and inviting. Each zone within the project has been meticulously detailed to deliver a cohesive experience of cultural pride and sophisticated design.",
+    area: "450 sq m",
+    client: "Private",
+    status: "Completed",
   },
 ];
 
