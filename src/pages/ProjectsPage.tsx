@@ -11,7 +11,6 @@ const categories = [
   "All",
   "Commercial",
   "Corporate",
-  "Cultural",
   "Education",
   "Hospitality",
   "Interior",

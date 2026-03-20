@@ -25,123 +25,123 @@ export interface ProjectData {
 
 // ── Real project assets (WebP — 91% smaller than PNG originals) ──────────────
 // Vidhan Sabha
-import vidhanSabhaImg         from "@/assets/Punjab_Haryana_HC.webp";
+import vidhanSabhaImg from "@/assets/Punjab_Haryana_HC.webp";
 
 //Baghat_university
-import baghatCover              from "@/assets/bhagat_cover.png";
-import baghatInt1               from "@/assets/baghat_interior.png";
-import baghatInt2               from "@/assets/bhagat_exterior.png";
+import baghatCover from "@/assets/bhagat_cover.png";
+import baghatInt1 from "@/assets/baghat_interior.png";
+import baghatInt2 from "@/assets/bhagat_exterior.png";
 
 // Punjab & Haryana High Court
-import punjabHCImg            from "@/assets/Punjab_Haryana_HC.webp";
+import punjabHCImg from "@/assets/Punjab_Haryana_HC.webp";
 
 // Chandigarh square cover (was .webp, only .png exists)
-import chandigarhSqCover      from "@/assets/chandigarh_square.png";
+import chandigarhSqCover from "@/assets/chandigarh_square.png";
 
 // Amritsar Residence
-import amritsarCover          from "@/assets/Amritsar.webp";
-import amritsarInt1           from "@/assets/Amritsar_cover_Interior.webp";
-import amritsarInt2           from "@/assets/Amritsar_Interior.webp";
-import amritsarInt3           from "@/assets/Amritsar_Interior2.webp";
-import amritsarInt4           from "@/assets/Amritsar_cover2_interior.webp";
+import amritsarCover from "@/assets/Amritsar.webp";
+import amritsarInt1 from "@/assets/Amritsar_cover_Interior.webp";
+import amritsarInt2 from "@/assets/Amritsar_Interior.webp";
+import amritsarInt3 from "@/assets/Amritsar_Interior2.webp";
+import amritsarInt4 from "@/assets/Amritsar_cover2_interior.webp";
 
 // Chandigarh Golf Club
-import golfCover              from "@/assets/chandigarh_golf_cover.webp";
-import golfTopview            from "@/assets/Chandigarh_Golf_Club_topview.webp";
+import golfCover from "@/assets/chandigarh_golf_cover.webp";
+import golfTopview from "@/assets/Chandigarh_Golf_Club_topview.webp";
 
 // Paras Downtown Mall, Zirakpur
-import chandigarhSq2          from "@/assets/chandigarh_square2.webp";
+import chandigarhSq2 from "@/assets/chandigarh_square2.webp";
 
 // Kasauli Retreat
-import kasauliCover           from "@/assets/Kasuli_cover.webp";
-import kasauliInterior        from "@/assets/Kasauli_Interior.webp";
-import kasauliSideview        from "@/assets/sideview_Kasuli.webp";
-import kasauliInt2            from "@/assets/Kasuli_interior2.webp";
-import kasauliInt3            from "@/assets/kasuli_interior3.webp";
+import kasauliCover from "@/assets/Kasuli_cover.webp";
+import kasauliInterior from "@/assets/Kasauli_Interior.webp";
+import kasauliSideview from "@/assets/sideview_Kasuli.webp";
+import kasauliInt2 from "@/assets/Kasuli_interior2.webp";
+import kasauliInt3 from "@/assets/kasuli_interior3.webp";
 
 // University Campus (webp files missing — using closest available png fallbacks)
-import universityCover        from "@/assets/Lajpat_Rai_uni1.png";
-import universityInt1         from "@/assets/Lajpat_Rai_uni2.png";
-import universityInt2         from "@/assets/Lajpat_Rai_uni3.png";
-import uniAdmin               from "@/assets/ranbir_uni.png";
-import uniBuilding            from "@/assets/ranbir_singh1.png";
-import uniBuildingInt         from "@/assets/ranbir_uni_interior.png";
-import uniLibrary             from "@/assets/ranbir_university_interior.png";
+import universityCover from "@/assets/Lajpat_Rai_uni1.png";
+import universityInt1 from "@/assets/Lajpat_Rai_uni2.png";
+import universityInt2 from "@/assets/Lajpat_Rai_uni3.png";
+import uniAdmin from "@/assets/ranbir_uni.png";
+import uniBuilding from "@/assets/ranbir_singh1.png";
+import uniBuildingInt from "@/assets/ranbir_uni_interior.png";
+import uniLibrary from "@/assets/ranbir_university_interior.png";
 
 // Vidhan Sabha extra (webp missing — reusing HC image)
-import vidhanSabha2           from "@/assets/Punjab_Haryana_HC.webp";
+import vidhanSabha2 from "@/assets/Punjab_Haryana_HC.webp";
 
 // Amritsar exterior
-import amritsarExterior       from "@/assets/Amrtisar_exterior.webp";
+import amritsarExterior from "@/assets/Amrtisar_exterior.webp";
 
 // Galaxy Mall
-import ambalaMallCover        from "@/assets/Ambala_Mall.webp";
-import ambalaInt1             from "@/assets/Ambala_interior.webp";
-import ambalaInt2             from "@/assets/Ambala_interior2.webp";
-import ambalaInt3             from "@/assets/Ambala_interior3.webp";
+import ambalaMallCover from "@/assets/Ambala_Mall.webp";
+import ambalaInt1 from "@/assets/Ambala_interior.webp";
+import ambalaInt2 from "@/assets/Ambala_interior2.webp";
+import ambalaInt3 from "@/assets/Ambala_interior3.webp";
 
 // Clinic (webp files missing — using numbered png fallbacks)
-import clinicCover            from "@/assets/clinic1.png";
-import clinicInt1             from "@/assets/clinic2.png";
-import clinicPassage          from "@/assets/clinic3.png";
+import clinicCover from "@/assets/clinic1.png";
+import clinicInt1 from "@/assets/clinic2.png";
+import clinicPassage from "@/assets/clinic3.png";
 
 // Farmhouse
-import farmhouseCover         from "@/assets/farmhouse.webp";
-import farmhouseExt1          from "@/assets/farmhouse_exterior.webp";
-import farmhouseExt2          from "@/assets/farmhouse_exterior2.webp";
-import farmhouseInt1          from "@/assets/farmhouse_interior.webp";
-import farmhouseInt2          from "@/assets/farmhouse_interior2.webp";
-import farmhouseInt3          from "@/assets/farmhouse_interior3.webp";
+import farmhouseCover from "@/assets/farmhouse.webp";
+import farmhouseExt1 from "@/assets/farmhouse_exterior.webp";
+import farmhouseExt2 from "@/assets/farmhouse_exterior2.webp";
+import farmhouseInt1 from "@/assets/farmhouse_interior.webp";
+import farmhouseInt2 from "@/assets/farmhouse_interior2.webp";
+import farmhouseInt3 from "@/assets/farmhouse_interior3.webp";
 
 // Haryana CM Residence
-import haryanaCMInterior      from "@/assets/haryana_CM_interior.webp";
+import haryanaCMInterior from "@/assets/haryana_CM_interior.webp";
 
 // HP Tower (HP_tower.webp & HP_tower2.webp missing — using png / interior fallback)
-import hpTowerCover           from "@/assets/HP_tower.png";
-import hpTower2               from "@/assets/HP_interior.webp";
-import hpInterior             from "@/assets/HP_interior.webp";
+import hpTowerCover from "@/assets/HP_tower.png";
+import hpTower2 from "@/assets/HP_interior.webp";
+import hpInterior from "@/assets/HP_interior.webp";
 
 // LandMark Wave (all webp files missing — using Wave_state png as placeholders)
-import landmarkWaveCover      from "@/assets/Wave_state1.png";
-import landmarkWaveExt        from "@/assets/Wave_state2.png";
-import landmarkWaveInt1       from "@/assets/Wave_state3.png";
-import landmarkWaveInt2       from "@/assets/Wave_state4.png";
+import landmarkWaveCover from "@/assets/Wave_state1.png";
+import landmarkWaveExt from "@/assets/Wave_state2.png";
+import landmarkWaveInt1 from "@/assets/Wave_state3.png";
+import landmarkWaveInt2 from "@/assets/Wave_state4.png";
 
 // Mohali Club (webp files missing for cover & interior — using png fallbacks)
-import mohaliClubCover        from "@/assets/Mohali_club.png";
-import mohaliClubInt1         from "@/assets/mohali_club2.png";
-import mohaliInt2             from "@/assets/mohali_interior2.webp";
+import mohaliClubCover from "@/assets/Mohali_club.png";
+import mohaliClubInt1 from "@/assets/mohali_club2.png";
+import mohaliInt2 from "@/assets/mohali_interior2.webp";
 
 // Reception
-import receptionCover         from "@/assets/Reception_cover.webp";
-import receptionInt1          from "@/assets/reception_interior.webp";
-import receptionInt2          from "@/assets/reception_interior2.webp";
-import receptionInt3          from "@/assets/reception_interior3.webp";
+import receptionCover from "@/assets/Reception_cover.webp";
+import receptionInt1 from "@/assets/reception_interior.webp";
+import receptionInt2 from "@/assets/reception_interior2.webp";
+import receptionInt3 from "@/assets/reception_interior3.webp";
 
 // NV Distilleries
-import nvCover                from "@/assets/NV_cover.png";
-import nvExterior             from "@/assets/NV_exterior.png";
-import nvExterior2            from "@/assets/NV_exterior2.png";
-import nvExterior3            from "@/assets/NV_exterior3.png";
-import nvInterior             from "@/assets/NV_interior.png";
-import nvInterior2            from "@/assets/NV_interior2.png";
+import nvCover from "@/assets/NV_cover.png";
+import nvExterior from "@/assets/NV_exterior.png";
+import nvExterior2 from "@/assets/NV_exterior2.png";
+import nvExterior3 from "@/assets/NV_exterior3.png";
+import nvInterior from "@/assets/NV_interior.png";
+import nvInterior2 from "@/assets/NV_interior2.png";
 
 // TRIAM Tower
-import triamCover             from "@/assets/triam_cover.png";
-import triamExterior          from "@/assets/traim_exterior.png";
-import triamExterior2         from "@/assets/triam_exterior2.png";
+import triamCover from "@/assets/triam_cover.png";
+import triamExterior from "@/assets/traim_exterior.png";
+import triamExterior2 from "@/assets/triam_exterior2.png";
 
 // Kurukshetra University
-import kurkushetraExterior    from "@/assets/kurkushetra_exterior.png";
-import kurkushetraExterior3   from "@/assets/kurkushetra_exterior3.png";
-import kurkushetraExterior4   from "@/assets/kurkushetra_exterior4.png";
-import kurkushetraInterior    from "@/assets/kurkushetra_interior.png";
-import kurkushetraInterior1   from "@/assets/kurkushetra_interior1.png";
-import kurkushetraInterior2   from "@/assets/kurkushetra_interior2.png";
-import kurshetraExte          from "@/assets/kurshetra_exte.png";
+import kurkushetraExterior from "@/assets/kurkushetra_exterior.png";
+import kurkushetraExterior3 from "@/assets/kurkushetra_exterior3.png";
+import kurkushetraExterior4 from "@/assets/kurkushetra_exterior4.png";
+import kurkushetraInterior from "@/assets/kurkushetra_interior.png";
+import kurkushetraInterior1 from "@/assets/kurkushetra_interior1.png";
+import kurkushetraInterior2 from "@/assets/kurkushetra_interior2.png";
+import kurshetraExte from "@/assets/kurshetra_exte.png";
 
 // RGTPP Residential Township
-import rgtppTower             from "@/assets/residence_tower.png";
+import rgtppTower from "@/assets/residence_tower.png";
 
 // ── New image imports (added for new assets) ─────────────────────────────────
 
@@ -323,6 +323,15 @@ import eco4 from "@/assets/Ecocity4.png";
 
 // Doon
 import doonImg from "@/assets/Doon.png";
+import doon1 from "@/assets/Doon Valley School series number 1.png";
+import doon2 from "@/assets/Doon Valley School series number 2.png";
+import doon3 from "@/assets/Doon Valley School series number 3.png";
+import doon4 from "@/assets/Doon Valley School series number 4.png";
+import doon5 from "@/assets/Doon Valley School series number 5.png";
+import doon6 from "@/assets/Doon Valley School series number 6.png";
+import doon7 from "@/assets/Doon Valley School series number 7.png";
+import doon8 from "@/assets/Doon Valley School series number 8.png";
+import doon9 from "@/assets/Doon Valley School series number 9.png";
 
 // Mandir
 import mandirImg from "@/assets/Mandir.png";
@@ -558,8 +567,8 @@ export const allProjects: ProjectData[] = [
     slug: "paras-downtown-mall-zirakpur",
     title: "Chandigarh Square",
     category: "Commercial",
-    location: "Zirakpur, Punjab",
-    year: "2012",
+    location: "Zirakpur",
+    year: "2020",
     image: chandigarhSqCover,
     gallery: [
       chandigarhSq2, csCoverPng, csMap,
@@ -568,11 +577,10 @@ export const allProjects: ProjectData[] = [
       cs21, cs22, cs23, cs24, cs25,
     ],
     order: 2,
-    tagline: "A landmark commercial address anchoring Zirakpur's rapidly evolving urban corridor.",
-    description:
-      "Paras Downtown Mall occupies a prominent site along Zirakpur's main arterial — a location that demanded an architectural response conscious of both its civic visibility and its commercial purpose. The building reads as a composed ensemble of volumes: a taller tower element marking the corner, and a lower podium base that mediates between the street and the formal public space of the forecourt.\n\nThe facade system is a refined grid of pre-cast concrete panels and full-height glazing, its proportions calibrated to the scale of the boulevard. At street level, double-height retail frontage animates the public realm; above, office floors are served by efficient plate configurations that maximise natural light penetration.\n\nThe project was delivered on a fast-track programme while maintaining the firm's characteristic attention to material quality and spatial generosity at the building's public interfaces.",
-    area: "22,000 sq m",
-    client: "Paras Buildtech",
+    tagline: "A striking modern landmark designed as a premier commercial and lifestyle destination.",
+    description: "Chandigarh Square is a striking modern landmark designed as a premier commercial and lifestyle destination. The project features a sleek, multi-story glass facade accented by intricate white geometric overlays and contemporary curved balconies, creating a high-end visual identity.\n\nThe architectural experience is anchored by an expansive, designer plaza that prioritizes pedestrian comfort and aesthetic appeal. Featuring a sophisticated layout of linear stone paving, symmetrical water fountains, and integrated brick-cladded planters with lush greenery, the courtyard serves as a vibrant social hub.",
+    area: "9,840 sq m",
+    client: "Chandigarh Square",
     status: "Built",
   },
 
@@ -715,17 +723,17 @@ export const allProjects: ProjectData[] = [
 
   {
     slug: "reception",
-    title: "Reception",
+    title: "Triam Reception",
     category: "Interior",
-    location: "India",
+    location: "Sector 83, Alpha, India",
     year: "2023",
     image: receptionCover,
     gallery: [receptionInt1, receptionInt2, receptionInt3],
-    tagline: "A reception space designed to welcome with elegance and purpose.",
+    tagline: "A refined expression of contemporary corporate design and material richness.",
     description:
-      "This contemporary reception interior was conceived around a single design intent: to make an instant, lasting impression on every visitor who enters. The space balances a refined material palette with a layout that guides people naturally from arrival to their destination.\n\nThe reception desk is positioned as the visual anchor — a sculpted, backlit centrepiece that communicates identity and authority. Behind it, a textured feature wall provides depth and warmth while concealing service zones from public view. Seating areas are arranged to feel generous and unhurried, with carefully chosen upholstery and ambient lighting that softens the formality of the setting.\n\nFloor finishes transition from polished stone at the entry threshold to warmer material zones in the waiting area, reinforcing the spatial hierarchy of the plan. Every detail — joinery profiles, light fitting selections, and the placement of greenery — was coordinated to deliver a coherent, high-quality environment appropriate to the client's brand and culture.",
+      "The interior of Triam is envisioned as a refined expression of contemporary corporate design, where material richness meets spatial clarity. The double-height lobby establishes a grand sense of arrival, enhanced by a seamless blend of natural stone, warm metallic accents, and expansive glazing that draws natural light deep into the space.\n\nThe reception acts as the central focal point—crafted in elegant marble with clean, sculptural lines—creating a strong first impression of sophistication and professionalism. Above, a bespoke geometric lighting installation introduces a dynamic visual identity while maintaining a warm, ambient atmosphere.\n\nA neutral palette, complemented by textured finishes and thoughtfully integrated greenery, adds depth and warmth to the environment. Circulation spaces are designed for intuitive movement, with vertical connectivity elements seamlessly integrated into the overall aesthetic.\n\nThe design of Triam reflects a forward-looking corporate ethos—timeless, efficient, and distinctive—offering an environment that is both welcoming and aspirational.",
     area: "220 sq m",
-    client: "Private",
+    client: "Private Developer",
     status: "Completed 2023",
   },
 
@@ -819,16 +827,15 @@ export const allProjects: ProjectData[] = [
     slug: "galaxy-world-mall",
     title: "Galaxy World Mall",
     category: "Commercial",
-    location: "India",
-    year: "2020",
-    image: galaxyMallPng,
-    gallery: [gwm1, gwm2, gwm3, gwm4, gwm5],
+    location: "Ambala, Haryana",
+    year: "2024",
+    image: ambalaMallCover,
+    gallery: [ambalaMallCover, ambalaInt1, ambalaInt2, ambalaInt3, gwm1, gwm2, gwm3, gwm4, gwm5],
     order: 1,
-    tagline: "A world-class retail and entertainment destination.",
-    description:
-      "Galaxy World Mall is a large-scale commercial development conceived as a vibrant retail and entertainment destination. The building's design balances civic presence with commercial efficiency, delivering generous floor plates organised around a central atrium that floods the interior with natural light.\n\nThe facade composition employs a layered system of glass and stone that modulates scale and light across the elevation, creating an inviting street-level interface while projecting a confident urban identity at the skyline. Interior planning prioritises intuitive wayfinding, high-quality finishes, and spatial generosity at all public interfaces.",
-    area: "40,000 sq m",
-    client: "Galaxy Group",
+    tagline: "A contemporary commercial destination featuring iconic architecture and global brands.",
+    description: "The project envisions a contemporary commercial destination defined by a bold, sculptural architectural language that integrates retail, dining, and entertainment. The facade is organized around a strong central identity element—a distinctive, curved glass volume featuring a hexagonal crystalline overlay that acts as a focal landmark. Retail storefronts for global brands like Adidas, Gucci, and Nike are strategically arranged at the street level to create an active pedestrian interface, while upper levels accommodate high-profile dining and cinema components.",
+    area: "4,696.8 sq m",
+    client: "Galaxy World Wall",
     status: "Built",
   },
 
@@ -870,63 +877,60 @@ export const allProjects: ProjectData[] = [
     slug: "dr-attri-residence",
     title: "Dr. Attri Residence",
     category: "Residential",
-    location: "India",
-    year: "2022",
+    location: "Chandigarh, India",
+    year: "2026",
     image: dar3,
     gallery: [dar1, dar2, dar4, dar5, dar6, dar7, dar8, dar9, dar10, dar11],
-    tagline: "A private residence crafted with precision, warmth, and spatial generosity.",
-    description:
-      "Dr. Attri Residence is a bespoke private home designed around the client's lifestyle and the site's orientation. The plan separates formal entertaining spaces from the private family wing, connected by a central gallery that serves as both circulation spine and display space.\n\nInteriors are detailed with a restrained palette of natural stone, warm timber, and carefully selected furnishings that create an atmosphere of comfortable refinement. Every room is planned to receive natural light and ventilation, with generous floor-to-ceiling heights that lend the house a sense of calm spaciousness.",
-    area: "1,200 sq m",
+    tagline: "Urban living redefined through industrial and organic design elements.",
+    description: "This contemporary residential development redefines urban living through a sophisticated blend of industrial and organic design elements. The structure features a striking multi-level facade, characterized by textured concrete finishes, warm brick jaali accents, and expansive glass windows that ensure sun-drenched interiors and seamless views.",
+    area: "3,786.7 sq ft",
     client: "Private",
-    status: "Completed 2022",
+    status: "Built",
   },
 
   {
     slug: "dr-harkant-residence",
     title: "Dr. Harkant Residence",
     category: "Residential",
-    location: "India",
-    year: "2021",
+    location: "Chandigarh, India",
+    year: "2026",
     image: dhr2,
     gallery: [dhr1, dhr3, dhr4, dhr5, dhr6, dhr7, dhr8, dhr9, dhr10],
-    tagline: "A contemporary residence balancing openness with intimate domestic scale.",
-    description:
-      "Dr. Harkant Residence is a private home conceived as a series of interlocking volumes that create a varied sequence of spaces — from the generous double-height living room to the sheltered garden courtyard that anchors the plan.\n\nThe facade is articulated through a disciplined grid of openings and recessed balconies that control sun exposure while lending the elevation a measured rhythm. Interior finishes prioritise material warmth — polished stone floors, oak joinery, and plaster walls in a palette of neutral tones that let the architecture and the furnishings speak for themselves.",
-    area: "1,000 sq m",
+    tagline: "A refined architectural showcase of clean geometry and timeless appeal.",
+    description: "This elegant contemporary residence showcases a refined architectural language defined by clean geometry, soft neutral tones, and premium material finishes. The striking façade features balanced volumes, expansive glazing, and subtle classical elements that lend a sense of sophistication and timeless appeal.",
+    area: "5,840 sq ft",
     client: "Private",
-    status: "Completed 2021",
+    status: "Ongoing",
   },
 
   {
     slug: "ecocity",
     title: "Ecocity",
     category: "Residential",
-    location: "Punjab, India",
-    year: "2019",
+    location: "Ecocity, New Chandigarh",
+    year: "2025",
     image: eco3,
     gallery: [eco1, eco2, eco4],
-    tagline: "A sustainable urban development integrating ecology and commerce.",
-    description:
-      "Ecocity is a planned urban development that integrates commercial, retail, and green infrastructure within a masterplan conceived for environmental responsibility and civic quality.\n\nThe project employs passive design strategies — optimal building orientation, generous landscaping, and natural ventilation corridors — to reduce energy consumption while creating a comfortable, pedestrian-friendly environment. The architecture balances commercial efficiency with a commitment to public amenity, delivering a development that serves its community as much as its tenants.",
-    area: "30,000 sq m",
-    client: "Ecocity Developers",
+    tagline: "Modern luxury living defined by comfort, exclusivity, and understated elegance.",
+    description: "Designed for modern luxury living, the home offers generous indoor spaces that seamlessly connect to outdoor areas, including landscaped surroundings and open terraces. The secure entry and thoughtfully designed layout ensure privacy while maintaining a welcoming atmosphere. This project embodies comfort, exclusivity, and understated elegance in a contemporary residential setting.",
+    area: "4,590.7 sq ft",
+    client: "Private",
     status: "Built",
   },
 
   {
     slug: "doon",
-    title: "Doon",
-    category: "Residential",
-    location: "Dehradun, Uttarakhand",
-    year: "2020",
-    image: doonImg,
-    gallery: [],
-    tagline: "A hill-town residence designed for quiet living amidst the Doon Valley.",
+    title: "DOON VALLEY PUBLIC SCHOOL",
+    category: "Education",
+    location: "Solan, Himachal Pradesh",
+    year: "2023",
+    image: doon1,
+    gallery: [doon1, doon2, doon3, doon4, doon5, doon6, doon7, doon8, doon9, doonImg],
+    tagline: "A student-centric campus designed for intuitive learning and interaction.",
     description:
-      "This residential project in the Doon Valley responds to the region's temperate climate and lush landscape with an architecture that is restrained, material-honest, and deeply connected to its site.\n\nThe building is oriented to capture the best views while minimising its footprint on the sloped terrain. Local stone and timber feature prominently in both the structure and the finishes, grounding the building in its context.",
-    area: "600 sq m",
-    client: "Private",
+      "The Doon Valley School is designed as a student-centric campus that promotes learning, interaction, and easy movement through clear spatial planning and intuitive circulation. The architecture combines simple rectilinear forms with subtle curves, while exposed brick gives the building a warm and timeless character.\n\nSemi-open spaces, terraces, and shaded balconies extend learning beyond classrooms, encouraging interaction and comfort. Integrated greenery and climate-responsive features create a pleasant environment, resulting in a cohesive and engaging space for education and growth.",
+    area: "100,000 sq ft",
+    client: "DOON VALLEY PUBLIC SCHOOL",
     status: "Built",
   },
 
@@ -981,29 +985,30 @@ export const allProjects: ProjectData[] = [
 
   {
     slug: "bansal-mixed-land-use",
-    title: "Bansal Mixed Land Use",
+    title: "Bansal Mixed Land",
     category: "Urban",
-    location: "Ludhiana, Punjab",
-    year: "2022",
+    location: "Balongi, India",
+    year: "2024",
     image: bmu1,
     gallery: [bmu1, bmu2, bmu3, bmu4, bmu5, bmu6, bmu7, bmu8, bmu9, bmu10, bmu11, bmu12, bmu13, bmu14, bmu15, bmu16, bmu17, bmu18, bmu19, bmu20],
-    tagline: "A strategic mixed-use development balancing commercial vitality and residential quiet.",
-    description: "The Bansal Mixed Land Use project is an architectural response to the increasing density and diversification of urban centers. By integrating commercial retail and corporate zones with refined residential dwelling units, the project creates a self-sustaining vertical ecosystem. The design emphasizes clear zoning, efficient circulation for different user groups, and a unified architectural language that mediates between the public intensity of the street and the private serenity of the living spaces. Modern material selections and high-performance building systems ensure both commercial performance and residential comfort.",
-    area: "32,000 sq m",
-    client: "Bansal Enterprises",
-    status: "Built",
+    tagline: "A contemporary mixed-use commercial hub integrated with high-rise residential development.",
+    description: "The project envisions a contemporary mixed-use commercial hub integrated with high-rise residential development, organized around a strong central identity element. Retail blocks are strategically arranged to create active pedestrian streets and plazas, enhancing user engagement and accessibility. The design emphasizes visual connectivity, open green buffers, and clear circulation, fostering a vibrant public realm. The iconic elevated central structure acts as a focal landmark, reinforcing spatial hierarchy while unifying the commercial and residential components into a cohesive urban experience.",
+    area: "21,603 sq m",
+    client: "Bansal Group",
+    status: "Ongoing",
   },
 
   {
     slug: "mr-gupta-room",
-    title: "Mr. Gupta Room",
+    title: "Private Residence – Sector 8, Panchkula",
     category: "Interior",
-    location: "Punjab, India",
+    location: "Sector 8, Panchkula, Haryana",
     year: "2023",
     image: dg1,
     gallery: [dg1, dg2, dg3, dg4, dg5, dg6, dg7, dg8, dg9, dg10, dg11, dg12, dg13, dg14, dg15, dg16],
-    tagline: "A meticulously crafted interior space designed for personal comfort and modern elegance.",
-    description: "The Mr. Gupta Room project focuses on the transformation of a private living space into a refined sanctuary. The design emphasizes material honesty, high-quality finishes, and a sophisticated lighting scheme that enhances the room's spatial qualities. Modern furniture selections are integrated with bespoke cabinetry to ensure maximum functionality without sacrificing the clean, contemporary aesthetic. Every detail—from the textile choices to the wall treatments—has been curated to reflect the client's preference for understated luxury and a calm, domestic atmosphere.",
+    tagline: "A refined expression of contemporary living, where comfort, elegance, and functionality meet.",
+    description:
+      "This residence in Sector 8, Panchkula is designed as a refined expression of contemporary living, where comfort, elegance, and functionality come together seamlessly. The interiors follow a cohesive design language, defined by clean lines, balanced proportions, and a warm, neutral material palette.\n\nThe private spaces, including the bedrooms, are conceived as serene retreats—featuring soft ambient lighting, layered textures, and carefully detailed wall treatments that add depth without overwhelming the space. Bespoke furniture and curated elements enhance both comfort and visual identity.\n\nA dedicated lounge and recreation area introduces a more intimate and indulgent dimension to the home. Designed as a social and leisure hub, the space features rich materials, mood lighting, and a sophisticated ambiance, creating the perfect setting for relaxation and entertainment. The integration of custom shelving, accent lighting, and comfortable seating adds both functionality and character.\n\nAcross the residence, the design emphasizes openness, natural light, and fluid spatial transitions. Every element has been thoughtfully crafted to create a home that is modern, elegant, and deeply livable.",
     area: "45 sq m",
     client: "Mr. Gupta",
     status: "Completed",
@@ -1017,8 +1022,8 @@ export const allProjects: ProjectData[] = [
     year: "2023",
     image: rkm1,
     gallery: [rkm1, rkm2, rkm3, rkm4, rkm5, rkm6, rkm7, rkm8],
-    tagline: "A majestic interior design project celebrating traditional grandeur and modern functionality.",
-    description: "Raj Kala Mandir is a premium interior commission that required the integration of classical aesthetic elements with current functional requirements. The project showcases intricate craftsmanship, rich material textures, and a ceremonial spatial organization that honors the title's 'mandir' (temple) inspiration. The design utilizes a balanced interplay of warm lighting, custom joinery, and a curated selection of architectural finishes to create a space that feels both institutional and inviting. Each zone within the project has been meticulously detailed to deliver a cohesive experience of cultural pride and sophisticated design.",
+    tagline: "A dynamic cultural and educational hub celebrating the intersection of art, music, and contemporary design.",
+    description: "The project envisions a dynamic cultural and educational hub that celebrates the intersection of art, music, and contemporary design. Interior spaces are defined by a warm, natural material palette and bold graphic murals, creating an immersive environment that stimulates creativity and learning. The layout prioritizes functional transparency, utilizing large glass display units and arched internal windows to maintain visual connectivity between specialized zones. Strategic placement of bespoke cabinetry and rhythmic acoustic elements ensures a harmonious balance between technical utility and aesthetic expression.",
     area: "450 sq m",
     client: "Private",
     status: "Completed",
