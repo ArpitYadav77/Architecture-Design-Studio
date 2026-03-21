@@ -197,8 +197,6 @@ import cl8 from "@/assets/clinic8.png";
 import cl9 from "@/assets/clinic9.png";
 
 // Farmhouse series (1–8)
-import fh1 from "@/assets/farmhouse1.png";
-import fh2 from "@/assets/farmhouse2.png";
 import fh3 from "@/assets/farmhouse3.png";
 import fh4 from "@/assets/farmhouse4.png";
 import fh5 from "@/assets/farmhouse5.png";
@@ -689,7 +687,7 @@ export const allProjects: ProjectData[] = [
     location: "Punjab, India",
     year: "2019",
     image: farmhouseCover,
-    gallery: [farmhouseExt1, farmhouseExt2, farmhouseInt1, farmhouseInt2, farmhouseInt3, fh1, fh2, fh3, fh4, fh5, fh6, fh7, fh8],
+    gallery: [farmhouseExt1, farmhouseExt2, farmhouseInt1, farmhouseInt2, farmhouseInt3, fh3, fh4, fh5, fh6, fh7, fh8],
     tagline: "A countryside residence where open land and refined living meet.",
     description:
       "This private farmhouse occupies a generous rural landholding outside Chandigarh, its architecture conceived as a series of interlocking volumes that frame views across open fields while maintaining a composed, legible facade from the approach drive.\n\nThe plan separates the house into a formal wing for entertaining and guest accommodation and a private family wing oriented toward the garden and the evening sun. Both wings are connected by a covered verandah that runs the full length of the building — a threshold between interior and landscape that is the most-used space in the house.\n\nConstruction is in load-bearing brick with concrete-framed openings, the external walls finished in a warm ochre plaster that references the agricultural buildings of the Punjab plains. Interior finishes were selected for their material warmth and practicality: stone floors throughout, hand-painted tiles in the kitchen and bathrooms, and bespoke joinery crafted by local workshops.",
