@@ -275,14 +275,11 @@ import fv6 from "@/assets/Farmville1.png";
 // Wave State
 import ws1 from "@/assets/Wave_state1.png";
 import ws2 from "@/assets/Wave_state2.png";
-import ws3 from "@/assets/Wave_state3.png";
-import ws4 from "@/assets/Wave_state4.png";
 import ws5 from "@/assets/Wave_state5.png";
 import ws6 from "@/assets/Wave_state6.png";
 import ws7 from "@/assets/Wave_state7.png";
 import ws8 from "@/assets/Wave_state8.png";
 import ws9 from "@/assets/Wave_state9.png";
-import ws10 from "@/assets/Wave_state10.png";
 import ws11 from "@/assets/Wave_state11.png";
 import ws12 from "@/assets/Wave_state12.png";
 
@@ -602,7 +599,7 @@ export const allProjects: ProjectData[] = [
     location: "Chandigarh, India",
     year: "2022",
     image: ws1,
-    gallery: [ws2, ws3, ws4, ws5, ws6, ws7, ws8, ws9, ws10, ws11, ws12],
+    gallery: [ws2, ws5, ws6, ws7, ws8, ws9, ws11, ws12],
     tagline: "A wave-form commercial landmark reshaping Chandigarh's skyline.",
     description:
       "Wave Estate is a mixed-use commercial development whose undulating facade gives the project its identity — a continuous surface that rises and dips along the street edge, offering shaded retail frontage at grade and a distinctive silhouette against the city sky.\n\nThe building programme stacks retail at the base, flexible commercial floors above, and a public sky terrace at the crown that frames views across Chandigarh's sector grid. The facade's wave geometry is not merely formal — each curve is oriented to deflect the prevailing west sun while channelling cross-ventilation through the common areas.\n\nMaterial choices reinforce the building's civic ambition: polished stone cladding, fritted glass panels, and warm-toned metal fins that shift in colour through the day as light conditions change.",
