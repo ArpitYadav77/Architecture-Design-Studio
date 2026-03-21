@@ -270,8 +270,6 @@ import dlu3 from "@/assets/Devi_Lal_uni3.png";
 
 // Farmville
 import fv1 from "@/assets/Farmville6.png";
-import fv2 from "@/assets/Farmville2.png";
-import fv3 from "@/assets/Farmville3.png";
 import fv4 from "@/assets/Farmville4.png";
 import fv5 from "@/assets/Farmville5.png";
 import fv6 from "@/assets/Farmville1.png";
@@ -313,7 +311,6 @@ import dhr10 from "@/assets/Dr_Harkant_residence10.png";
 
 // Ecocity
 import eco1 from "@/assets/Ecocity3.png";
-import eco2 from "@/assets/Ecocity2.png";
 import eco3 from "@/assets/Ecocity1.png";
 import eco4 from "@/assets/Ecocity4.png";
 
@@ -859,7 +856,7 @@ export const allProjects: ProjectData[] = [
     location: "Punjab, India",
     year: "2022",
     image: fv5,
-    gallery: [fv1, fv3, fv4, fv2, fv6],
+    gallery: [fv1, fv4, fv6],
     tagline: "A rural residential estate blending countryside charm with modern living.",
     description:
       "Farmville is a residential estate that reimagines rural living through a contemporary architectural lens. The project organises a series of dwelling units within a lush, landscaped setting that preserves the openness and tranquillity of the agricultural landscape.\n\nEach residence is designed to frame views across open fields while maintaining privacy and a composed facade from the shared estate roads. Construction employs local materials — brick, stone, and timber — finished to a standard that balances rural authenticity with the expectations of modern domestic comfort.",
@@ -906,7 +903,7 @@ export const allProjects: ProjectData[] = [
     location: "Ecocity, New Chandigarh",
     year: "2025",
     image: eco3,
-    gallery: [eco1, eco2, eco4],
+    gallery: [eco1, eco4],
     tagline: "Modern luxury living defined by comfort, exclusivity, and understated elegance.",
     description: "Designed for modern luxury living, the home offers generous indoor spaces that seamlessly connect to outdoor areas, including landscaped surroundings and open terraces. The secure entry and thoughtfully designed layout ensure privacy while maintaining a welcoming atmosphere. This project embodies comfort, exclusivity, and understated elegance in a contemporary residential setting.",
     area: "4,590.7 sq ft",
