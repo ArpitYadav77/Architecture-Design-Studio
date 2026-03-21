@@ -927,7 +927,7 @@ export const allProjects: ProjectData[] = [
   {
     slug: "sbfi",
     title: "SBFI",
-    category: "Corporate",
+    category: "Competition",
     location: "India",
     year: "2019",
     image: sbfiImg,
