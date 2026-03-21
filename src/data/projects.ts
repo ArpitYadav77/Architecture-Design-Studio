@@ -605,8 +605,8 @@ export const allProjects: ProjectData[] = [
   // ═══════════════════════════════════════════════════════════════════════════
 
   {
-    slug: "landmark-wave",
-    title: "LandMark Wave",
+    slug: "wave-estate",
+    title: "Wave Estate",
     category: "Residential",
     location: "Chandigarh, India",
     year: "2022",
@@ -614,7 +614,7 @@ export const allProjects: ProjectData[] = [
     gallery: [ws2, ws3, ws4, ws5, ws6, ws7, ws8, ws9, ws10, ws11, ws12],
     tagline: "A wave-form commercial landmark reshaping Chandigarh's skyline.",
     description:
-      "LandMark Wave is a mixed-use commercial development whose undulating facade gives the project its identity — a continuous surface that rises and dips along the street edge, offering shaded retail frontage at grade and a distinctive silhouette against the city sky.\n\nThe building programme stacks retail at the base, flexible commercial floors above, and a public sky terrace at the crown that frames views across Chandigarh's sector grid. The facade's wave geometry is not merely formal — each curve is oriented to deflect the prevailing west sun while channelling cross-ventilation through the common areas.\n\nMaterial choices reinforce the building's civic ambition: polished stone cladding, fritted glass panels, and warm-toned metal fins that shift in colour through the day as light conditions change.",
+      "Wave Estate is a mixed-use commercial development whose undulating facade gives the project its identity — a continuous surface that rises and dips along the street edge, offering shaded retail frontage at grade and a distinctive silhouette against the city sky.\n\nThe building programme stacks retail at the base, flexible commercial floors above, and a public sky terrace at the crown that frames views across Chandigarh's sector grid. The facade's wave geometry is not merely formal — each curve is oriented to deflect the prevailing west sun while channelling cross-ventilation through the common areas.\n\nMaterial choices reinforce the building's civic ambition: polished stone cladding, fritted glass panels, and warm-toned metal fins that shift in colour through the day as light conditions change.",
     area: "32,000 sq m",
     client: "LandMark Group",
     status: "Built",
@@ -1025,8 +1025,8 @@ export const allProjects: ProjectData[] = [
     tagline: "A dynamic cultural and educational hub celebrating the intersection of art, music, and contemporary design.",
     description: "The project envisions a dynamic cultural and educational hub that celebrates the intersection of art, music, and contemporary design. Interior spaces are defined by a warm, natural material palette and bold graphic murals, creating an immersive environment that stimulates creativity and learning. The layout prioritizes functional transparency, utilizing large glass display units and arched internal windows to maintain visual connectivity between specialized zones. Strategic placement of bespoke cabinetry and rhythmic acoustic elements ensures a harmonious balance between technical utility and aesthetic expression.",
     area: "450 sq m",
-    client: "Private",
-    status: "Completed",
+    client: "Government",
+    status: "Ongoing",
   },
 ];
 
