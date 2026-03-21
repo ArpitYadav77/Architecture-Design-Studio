@@ -291,8 +291,7 @@ import ws11 from "@/assets/Wave_state11.png";
 import ws12 from "@/assets/Wave_state12.png";
 
 // Dr. Attri Residence
-import dar1 from "@/assets/Dr_Attri_Residence3.png";
-import dar2 from "@/assets/Dr_Attri_Residence2.png";
+
 import dar3 from "@/assets/Dr_Attri_Residence1.png";
 import dar4 from "@/assets/Dr_Attri_Residence4.png";
 import dar5 from "@/assets/Dr_Attri_Residence5.png";
@@ -304,15 +303,12 @@ import dar10 from "@/assets/Dr_Attri_Residence10.png";
 import dar11 from "@/assets/Dr_Attri_Residence11.png";
 
 // Dr. Harkant Residence
-import dhr1 from "@/assets/Dr_Harkant_residence1.png";
 import dhr2 from "@/assets/Dr_Harkant_residence2.png";
 import dhr3 from "@/assets/Dr_Harkant_residence3.png";
 import dhr4 from "@/assets/Dr_Harkant_residence4.png";
 import dhr5 from "@/assets/Dr_Harkant_residence5.png";
-import dhr6 from "@/assets/Dr_Harkant_residence6.png";
 import dhr7 from "@/assets/Dr_Harkant_residence7.png";
 import dhr8 from "@/assets/Dr_Harkant_residence8.png";
-import dhr9 from "@/assets/Dr_Harkant_residence9.png";
 import dhr10 from "@/assets/Dr_Harkant_residence10.png";
 
 // Ecocity
@@ -880,7 +876,7 @@ export const allProjects: ProjectData[] = [
     location: "Chandigarh, India",
     year: "2026",
     image: dar3,
-    gallery: [dar1, dar2, dar4, dar5, dar6, dar7, dar8, dar9, dar10, dar11],
+    gallery: [dar4, dar5, dar6, dar7, dar8, dar9, dar10, dar11],
     tagline: "Urban living redefined through industrial and organic design elements.",
     description: "This contemporary residential development redefines urban living through a sophisticated blend of industrial and organic design elements. The structure features a striking multi-level facade, characterized by textured concrete finishes, warm brick jaali accents, and expansive glass windows that ensure sun-drenched interiors and seamless views.",
     area: "3,786.7 sq ft",
@@ -895,7 +891,7 @@ export const allProjects: ProjectData[] = [
     location: "Chandigarh, India",
     year: "2026",
     image: dhr2,
-    gallery: [dhr1, dhr3, dhr4, dhr5, dhr6, dhr7, dhr8, dhr9, dhr10],
+    gallery: [dhr3, dhr4, dhr5, dhr7, dhr8, dhr10],
     tagline: "A refined architectural showcase of clean geometry and timeless appeal.",
     description: "This elegant contemporary residence showcases a refined architectural language defined by clean geometry, soft neutral tones, and premium material finishes. The striking façade features balanced volumes, expansive glazing, and subtle classical elements that lend a sense of sophistication and timeless appeal.",
     area: "5,840 sq ft",
